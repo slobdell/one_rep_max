@@ -974,7 +974,7 @@ def filter_smaller_barbells(detected_barbells):
 
 def dump_detected_barbells_to_json(detected_barbells):
     json_str = json.dumps([barbell.to_json() for barbell in detected_barbells], indent=4)
-    filename = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M.json")
+    filename = datetime.datetime.now().strftime("json_data/%Y_%m_%d_%H_%M.json")
     with open(filename, "w+") as f:
         f.write(json_str)
 
@@ -1295,7 +1295,7 @@ if __name__ == "__main__":
         #### END TOTAL REPEAT
     else:
         detected_barbells = []
-        with open("flat_bench.json", "rb") as f:
+        with open("json_data/flat_bench.json", "rb") as f:
             json_str = f.read()
             json_data = json.loads(json_str)
             for json_dict in json_data:
@@ -1308,7 +1308,7 @@ if __name__ == "__main__":
     '''
     json_objs = [{barbell.frame_number: barbell.offset_y} for barbell in detected_barbells]
     json_str = json.dumps(json_objs)
-    with open("flat_bench_points.json", "w+") as f:
+    with open("json_data/flat_bench_points.json", "w+") as f:
         f.write(json_str)
     print "Hell yes"
     '''
@@ -1319,7 +1319,7 @@ if __name__ == "__main__":
     one_g = get_acceleration_of_gravity_in_pixels_per_frame(detected_barbells[0].barbell_width, frames_per_second)
     frame_to_acceleration = determine_acceleration_values(detected_barbells, one_g)
     json_str = json.dumps(frame_to_acceleration, indent=4)
-    with open("deleteme.json", "w+") as f:
+    with open("json_data/deleteme.json", "w+") as f:
         f.write(json_str)
     print json_str
 
