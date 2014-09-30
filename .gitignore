@@ -1,0 +1,9 @@
+*.mp4
+*.avi
+*.mov
+*.un~
+.DS_Store
+*.pyc
+*.cpp
+local_junk
+barbell_images
