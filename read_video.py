@@ -226,11 +226,18 @@ class OlympicBarbell(object):
     TRANSPARENT_PIXEL = (0, 0, 0, 0)
     WHITE_PIXEL = (255, 255, 255, 255)
     BLACK_PIXEL = (0, 0, 0, 255)
+
+    OPAQUE_GREEN = (0, 255, 0, 75)
+
     BRUSH_SIZE = 4
 
-    def __init__(self):
+    def __init__(self, for_display=False):
         shape = (70, 2200, 4)
+        self.for_display = for_display
         self.make_notches_transparent = True
+        if for_display:
+            self.make_notches_transparent = False
+
         self.canvas = np.zeros(shape, dtype=np.uint8)
         self.canvas[::] = self.TRANSPARENT_PIXEL
         self._draw_ends()
@@ -245,53 +252,66 @@ class OlympicBarbell(object):
         rows, cols = self.canvas.shape[0: 2]
         resize_factor = float(width) / cols
         canvas_copy = cv2.resize(self.canvas, (int(resize_factor * 2200), int(resize_factor * 70)))
+        original_opacity = canvas_copy[:, :, 3].copy()
         threshold_pixel = 50
         canvas_copy[canvas_copy > threshold_pixel] = 255
         canvas_copy[canvas_copy < threshold_pixel] = 0
-        if np.sum(canvas_copy[:, :, 0]) / 255.0 < canvas_copy.shape[1]:
+        if not self.for_display and np.sum(canvas_copy[:, :, 0]) / 255.0 < canvas_copy.shape[1]:
             return None
+        canvas_copy[:, :, 3] = original_opacity
         return canvas_copy
 
     def _draw_ends(self):
-        cv2.line(self.canvas, (0, 10), (415, 10), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (0, 60), (415, 60), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        # cv2.line(self.canvas, (0, 10), (0, 60), self.WHITE_PIXEL, self.BRUSH_SIZE)
+        pixel_color = self.WHITE_PIXEL
+        if self.for_display:
+            pixel_color = self.OPAQUE_GREEN
+        cv2.line(self.canvas, (0, 10), (415, 10), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (0, 60), (415, 60), pixel_color, self.BRUSH_SIZE)
+        # cv2.line(self.canvas, (0, 10), (0, 60), pixel_color, self.BRUSH_SIZE)
 
-        cv2.line(self.canvas, (2200, 10), (2200 - 415, 10), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (2200, 60), (2200 - 415, 60), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        # cv2.line(self.canvas, (2200, 10), (2200, 60), self.WHITE_PIXEL, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (2200, 10), (2200 - 415, 10), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (2200, 60), (2200 - 415, 60), pixel_color, self.BRUSH_SIZE)
+        # cv2.line(self.canvas, (2200, 10), (2200, 60), pixel_color, self.BRUSH_SIZE)
 
     def _draw_notches(self):
-        cv2.line(self.canvas, (415, 10), (415, 0), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (415, 0), (415 + 30, 0), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (415 + 30, 0), (415 + 30, 21), self.WHITE_PIXEL, self.BRUSH_SIZE)
+        pixel_color = self.WHITE_PIXEL
+        if self.for_display:
+            pixel_color = self.OPAQUE_GREEN
+        cv2.line(self.canvas, (415, 10), (415, 0), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (415, 0), (415 + 30, 0), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (415 + 30, 0), (415 + 30, 21), pixel_color, self.BRUSH_SIZE)
 
-        cv2.line(self.canvas, (415, 60), (415, 60 + 10), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (415, 60 + 10), (415 + 30, 60 + 10), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (415 + 30, 60 + 10), (415 + 30, 70 - 21), self.WHITE_PIXEL, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (415, 60), (415, 60 + 10), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (415, 60 + 10), (415 + 30, 60 + 10), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (415 + 30, 60 + 10), (415 + 30, 70 - 21), pixel_color, self.BRUSH_SIZE)
 
-        cv2.line(self.canvas, (2200 - 415, 10), (2200 - 415, 0), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (2200 - 415, 0), (2200 - 415 - 30, 0), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (2200 - 415 - 30, 0), (2200 - 415 - 30, 21), self.WHITE_PIXEL, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (2200 - 415, 10), (2200 - 415, 0), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (2200 - 415, 0), (2200 - 415 - 30, 0), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (2200 - 415 - 30, 0), (2200 - 415 - 30, 21), pixel_color, self.BRUSH_SIZE)
 
-        cv2.line(self.canvas, (2200 - 415, 60), (2200 - 415, 60 + 10), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (2200 - 415, 60 + 10), (2200 - 415 - 30, 60 + 10), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (2200 - 415 - 30, 60 + 10), (2200 - 415 - 30, 70 - 21), self.WHITE_PIXEL, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (2200 - 415, 60), (2200 - 415, 60 + 10), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (2200 - 415, 60 + 10), (2200 - 415 - 30, 60 + 10), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (2200 - 415 - 30, 60 + 10), (2200 - 415 - 30, 70 - 21), pixel_color, self.BRUSH_SIZE)
 
     def _draw_bar(self):
-        cv2.line(self.canvas, (415 + 30, 21), (2200 - 415 - 30, 21), self.WHITE_PIXEL, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (415 + 30, 70 - 21), (2200 - 415 - 30, 70 - 21), self.WHITE_PIXEL, self.BRUSH_SIZE)
+        pixel_color = self.WHITE_PIXEL
+        if self.for_display:
+            pixel_color = self.OPAQUE_GREEN
+        cv2.line(self.canvas, (415 + 30, 21), (2200 - 415 - 30, 21), pixel_color, self.BRUSH_SIZE)
+        cv2.line(self.canvas, (415 + 30, 70 - 21), (2200 - 415 - 30, 70 - 21), pixel_color, self.BRUSH_SIZE)
 
     def _fill_with_black(self):
         pixel_color = self.BLACK_PIXEL
-        cv2.rectangle(self.canvas, (0 + self.BRUSH_SIZE, 21 + self.BRUSH_SIZE), (2200 - self.BRUSH_SIZE, 70 - 21 - self.BRUSH_SIZE), self.BLACK_PIXEL, -1)
+        if self.for_display:
+            pixel_color = self.OPAQUE_GREEN
+        cv2.rectangle(self.canvas, (0 + self.BRUSH_SIZE, 21 + self.BRUSH_SIZE), (2200 - self.BRUSH_SIZE, 70 - 21 - self.BRUSH_SIZE), pixel_color, -1)
 
-        cv2.rectangle(self.canvas, (0 + self.BRUSH_SIZE, 10 + self.BRUSH_SIZE), (415, 70 - 10 - self.BRUSH_SIZE), self.BLACK_PIXEL, -1)
-        cv2.rectangle(self.canvas, (2200 - 415 - self.BRUSH_SIZE, 10 + self.BRUSH_SIZE), (2200 - self.BRUSH_SIZE, 70 - 10 - self.BRUSH_SIZE), self.BLACK_PIXEL, -1)
+        cv2.rectangle(self.canvas, (0 + self.BRUSH_SIZE, 10 + self.BRUSH_SIZE), (415, 70 - 10 - self.BRUSH_SIZE), pixel_color, -1)
+        cv2.rectangle(self.canvas, (2200 - 415 - self.BRUSH_SIZE, 10 + self.BRUSH_SIZE), (2200 - self.BRUSH_SIZE, 70 - 10 - self.BRUSH_SIZE), pixel_color, -1)
 
         if not self.make_notches_transparent:
-            cv2.rectangle(self.canvas, (415 + self.BRUSH_SIZE, self.BRUSH_SIZE), (415 + 30 - self.BRUSH_SIZE, 70 - self.BRUSH_SIZE), self.BLACK_PIXEL, -1)
-            cv2.rectangle(self.canvas, (2200 - 415 - 30 + self.BRUSH_SIZE, self.BRUSH_SIZE), (2200 - 415 - self.BRUSH_SIZE, 70 - self.BRUSH_SIZE), self.BLACK_PIXEL, -1)
+            cv2.rectangle(self.canvas, (415 + self.BRUSH_SIZE, self.BRUSH_SIZE), (415 + 30 - self.BRUSH_SIZE, 70 - self.BRUSH_SIZE), pixel_color, -1)
+            cv2.rectangle(self.canvas, (2200 - 415 - 30 + self.BRUSH_SIZE, self.BRUSH_SIZE), (2200 - 415 - self.BRUSH_SIZE, 70 - self.BRUSH_SIZE), pixel_color, -1)
 
     def _erase_first_plate(self):
         plate_width = 30
@@ -807,7 +827,7 @@ class BarbellDetector(object):
 
 class BarbellDisplayer(object):
 
-    olympic_bar = OlympicBarbell()
+    olympic_bar = OlympicBarbell(for_display=True)
 
     def __init__(self, capture, detected_barbells):
         self.capture = capture
@@ -1214,7 +1234,7 @@ def filter_by_reasonable_accelerations(detected_barbells, frames_per_second):
 
 if __name__ == "__main__":
     start_time = datetime.datetime.utcnow()
-    capture_path = "/Users/slobdell/playground/one_rep_max/heavy_incline_bench.mp4"
+    capture_path = "/Users/slobdell/playground/one_rep_max/flat_bench.mp4"
     if False:
         capture = cv2.VideoCapture(capture_path)
         frames_per_sec = capture.get(FRAMES_PER_SEC_KEY)
@@ -1325,7 +1345,7 @@ if __name__ == "__main__":
 
     capture = cv2.VideoCapture(capture_path)
     barbell_display = BarbellDisplayer(capture, detected_barbells)
-    barbell_display.output_video("output2.avi")
+    barbell_display.output_video("output.avi")
     print "Finished in %s minutes" % ((datetime.datetime.utcnow() - start_time).total_seconds() / 60.0)
 
 cv2.destroyAllWindows()
