@@ -1,9 +1,3 @@
-'''
-  2 percent_1rm = (average_velocity_m_per_s - 1.7035) / -0.0146
-    3 100.0 / percent_1rm = scalar_value
-
-'''
-
 import sys
 import datetime
 import json
@@ -51,7 +45,8 @@ def magic_1rm_formula(frame_to_avg_velocity_meters_per_second):
     one_rep_max_per_frame = {}
     for frame_number, meters_per_second in frame_to_avg_velocity_meters_per_second.items():
         if meters_per_second > 0:
-            continue  # this represents a negative
+            one_rep_max_per_frame[frame_number] = -1.0
+            continue
         percent_1rm = (meters_per_second - 1.7035) / -0.0146
         scalar_coefficient = percent_1rm / 100.0
         one_rep_max_per_frame[frame_number] = scalar_coefficient
@@ -989,18 +984,14 @@ class BarbellDisplayer(object):
     def __init__(self,
                  capture,
                  detected_barbells,
-                 frame_to_acceleration,
-                 frame_to_instantaneous_acceleration,
-                 frame_to_max_acceleration):
+                 frame_to_1rm):
         self.capture = capture
         self.detected_barbells = detected_barbells
         self.frame_number = 0
         self.frame_to_detected_barbell = {barbell.frame_number: barbell for barbell in detected_barbells}
         self.video_writer = None
         self.frames_per_sec = capture.get(FRAMES_PER_SEC_KEY)
-        self.frame_to_acceleration = frame_to_acceleration
-        self.frame_to_instantaneous_acceleration = frame_to_instantaneous_acceleration
-        self.frame_to_max_acceleration = frame_to_max_acceleration
+        self.frame_to_1rm = frame_to_1rm
 
     def output_video(self, filename):
         print "Creating Video..."
@@ -1033,8 +1024,8 @@ class BarbellDisplayer(object):
         height, width, channels = draw_img.shape[0: 3]
         # SBL working here
         opaque_black_pixel = (0, 0, 0, 150)
-        percent_img_width = 0.50
-        percent_img_height = 0.40
+        percent_img_width = 0.35
+        percent_img_height = 0.15
 
         left_x = int(width * 0.05)
         top_y = int(height * 0.05)
@@ -1049,37 +1040,14 @@ class BarbellDisplayer(object):
         font_scale = 0.4
         font_color = (255, 255, 255, 255)
         font = cv2.FONT_ITALIC
-        cv2.putText(overlay, "Avg Applied Acceleration:", (5, 25), font, font_scale, font_color)
-        cv2.putText(overlay, "Max Applied Acceleration:", (5, 50), font, font_scale, font_color)
-        cv2.putText(overlay, "Inst Applied Acceleration:", (5, 75), font, font_scale, font_color)
+        cv2.putText(overlay, "1RM Multiplier:", (5, 25), font, font_scale, font_color)
 
-        neg_acceleration_color = (0, 255, 255, 255)
         acceleration_color = (0, 255, 0, 255)
 
-        acceleration_str = ""
-        if self.frame_number in self.frame_to_acceleration:
-            acceleration_float = 1.0 + self.frame_to_acceleration[self.frame_number]
-            if acceleration_float < 1.0:
-                acceleration_color = neg_acceleration_color
-            acceleration_str = "%.3fg" % acceleration_float
-        cv2.putText(overlay, acceleration_str, (190, 25), font, font_scale, acceleration_color)
-
-        acceleration_str = ""
-        if self.frame_number in self.frame_to_max_acceleration:
-            acceleration_float = 1.0 + self.frame_to_max_acceleration[self.frame_number]
-            acceleration_color = (0, 255, 0, 255)
-            acceleration_str = "%.3fg" % acceleration_float
-        cv2.putText(overlay, acceleration_str, (190, 50), font, font_scale, acceleration_color)
-
-        instantaneous_acceleration = ""
-        if self.frame_number in self.frame_to_instantaneous_acceleration:
-            acceleration_float = 1.0 + self.frame_to_instantaneous_acceleration[self.frame_number]
-            if acceleration_float <= 1.0:
-                acceleration_color = neg_acceleration_color
-            elif acceleration_float > 1.0:
-                acceleration_color = (0, 255, 0, 255)
-            instantaneous_acceleration = "%.3fg" % acceleration_float
-        cv2.putText(overlay, instantaneous_acceleration, (190, 75), font, font_scale, acceleration_color)
+        scalar_str = ""
+        if self.frame_number in self.frame_to_1rm and self.frame_to_1rm[self.frame_number] > 0:
+            scalar_str = "%.3f" % self.frame_to_1rm[self.frame_number]
+        cv2.putText(overlay, scalar_str, (110, 25), font, font_scale, acceleration_color)
 
         y_offset = top_y
         x_offset = left_x
@@ -1097,7 +1065,7 @@ class BarbellDisplayer(object):
         x_offset = barbell_detection.offset_x
         y_offset = barbell_detection.offset_y
         angle = barbell_detection.angle
-        if self.frame_to_acceleration.get(self.frame_number, 1) > 0:
+        if self.frame_to_1rm.get(self.frame_number, 1) > 0:
             bar_overlay = self.olympic_bar.with_width(bar_width)
         else:
             bar_overlay = self.negative_olympic_bar.with_width(bar_width)
@@ -1513,16 +1481,14 @@ def run(file_to_read):
     capture = cv2.VideoCapture(capture_path)
     frames_per_second = capture.get(FRAMES_PER_SEC_KEY)
     frame_to_1rm = get_frame_to_1rm(detected_barbells, frames_per_second)
-    one_g = get_acceleration_of_gravity_in_pixels_per_frame(detected_barbells[0].barbell_width, frames_per_second)
-    frame_to_acceleration, frame_to_instantaneous_acceleration, frame_to_max_acceleration = determine_acceleration_values(detected_barbells, one_g)
+    # one_g = get_acceleration_of_gravity_in_pixels_per_frame(detected_barbells[0].barbell_width, frames_per_second)
+    # frame_to_acceleration = determine_acceleration_values(detected_barbells, one_g)
 
     print "Outputting video..."
     capture = cv2.VideoCapture(capture_path)
     barbell_display = BarbellDisplayer(capture,
                                        detected_barbells,
-                                       frame_to_acceleration,
-                                       frame_to_instantaneous_acceleration,
-                                       frame_to_max_acceleration)
+                                       frame_to_1rm)
     output_file = "output_%s.avi" % video_filename
     barbell_display.output_video(output_file)
     print "Output to %s" % output_file
