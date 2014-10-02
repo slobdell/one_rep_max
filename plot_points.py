@@ -3,6 +3,22 @@ import json
 import numpy as np
 
 
+def smooth_list_gaussian(input_list, degree=10):
+    window = degree * 2 - 1
+    weight = np.array([1.0] * window)
+    weightGauss = []
+    for i in range(window):
+        i = i - degree + 1
+        frac = i / float(window)
+        gauss = 1 / (np.exp((4 * (frac)) ** 2))
+        weightGauss.append(gauss)
+    weight = np.array(weightGauss) * weight
+    smoothed = [0.0] * (len(input_list) - window)
+    for i in range(len(smoothed)):
+        smoothed[i] = sum(np.array(input_list[i: i + window]) * weight) / sum(weight)
+    return smoothed
+
+
 def _eliminate_0_derivatives(x_values, y_values):
     first_derivative = np.diff(y_values) / np.diff(x_values)
     while len(first_derivative[first_derivative == 0] > 0):
@@ -139,10 +155,39 @@ def get_acceleration_values_from_acceleration_points(point_pairs):
     return frame_to_acceleration
 
 
+def get_instantaneous_acceleration_from_points(point_pairs, x_values, y_values):
+    frame_number_to_instantaneous_acceleration = {}
+    for start_point, end_point in point_pairs:
+        x_min = start_point[0]
+        x_max = end_point[0]
+        indexes = [index for index, x in enumerate(x_values) if x >= x_min and x <= x_max]
+        x_range = [x_values[index] for index in indexes]
+        y_range = [y_values[index] for index in indexes]
+
+        velocity = np.diff(y_range) / np.diff(x_range)
+        velocity_list = [v for v in velocity]
+        velocity_list = [0] + velocity_list
+        velocity = np.asarray(velocity_list)
+
+        acceleration = np.diff(velocity)
+        acceleration_list = [a for a in acceleration]
+        acceleration_list.append(0)
+        acceleration = np.asarray(acceleration_list)
+
+        for index, acceleration_value in enumerate(acceleration):
+            frame_number = x_range[index]
+            end_frame_number = frame_number + 1
+            if index + 1 < len(x_range):
+                end_frame_number = x_range[index + 1]
+            for frame in xrange(int(frame_number), int(end_frame_number)):
+                frame_number_to_instantaneous_acceleration[frame] = acceleration_value
+    return frame_number_to_instantaneous_acceleration
+
+
 if __name__ == "__main__":
-    with open("final.json", "rb") as f:
-    # with open("lobbdawg.json", "rb") as f:
-    # with open("flat_bench_points.json", "rb") as f:
+    # with open("json_data/final.json", "rb") as f:
+    # with open("json_data/lobbdawg.json", "rb") as f:
+    with open("json_data/flat_bench_points.json", "rb") as f:
         json_str = f.read()
     # TODO go back and change how we're doing this
     frame_number_to_y = json.loads(json_str)
@@ -174,6 +219,18 @@ if __name__ == "__main__":
 
     pylab.plot(x_values, y_values, marker='o', color='b', label='Position')
 
+    smoother_y = smooth_list_gaussian(y_values)
+
+    x_vals_to_remove = len(y_values) - len(smoother_y)
+    remove_from_start = x_vals_to_remove / 2
+    remove_from_end = x_vals_to_remove - remove_from_start
+
+    smoother_x = x_values[remove_from_start:len(x_values) - remove_from_end]
+    something = get_instantaneous_acceleration_from_points(point_pairs, smoother_x, smoother_y)
+    print something
+    pylab.plot(smoother_x, smooth_list_gaussian(y_values), '-', color='r')
+
+    '''
     pylab.plot(min_x, min_y, 'o', color='r')
     pylab.plot(max_x, max_y, 'o', color='g')
 
@@ -181,7 +238,7 @@ if __name__ == "__main__":
         x_values = [point[0] for point in point_pair]
         y_values = [point[1] for point in point_pair]
         pylab.plot(x_values, y_values, '-', color='r')
-
+    '''
     pylab.legend()
     pylab.xlabel('Frame Number')
     pylab.ylabel('Position')

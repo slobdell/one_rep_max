@@ -1,3 +1,10 @@
+'''
+  2 percent_1rm = (average_velocity_m_per_s - 1.7035) / -0.0146
+    3 100.0 / percent_1rm = scalar_value
+
+'''
+
+import sys
 import datetime
 import json
 import cv2
@@ -15,20 +22,167 @@ MAX_ROM_IN_METERS = MAX_ROM_IN_INCHES * METERS_PER_INCH
 ACTUAL_FRAME_OFFSET = 2
 
 
+def get_avg_velocity_between_points(point_pairs):
+    frame_to_avg_velocity = {}
+    for start_point, end_point in point_pairs:
+        delta_y = end_point[1] - start_point[1]
+        delta_x = end_point[0] - start_point[0]
+        avg_velocity = float(delta_y) / delta_x
+        for x in xrange(int(start_point[0]), int(end_point[0])):
+            frame_to_avg_velocity[x] = avg_velocity
+    return frame_to_avg_velocity
+
+
+def convert_ppf_to_mps(barbell_width_pixels, frame_to_avg_velocity_pixels_per_frame, frames_per_sec):
+    barbell_width_meters = 2.2
+    pixels_per_meter = barbell_width_pixels / barbell_width_meters
+    frame_to_avg_velocity_meters_per_second = {}
+    for frame, velocity_ppf in frame_to_avg_velocity_pixels_per_frame.items():
+        velocity_mps = frames_per_sec * velocity_ppf / pixels_per_meter
+        frame_to_avg_velocity_meters_per_second[frame] = velocity_mps
+    return frame_to_avg_velocity_meters_per_second
+
+
+def magic_1rm_formula(frame_to_avg_velocity_meters_per_second):
+    '''
+    Taken from
+    https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CB4QFjAA&url=http%3A%2F%2Fwww.researchgate.net%2Fpublication%2F40453550_Using_the_load-velocity_relationship_for_1RM_prediction%2Flinks%2F09e4150f761dd62684000000&ei=79ksVMCSJ8exogSol4DACw&usg=AFQjCNGd8w9aaM1zoZW3XuJe5xPXrqlQ1g&sig2=itLy-9QTfTlAxwpxxYgXHA
+    '''
+    one_rep_max_per_frame = {}
+    for frame_number, meters_per_second in frame_to_avg_velocity_meters_per_second.items():
+        if meters_per_second > 0:
+            continue  # this represents a negative
+        percent_1rm = (meters_per_second - 1.7035) / -0.0146
+        scalar_coefficient = percent_1rm / 100.0
+        one_rep_max_per_frame[frame_number] = scalar_coefficient
+    return one_rep_max_per_frame
+
+
+def get_frame_to_1rm(detected_barbells, frames_per_sec):
+    # this should already be done, but just being cautious
+    detected_barbells.sort(key=lambda barbell: barbell.frame_number)
+    x_values = np.asarray([detection.frame_number for detection in detected_barbells]).astype(np.float)
+    y_values = np.asarray([detection.offset_y for detection in detected_barbells]).astype(np.float)
+
+    print "Finding the local maxima..."
+    min_maxima, max_maxima = find_maxima(x_values, y_values)
+    print "Calculating basic velocity..."
+    point_pairs = establish_point_pairs(min_maxima, max_maxima, x_values, y_values)
+    frame_to_avg_velocity_pixels_per_frame = get_avg_velocity_between_points(point_pairs)
+
+    barbell_width_pixels = detected_barbells[0].barbell_width
+    frame_to_avg_velocity_meters_per_second = convert_ppf_to_mps(barbell_width_pixels, frame_to_avg_velocity_pixels_per_frame, frames_per_sec)
+    frame_to_1rm = magic_1rm_formula(frame_to_avg_velocity_meters_per_second)
+    return frame_to_1rm
+
+
+def get_instantaneous_acceleration_from_points(point_pairs, x_values, y_values):
+    frame_number_to_instantaneous_acceleration = {}
+    for start_point, end_point in point_pairs:
+        x_min = start_point[0]
+        x_max = end_point[0]
+        indexes = [index for index, x in enumerate(x_values) if x >= x_min and x <= x_max]
+        x_range = [x_values[index] for index in indexes]
+        y_range = [y_values[index] for index in indexes]
+        if len(x_range) == 0:
+            continue
+
+        velocity = np.diff(y_range) / np.diff(x_range)
+        velocity_list = [v for v in velocity]
+        velocity_list = [0] + velocity_list
+        velocity = np.asarray(velocity_list)
+
+        acceleration = np.diff(velocity)
+        acceleration_list = [a for a in acceleration]
+        acceleration_list.append(0)
+        acceleration = np.asarray(acceleration_list)
+        for index, acceleration_value in enumerate(acceleration):
+            frame_number = x_range[index]
+            end_frame_number = frame_number + 1
+            if index + 1 < len(x_range):
+                end_frame_number = x_range[index + 1]
+            for frame in xrange(int(frame_number), int(end_frame_number)):
+                frame_number_to_instantaneous_acceleration[frame] = acceleration_value
+    return frame_number_to_instantaneous_acceleration
+
+
+def smooth_list_gaussian(input_list, degree=5):
+    window = degree * 2 - 1
+    weight = np.array([1.0] * window)
+    weightGauss = []
+    for i in range(window):
+        i = i - degree + 1
+        frac = i / float(window)
+        gauss = 1 / (np.exp((4 * (frac)) ** 2))
+        weightGauss.append(gauss)
+    weight = np.array(weightGauss) * weight
+    smoothed = [0.0] * (len(input_list) - window)
+    for i in range(len(smoothed)):
+        smoothed[i] = sum(np.array(input_list[i: i + window]) * weight) / sum(weight)
+    return smoothed
+
+
+def get_max_accelerations_from_points(point_pairs, frame_to_instantaneous_acceleration_in_gs):
+    frame_to_max_acceleration = {}
+    for start_point, end_point in point_pairs:
+        delta_y = end_point[1] - start_point[1]
+        if delta_y >= 0:
+            continue  # this is a negative rep
+        start_x = int(start_point[0])
+        end_x = int(end_point[0])
+
+        possible_accelerations = []
+        for frame_number in xrange(start_x, end_x + 1):
+            if frame_number in frame_to_instantaneous_acceleration_in_gs:
+                acceleration = frame_to_instantaneous_acceleration_in_gs[frame_number]
+                possible_accelerations.append(acceleration)
+        if len(possible_accelerations) > 0:
+            max_acceleration = max(possible_accelerations)
+            possible_accelerations.remove(max_acceleration)  # remove 1 outlier from beginning
+            if len(possible_accelerations) > 0:
+                max_acceleration = max(possible_accelerations)
+                for frame_number in xrange(start_x, end_x + 1):
+                    frame_to_max_acceleration[frame_number] = max_acceleration
+    return frame_to_max_acceleration
+
+
 def determine_acceleration_values(detected_barbells, one_g):
     # this should already be done, but just being cautious
     detected_barbells.sort(key=lambda barbell: barbell.frame_number)
     x_values = np.asarray([detection.frame_number for detection in detected_barbells]).astype(np.float)
     y_values = np.asarray([detection.offset_y for detection in detected_barbells]).astype(np.float)
 
+    print "Finding the local maxima..."
     min_maxima, max_maxima = find_maxima(x_values, y_values)
-    point_pairs = get_accelerations_from_maxima(min_maxima, max_maxima, x_values, y_values)
+    print "Calculating basic acceleration..."
+    point_pairs = establish_point_pairs(min_maxima, max_maxima, x_values, y_values)
     frame_to_acceleration_pixels_per_frame = get_acceleration_values_from_acceleration_points(point_pairs)
+
+    print "Smoothing X and Y values..."
+    smoother_y = smooth_list_gaussian(y_values)
+    x_vals_to_remove = len(y_values) - len(smoother_y)
+    remove_from_start = x_vals_to_remove / 2
+    remove_from_end = x_vals_to_remove - remove_from_start
+    smoother_x = x_values[remove_from_start:len(x_values) - remove_from_end]
+
+    print "Calculating instantaneous acceleration..."
+    frame_to_instantaneous_acceleration = get_instantaneous_acceleration_from_points(point_pairs, smoother_x, smoother_y)
+
+    print "Converting to g units..."
     frame_to_acceleration_in_gs = {}
     for frame_number, acceleration in frame_to_acceleration_pixels_per_frame.items():
         acceleration_in_gs = -1 * acceleration / one_g
         frame_to_acceleration_in_gs[frame_number] = acceleration_in_gs
-    return frame_to_acceleration_in_gs
+
+    frame_to_instantaneous_acceleration_in_gs = {}
+    for frame_number, acceleration in frame_to_instantaneous_acceleration.items():
+        acceleration_in_gs = -1 * acceleration / one_g
+        frame_to_instantaneous_acceleration_in_gs[frame_number] = acceleration_in_gs
+
+    print "Calculating max instantaneous accelerations..."
+    frame_to_max_acceleration = get_max_accelerations_from_points(point_pairs, frame_to_instantaneous_acceleration_in_gs)
+
+    return frame_to_acceleration_in_gs, frame_to_instantaneous_acceleration_in_gs, frame_to_max_acceleration
 
 
 def _eliminate_0_derivatives(x_values, y_values):
@@ -109,7 +263,7 @@ def _get_distance_to_point(start_point, end_point, x_values, y_values):
     return total_distance
 
 
-def get_accelerations_from_maxima(min_maxima, max_maxima, x_values, y_values):
+def establish_point_pairs(min_maxima, max_maxima, x_values, y_values):
     point_pairs = []
     while True:
         try:
@@ -228,15 +382,18 @@ class OlympicBarbell(object):
     BLACK_PIXEL = (0, 0, 0, 255)
 
     OPAQUE_GREEN = (0, 255, 0, 75)
+    OPAQUE_YELLOW = (0, 255, 255, 75)
+    OPAQUE_BLACK = (0, 0, 0, 100)
 
     BRUSH_SIZE = 4
 
-    def __init__(self, for_display=False):
+    def __init__(self, for_display=False, for_negative=False):
         shape = (70, 2200, 4)
         self.for_display = for_display
         self.make_notches_transparent = True
         if for_display:
             self.make_notches_transparent = False
+        self.for_negative = for_negative
 
         self.canvas = np.zeros(shape, dtype=np.uint8)
         self.canvas[::] = self.TRANSPARENT_PIXEL
@@ -264,19 +421,21 @@ class OlympicBarbell(object):
     def _draw_ends(self):
         pixel_color = self.WHITE_PIXEL
         if self.for_display:
-            pixel_color = self.OPAQUE_GREEN
+            pixel_color = self.OPAQUE_BLACK
         cv2.line(self.canvas, (0, 10), (415, 10), pixel_color, self.BRUSH_SIZE)
         cv2.line(self.canvas, (0, 60), (415, 60), pixel_color, self.BRUSH_SIZE)
-        # cv2.line(self.canvas, (0, 10), (0, 60), pixel_color, self.BRUSH_SIZE)
 
         cv2.line(self.canvas, (2200, 10), (2200 - 415, 10), pixel_color, self.BRUSH_SIZE)
         cv2.line(self.canvas, (2200, 60), (2200 - 415, 60), pixel_color, self.BRUSH_SIZE)
-        # cv2.line(self.canvas, (2200, 10), (2200, 60), pixel_color, self.BRUSH_SIZE)
+
+        if self.for_display:
+            cv2.line(self.canvas, (0, 10), (0, 60), pixel_color, self.BRUSH_SIZE)
+            cv2.line(self.canvas, (2200, 10), (2200, 60), pixel_color, self.BRUSH_SIZE)
 
     def _draw_notches(self):
         pixel_color = self.WHITE_PIXEL
         if self.for_display:
-            pixel_color = self.OPAQUE_GREEN
+            pixel_color = self.OPAQUE_BLACK
         cv2.line(self.canvas, (415, 10), (415, 0), pixel_color, self.BRUSH_SIZE)
         cv2.line(self.canvas, (415, 0), (415 + 30, 0), pixel_color, self.BRUSH_SIZE)
         cv2.line(self.canvas, (415 + 30, 0), (415 + 30, 21), pixel_color, self.BRUSH_SIZE)
@@ -296,14 +455,14 @@ class OlympicBarbell(object):
     def _draw_bar(self):
         pixel_color = self.WHITE_PIXEL
         if self.for_display:
-            pixel_color = self.OPAQUE_GREEN
+            pixel_color = self.OPAQUE_BLACK
         cv2.line(self.canvas, (415 + 30, 21), (2200 - 415 - 30, 21), pixel_color, self.BRUSH_SIZE)
         cv2.line(self.canvas, (415 + 30, 70 - 21), (2200 - 415 - 30, 70 - 21), pixel_color, self.BRUSH_SIZE)
 
     def _fill_with_black(self):
         pixel_color = self.BLACK_PIXEL
         if self.for_display:
-            pixel_color = self.OPAQUE_GREEN
+            pixel_color = self.OPAQUE_GREEN if not self.for_negative else self.OPAQUE_YELLOW
         cv2.rectangle(self.canvas, (0 + self.BRUSH_SIZE, 21 + self.BRUSH_SIZE), (2200 - self.BRUSH_SIZE, 70 - 21 - self.BRUSH_SIZE), pixel_color, -1)
 
         cv2.rectangle(self.canvas, (0 + self.BRUSH_SIZE, 10 + self.BRUSH_SIZE), (415, 70 - 10 - self.BRUSH_SIZE), pixel_color, -1)
@@ -454,7 +613,6 @@ def get_center_from_points(top_left, top_right, bottom_right, bottom_left):
 
 
 def rotate_image_to_scaled_canvas(img, angle):
-    # TODO this function won't work on negative angles?
     angle_radians = angle * math.pi / 180.0
     sina = abs(math.sin(angle_radians))
     cosa = abs(math.cos(angle_radians))
@@ -682,8 +840,6 @@ class BarbellDetector(object):
 
         # note that raise this too high might erase the image and create bugs
         threshold_pixel = MOTION_THRESHOLD
-        # SBL EUREKA!  Establish left and right bounds beforehand, change the
-        # bar to white
         grayscale_motion_detection[grayscale_motion_detection < threshold_pixel] = 0
         grayscale_motion_detection[grayscale_motion_detection >= threshold_pixel] = 255
 
@@ -828,14 +984,23 @@ class BarbellDetector(object):
 class BarbellDisplayer(object):
 
     olympic_bar = OlympicBarbell(for_display=True)
+    negative_olympic_bar = OlympicBarbell(for_display=True, for_negative=True)
 
-    def __init__(self, capture, detected_barbells):
+    def __init__(self,
+                 capture,
+                 detected_barbells,
+                 frame_to_acceleration,
+                 frame_to_instantaneous_acceleration,
+                 frame_to_max_acceleration):
         self.capture = capture
         self.detected_barbells = detected_barbells
         self.frame_number = 0
         self.frame_to_detected_barbell = {barbell.frame_number: barbell for barbell in detected_barbells}
         self.video_writer = None
         self.frames_per_sec = capture.get(FRAMES_PER_SEC_KEY)
+        self.frame_to_acceleration = frame_to_acceleration
+        self.frame_to_instantaneous_acceleration = frame_to_instantaneous_acceleration
+        self.frame_to_max_acceleration = frame_to_max_acceleration
 
     def output_video(self, filename):
         print "Creating Video..."
@@ -854,6 +1019,7 @@ class BarbellDisplayer(object):
             if self.frame_number in self.frame_to_detected_barbell:
                 barbell_detection = self.frame_to_detected_barbell[self.frame_number]
                 self.display_barbell_on_img(haystack, barbell_detection)
+            self.draw_metadata_on_canvas(haystack)
                 # wait_key_time = 0
             self.video_writer.write(haystack)
             # cv2.imshow("Final output", haystack)
@@ -863,12 +1029,79 @@ class BarbellDisplayer(object):
             self.video_writer.release()
         print "Done"
 
+    def draw_metadata_on_canvas(self, draw_img):
+        height, width, channels = draw_img.shape[0: 3]
+        # SBL working here
+        opaque_black_pixel = (0, 0, 0, 150)
+        percent_img_width = 0.50
+        percent_img_height = 0.40
+
+        left_x = int(width * 0.05)
+        top_y = int(height * 0.05)
+        right_x = int(percent_img_width * width + left_x)
+        bottom_y = int(percent_img_height * height + top_y)
+
+        rectangle_width = right_x - left_x
+        rectangle_height = bottom_y - top_y
+
+        overlay = np.zeros((rectangle_height, rectangle_width, 4), dtype=np.uint8)
+        overlay[:, :] = opaque_black_pixel
+        font_scale = 0.4
+        font_color = (255, 255, 255, 255)
+        font = cv2.FONT_ITALIC
+        cv2.putText(overlay, "Avg Applied Acceleration:", (5, 25), font, font_scale, font_color)
+        cv2.putText(overlay, "Max Applied Acceleration:", (5, 50), font, font_scale, font_color)
+        cv2.putText(overlay, "Inst Applied Acceleration:", (5, 75), font, font_scale, font_color)
+
+        neg_acceleration_color = (0, 255, 255, 255)
+        acceleration_color = (0, 255, 0, 255)
+
+        acceleration_str = ""
+        if self.frame_number in self.frame_to_acceleration:
+            acceleration_float = 1.0 + self.frame_to_acceleration[self.frame_number]
+            if acceleration_float < 1.0:
+                acceleration_color = neg_acceleration_color
+            acceleration_str = "%.3fg" % acceleration_float
+        cv2.putText(overlay, acceleration_str, (190, 25), font, font_scale, acceleration_color)
+
+        acceleration_str = ""
+        if self.frame_number in self.frame_to_max_acceleration:
+            acceleration_float = 1.0 + self.frame_to_max_acceleration[self.frame_number]
+            acceleration_color = (0, 255, 0, 255)
+            acceleration_str = "%.3fg" % acceleration_float
+        cv2.putText(overlay, acceleration_str, (190, 50), font, font_scale, acceleration_color)
+
+        instantaneous_acceleration = ""
+        if self.frame_number in self.frame_to_instantaneous_acceleration:
+            acceleration_float = 1.0 + self.frame_to_instantaneous_acceleration[self.frame_number]
+            if acceleration_float <= 1.0:
+                acceleration_color = neg_acceleration_color
+            elif acceleration_float > 1.0:
+                acceleration_color = (0, 255, 0, 255)
+            instantaneous_acceleration = "%.3fg" % acceleration_float
+        cv2.putText(overlay, instantaneous_acceleration, (190, 75), font, font_scale, acceleration_color)
+
+        y_offset = top_y
+        x_offset = left_x
+        for col in xrange(3):
+            masked_overlay = (overlay[:, :, col] * (overlay[:, :, 3] / 255.0)
+                + draw_img[y_offset: y_offset
+                + overlay.shape[0], x_offset: x_offset
+                + overlay.shape[1], col]
+                * (1.0 - overlay[:, :, 3] / 255.0))
+            draw_img[y_offset: y_offset + overlay.shape[0], x_offset: x_offset + overlay.shape[1], col] = masked_overlay
+        return draw_img
+
     def display_barbell_on_img(self, draw_img, barbell_detection):
         bar_width = barbell_detection.barbell_width
         x_offset = barbell_detection.offset_x
         y_offset = barbell_detection.offset_y
         angle = barbell_detection.angle
-        bar_overlay = self.olympic_bar.with_width(bar_width)
+        if self.frame_to_acceleration.get(self.frame_number, 1) > 0:
+            bar_overlay = self.olympic_bar.with_width(bar_width)
+        else:
+            bar_overlay = self.negative_olympic_bar.with_width(bar_width)
+
         angled_overlay = rotate_image_to_scaled_canvas(bar_overlay, angle)
         for col in xrange(3):
             masked_overlay = (angled_overlay[:, :, col] * (angled_overlay[:, :, 3] / 255.0)
@@ -992,9 +1225,9 @@ def filter_smaller_barbells(detected_barbells):
     return detected_barbells
 
 
-def dump_detected_barbells_to_json(detected_barbells):
+def dump_detected_barbells_to_json(detected_barbells, video_filename):
     json_str = json.dumps([barbell.to_json() for barbell in detected_barbells], indent=4)
-    filename = datetime.datetime.now().strftime("json_data/%Y_%m_%d_%H_%M.json")
+    filename = "json_data/barbell_detections_%s.json" % video_filename
     with open(filename, "w+") as f:
         f.write(json_str)
 
@@ -1044,7 +1277,6 @@ def create_barbell_template_from_detected_barbells(capture, detected_barbells):
 def amend_barbell_pixels_to_barbell_detections(capture, detected_barbells):
     olympic_barbell = OlympicBarbell()
     overlay = olympic_barbell.with_width(detected_barbells[0].barbell_width)
-    capture = cv2.VideoCapture(capture_path)
     frame_to_detected_barbell = {barbell.frame_number: barbell for barbell in detected_barbells}
     frame_number = 0
     while True:
@@ -1084,29 +1316,6 @@ def amend_symmetry_score_to_barbell_detections(detected_barbells):
         symmetry_score = get_symmetry_of_img(barbell_pixels)
         barbell_detection.symmetry_score = symmetry_score
     print "Done"
-
-
-def WIP_template_matching(capture, detected_barbells):
-    capture = cv2.VideoCapture(capture_path)
-    barbell_template = create_barbell_template_from_detected_barbells(capture, detected_barbells)
-    barbell_template = convert_transparency_to_noise(barbell_template)
-
-    capture = cv2.VideoCapture(capture_path)
-    needle = barbell_template
-    while True:
-        method = cv2.TM_CCOEFF_NORMED
-        success, haystack = capture.read()
-        if not success:
-            break
-        haystack = resized_frame(haystack)
-        height, width = needle.shape[0: 2]
-        res = cv2.matchTemplate(haystack, needle, method)
-        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-        top_left = max_loc
-        bottom_right = (top_left[0] + width, top_left[1] + height)
-        cv2.rectangle(haystack, top_left, bottom_right, 255, 2)
-        cv2.imshow("some_window", haystack)
-        cv2.waitKey(0)
 
 
 def get_symmetry_of_img(img):
@@ -1199,45 +1408,13 @@ def filter_by_no_frame_neighbors(detected_barbells):
     return barbells_to_keep
 
 
-def filter_by_reasonable_accelerations(detected_barbells, frames_per_second):
-    one_g_in_pixels_per_ff = get_acceleration_of_gravity_in_pixels_per_frame(detected_barbells[0].barbell_width)
-    max_possible_acceleration = one_g_in_pixels_per_ff
-    min_possible_acceleration = -2 * one_g_in_pixels_per_ff
-    y_positions = np.asarray([detected_barbell.offset_y for detected_barbell in detected_barbells])
-    # RECURSIVE CALL WOULD START HERE
-    accelerations = np.gradient(y_positions, 2)
-    for index in xrange(len(accelerations)):
-        frame_number_at_current_index = detected_barbells[index].frame_number
-        try:
-            frame_number_at_next_index = detected_barbells[index + 1].frame_number
-        except IndexError:
-            frame_number_at_next_index = frame_number_at_current_index + 1
-        delta_frames = frame_number_at_next_index - frame_number_at_current_index
-
-        if delta_frames > 1:  # slicing is slow, so don't do unless necessary
-            accelerations[index] /= delta_frames
-
-    # SBL the shit below is just a test, won't actually work
-    accelerations_to_discard = set.union(set(accelerations[accelerations > max_possible_acceleration]), set(accelerations[accelerations < min_possible_acceleration]))
-    indexes_to_discard = set([index for index, acceleration in enumerate(accelerations) if acceleration in accelerations_to_discard])
-    detected_barbells = [barbell for index, barbell in enumerate(detected_barbells) if index not in indexes_to_discard]
-
-    # for all the positions that we have now...try discarding either left or
-    # right point...in one case it will remove an outlier completely: that
-    # would cause 2 whacky accelerations to drop
-
-    # in one case there is no effect, meaning the anamolies are on a bigger
-    # scale
-
-    return detected_barbells
-
-
-if __name__ == "__main__":
+def run(file_to_read):
+    video_filename = (file_to_read.split("/")[-1]).split(".")[0]
     start_time = datetime.datetime.utcnow()
-    capture_path = "/Users/slobdell/playground/one_rep_max/flat_bench.mp4"
+    capture_path = file_to_read
     if False:
         capture = cv2.VideoCapture(capture_path)
-        frames_per_sec = capture.get(FRAMES_PER_SEC_KEY)
+        # frames_per_sec = capture.get(FRAMES_PER_SEC_KEY)
 
         barbell_detector = BarbellDetector(capture)
         detected_barbells = barbell_detector.get_barbell_frame_data()
@@ -1311,41 +1488,49 @@ if __name__ == "__main__":
         detected_barbells = barbell_detector.get_barbell_frame_data()
         print "Length of detected barbells now: %s" % len(detected_barbells)
         detected_barbells = set_bar_offsets_by_average_x(detected_barbells)
-        dump_detected_barbells_to_json(detected_barbells)
+        dump_detected_barbells_to_json(detected_barbells, video_filename)
         #### END TOTAL REPEAT
     else:
         detected_barbells = []
-        with open("json_data/flat_bench.json", "rb") as f:
+        filename = "json_data/barbell_detections_%s.json" % video_filename
+        with open(filename, "rb") as f:
             json_str = f.read()
             json_data = json.loads(json_str)
             for json_dict in json_data:
                 detected_barbells.append(BarbellDetection.from_json(json_dict))
 
+    print "Fixing fluctuations..."
     detected_barbells.sort(key=lambda barbell: barbell.frame_number)
     while has_fluctuations(detected_barbells):
         fix_one_fluctuation(detected_barbells)
 
-    '''
     json_objs = [{barbell.frame_number: barbell.offset_y} for barbell in detected_barbells]
     json_str = json.dumps(json_objs)
-    with open("json_data/flat_bench_points.json", "w+") as f:
+    with open("json_data/plot_data_%s.json" % video_filename, "w+") as f:
         f.write(json_str)
-    print "Hell yes"
-    '''
 
+    print "Calculating accelerations..."
     capture = cv2.VideoCapture(capture_path)
     frames_per_second = capture.get(FRAMES_PER_SEC_KEY)
-    print frames_per_second
+    frame_to_1rm = get_frame_to_1rm(detected_barbells, frames_per_second)
     one_g = get_acceleration_of_gravity_in_pixels_per_frame(detected_barbells[0].barbell_width, frames_per_second)
-    frame_to_acceleration = determine_acceleration_values(detected_barbells, one_g)
-    json_str = json.dumps(frame_to_acceleration, indent=4)
-    with open("json_data/deleteme.json", "w+") as f:
-        f.write(json_str)
-    print json_str
+    frame_to_acceleration, frame_to_instantaneous_acceleration, frame_to_max_acceleration = determine_acceleration_values(detected_barbells, one_g)
 
+    print "Outputting video..."
     capture = cv2.VideoCapture(capture_path)
-    barbell_display = BarbellDisplayer(capture, detected_barbells)
-    barbell_display.output_video("output.avi")
+    barbell_display = BarbellDisplayer(capture,
+                                       detected_barbells,
+                                       frame_to_acceleration,
+                                       frame_to_instantaneous_acceleration,
+                                       frame_to_max_acceleration)
+    output_file = "output_%s.avi" % video_filename
+    barbell_display.output_video(output_file)
+    print "Output to %s" % output_file
     print "Finished in %s minutes" % ((datetime.datetime.utcnow() - start_time).total_seconds() / 60.0)
 
-cv2.destroyAllWindows()
+    cv2.destroyAllWindows()
+
+
+if __name__ == "__main__":
+    file_to_read = sys.argv[1]
+    run(file_to_read)
