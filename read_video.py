@@ -384,7 +384,7 @@ class OlympicBarbell(object):
     OPAQUE_YELLOW = (0, 255, 255, 75)
     OPAQUE_BLACK = (0, 0, 0, 100)
 
-    BRUSH_SIZE = 4
+    BRUSH_SIZE = 1
 
     def __init__(self, for_display=False, for_negative=False):
         shape = (70, 2200, 4)
@@ -397,35 +397,48 @@ class OlympicBarbell(object):
         self.canvas = np.zeros(shape, dtype=np.uint8)
         self.canvas[::] = self.TRANSPARENT_PIXEL
         self.resize_factor = 1.0
+        self.cached_canvases = {}
 
     def _shrink_args_by_resize_factor(self, arg_list):
+        new_args = [item for item in arg_list]
         for index in xrange(len(arg_list)):
             item = arg_list[index]
             if isinstance(item, tuple) and len(item) == 2:
                 new_tuple = tuple([int(self.resize_factor * val) for val in item])
-                arg_list[index] = new_tuple
+                new_args[index] = new_tuple
+        return new_args
 
     def with_width(self, width):
+        width = int(width)
+        if width in self.cached_canvases:
+            return self.cached_canvases[width]
+
+        rows, cols = 70, 2200
+        resize_factor = float(width) / cols
+
+        shape = (int(70 * resize_factor), int(width), 4)
+        self.canvas = np.zeros(shape, dtype=np.uint8)
+        self.canvas[::] = self.TRANSPARENT_PIXEL
+        # canvas_copy = cv2.resize(self.canvas, (int(resize_factor * 2200), int(resize_factor * 70)))
+        self.resize_factor = resize_factor
+
+        self._fill_with_black()
         self._draw_ends()
         if not self.make_notches_transparent:
             self._draw_notches()
         self._draw_bar()
-        self._fill_with_black()
         if self.make_notches_transparent:
             self._erase_first_plate()
+        self.cached_canvases[width] = self.canvas
 
-        rows, cols = self.canvas.shape[0: 2]
-        resize_factor = float(width) / cols
-        canvas_copy = cv2.resize(self.canvas, (int(resize_factor * 2200), int(resize_factor * 70)))
-        self.resize_factor = resize_factor
-        original_opacity = canvas_copy[:, :, 3].copy()
-        threshold_pixel = 50
-        canvas_copy[canvas_copy > threshold_pixel] = 255
-        canvas_copy[canvas_copy < threshold_pixel] = 0
-        if not self.for_display and np.sum(canvas_copy[:, :, 0]) / 255.0 < canvas_copy.shape[1]:
-            return None
-        canvas_copy[:, :, 3] = original_opacity
-        return canvas_copy
+        # original_opacity = self.canvas[:, :, 3].copy()
+        # threshold_pixel = 50
+        # self.canvas[self.canvas > threshold_pixel] = 255
+        # self.canvas[self.canvas < threshold_pixel] = 0
+        # if not self.for_display and np.sum(canvas_copy[:, :, 0]) / 255.0 < canvas_copy.shape[1]:
+        #     return None
+        # canvas_copy[:, :, 3] = original_opacity
+        return self.canvas  # canvas_copy
 
     def _draw_ends(self):
         pixel_color = self.WHITE_PIXEL
@@ -444,8 +457,8 @@ class OlympicBarbell(object):
                 (self.canvas, (0, 10), (0, 60), pixel_color, self.BRUSH_SIZE),
                 (self.canvas, (2200, 10), (2200, 60), pixel_color, self.BRUSH_SIZE)
             ])
-        self._shrink_args_by_resize_factor(list_of_args)
         for arg_list in list_of_args:
+            arg_list = self._shrink_args_by_resize_factor(arg_list)
             cv2.line(*arg_list)
 
     def _draw_notches(self):
@@ -470,8 +483,8 @@ class OlympicBarbell(object):
             (self.canvas, (2200 - 415, 60 + 10), (2200 - 415 - 30, 60 + 10), pixel_color, self.BRUSH_SIZE),
             (self.canvas, (2200 - 415 - 30, 60 + 10), (2200 - 415 - 30, 70 - 21), pixel_color, self.BRUSH_SIZE),
         ]
-        self._shrink_args_by_resize_factor(list_of_args)
         for arg_list in list_of_args:
+            arg_list = self._shrink_args_by_resize_factor(arg_list)
             cv2.line(*arg_list)
 
     def _draw_bar(self):
@@ -482,8 +495,8 @@ class OlympicBarbell(object):
             (self.canvas, (415 + 30, 21), (2200 - 415 - 30, 21), pixel_color, self.BRUSH_SIZE),
             (self.canvas, (415 + 30, 70 - 21), (2200 - 415 - 30, 70 - 21), pixel_color, self.BRUSH_SIZE),
         ]
-        self._shrink_args_by_resize_factor(list_of_args)
         for arg_list in list_of_args:
+            arg_list = self._shrink_args_by_resize_factor(arg_list)
             cv2.line(*arg_list)
 
     def _fill_with_black(self):
@@ -502,8 +515,8 @@ class OlympicBarbell(object):
                 (self.canvas, (415 + self.BRUSH_SIZE, self.BRUSH_SIZE), (415 + 30 - self.BRUSH_SIZE, 70 - self.BRUSH_SIZE), pixel_color, -1),
                 (self.canvas, (2200 - 415 - 30 + self.BRUSH_SIZE, self.BRUSH_SIZE), (2200 - 415 - self.BRUSH_SIZE, 70 - self.BRUSH_SIZE), pixel_color, -1)
             ])
-        self._shrink_args_by_resize_factor(list_of_args)
         for arg_list in list_of_args:
+            arg_list = self._shrink_args_by_resize_factor(arg_list)
             cv2.rectangle(*arg_list)
 
     def _erase_first_plate(self):
@@ -512,8 +525,8 @@ class OlympicBarbell(object):
             (self.canvas, (415 - plate_width, 0), (415, 70), self.TRANSPARENT_PIXEL, -1),
             (self.canvas, (2200 - 415 - plate_width, 0), (2200 - 415, 70), self.TRANSPARENT_PIXEL, -1)
         ]
-        self._shrink_args_by_resize_factor(list_of_args)
         for arg_list in list_of_args:
+            arg_list = self._shrink_args_by_resize_factor(arg_list)
             cv2.rectangle(*arg_list)
 
 
