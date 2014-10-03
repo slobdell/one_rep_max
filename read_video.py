@@ -396,6 +396,16 @@ class OlympicBarbell(object):
 
         self.canvas = np.zeros(shape, dtype=np.uint8)
         self.canvas[::] = self.TRANSPARENT_PIXEL
+        self.resize_factor = 1.0
+
+    def _shrink_args_by_resize_factor(self, arg_list):
+        for index in xrange(len(arg_list)):
+            item = arg_list[index]
+            if isinstance(item, tuple) and len(item) == 2:
+                new_tuple = tuple([int(self.resize_factor * val) for val in item])
+                arg_list[index] = new_tuple
+
+    def with_width(self, width):
         self._draw_ends()
         if not self.make_notches_transparent:
             self._draw_notches()
@@ -404,10 +414,10 @@ class OlympicBarbell(object):
         if self.make_notches_transparent:
             self._erase_first_plate()
 
-    def with_width(self, width):
         rows, cols = self.canvas.shape[0: 2]
         resize_factor = float(width) / cols
         canvas_copy = cv2.resize(self.canvas, (int(resize_factor * 2200), int(resize_factor * 70)))
+        self.resize_factor = resize_factor
         original_opacity = canvas_copy[:, :, 3].copy()
         threshold_pixel = 50
         canvas_copy[canvas_copy > threshold_pixel] = 255
@@ -421,60 +431,90 @@ class OlympicBarbell(object):
         pixel_color = self.WHITE_PIXEL
         if self.for_display:
             pixel_color = self.OPAQUE_BLACK
-        cv2.line(self.canvas, (0, 10), (415, 10), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (0, 60), (415, 60), pixel_color, self.BRUSH_SIZE)
 
-        cv2.line(self.canvas, (2200, 10), (2200 - 415, 10), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (2200, 60), (2200 - 415, 60), pixel_color, self.BRUSH_SIZE)
+        list_of_args = [
+            (self.canvas, (0, 10), (415, 10), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (0, 60), (415, 60), pixel_color, self.BRUSH_SIZE),
 
+            (self.canvas, (2200, 10), (2200 - 415, 10), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (2200, 60), (2200 - 415, 60), pixel_color, self.BRUSH_SIZE),
+        ]
         if self.for_display:
-            cv2.line(self.canvas, (0, 10), (0, 60), pixel_color, self.BRUSH_SIZE)
-            cv2.line(self.canvas, (2200, 10), (2200, 60), pixel_color, self.BRUSH_SIZE)
+            list_of_args.extend([
+                (self.canvas, (0, 10), (0, 60), pixel_color, self.BRUSH_SIZE),
+                (self.canvas, (2200, 10), (2200, 60), pixel_color, self.BRUSH_SIZE)
+            ])
+        self._shrink_args_by_resize_factor(list_of_args)
+        for arg_list in list_of_args:
+            cv2.line(*arg_list)
 
     def _draw_notches(self):
         pixel_color = self.WHITE_PIXEL
         if self.for_display:
             pixel_color = self.OPAQUE_BLACK
-        cv2.line(self.canvas, (415, 10), (415, 0), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (415, 0), (415 + 30, 0), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (415 + 30, 0), (415 + 30, 21), pixel_color, self.BRUSH_SIZE)
 
-        cv2.line(self.canvas, (415, 60), (415, 60 + 10), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (415, 60 + 10), (415 + 30, 60 + 10), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (415 + 30, 60 + 10), (415 + 30, 70 - 21), pixel_color, self.BRUSH_SIZE)
+        list_of_args = [
+            (self.canvas, (415, 10), (415, 0), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (415, 0), (415 + 30, 0), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (415 + 30, 0), (415 + 30, 21), pixel_color, self.BRUSH_SIZE),
 
-        cv2.line(self.canvas, (2200 - 415, 10), (2200 - 415, 0), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (2200 - 415, 0), (2200 - 415 - 30, 0), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (2200 - 415 - 30, 0), (2200 - 415 - 30, 21), pixel_color, self.BRUSH_SIZE)
+            (self.canvas, (415, 60), (415, 60 + 10), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (415, 60 + 10), (415 + 30, 60 + 10), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (415 + 30, 60 + 10), (415 + 30, 70 - 21), pixel_color, self.BRUSH_SIZE),
 
-        cv2.line(self.canvas, (2200 - 415, 60), (2200 - 415, 60 + 10), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (2200 - 415, 60 + 10), (2200 - 415 - 30, 60 + 10), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (2200 - 415 - 30, 60 + 10), (2200 - 415 - 30, 70 - 21), pixel_color, self.BRUSH_SIZE)
+            (self.canvas, (2200 - 415, 10), (2200 - 415, 0), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (2200 - 415, 0), (2200 - 415 - 30, 0), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (2200 - 415 - 30, 0), (2200 - 415 - 30, 21), pixel_color, self.BRUSH_SIZE),
+
+            (self.canvas, (2200 - 415, 60), (2200 - 415, 60 + 10), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (2200 - 415, 60 + 10), (2200 - 415 - 30, 60 + 10), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (2200 - 415 - 30, 60 + 10), (2200 - 415 - 30, 70 - 21), pixel_color, self.BRUSH_SIZE),
+        ]
+        self._shrink_args_by_resize_factor(list_of_args)
+        for arg_list in list_of_args:
+            cv2.line(*arg_list)
 
     def _draw_bar(self):
         pixel_color = self.WHITE_PIXEL
         if self.for_display:
             pixel_color = self.OPAQUE_BLACK
-        cv2.line(self.canvas, (415 + 30, 21), (2200 - 415 - 30, 21), pixel_color, self.BRUSH_SIZE)
-        cv2.line(self.canvas, (415 + 30, 70 - 21), (2200 - 415 - 30, 70 - 21), pixel_color, self.BRUSH_SIZE)
+        list_of_args = [
+            (self.canvas, (415 + 30, 21), (2200 - 415 - 30, 21), pixel_color, self.BRUSH_SIZE),
+            (self.canvas, (415 + 30, 70 - 21), (2200 - 415 - 30, 70 - 21), pixel_color, self.BRUSH_SIZE),
+        ]
+        self._shrink_args_by_resize_factor(list_of_args)
+        for arg_list in list_of_args:
+            cv2.line(*arg_list)
 
     def _fill_with_black(self):
         pixel_color = self.BLACK_PIXEL
         if self.for_display:
             pixel_color = self.OPAQUE_GREEN if not self.for_negative else self.OPAQUE_YELLOW
-        cv2.rectangle(self.canvas, (0 + self.BRUSH_SIZE, 21 + self.BRUSH_SIZE), (2200 - self.BRUSH_SIZE, 70 - 21 - self.BRUSH_SIZE), pixel_color, -1)
 
-        cv2.rectangle(self.canvas, (0 + self.BRUSH_SIZE, 10 + self.BRUSH_SIZE), (415, 70 - 10 - self.BRUSH_SIZE), pixel_color, -1)
-        cv2.rectangle(self.canvas, (2200 - 415 - self.BRUSH_SIZE, 10 + self.BRUSH_SIZE), (2200 - self.BRUSH_SIZE, 70 - 10 - self.BRUSH_SIZE), pixel_color, -1)
+        list_of_args = [
+            (self.canvas, (0 + self.BRUSH_SIZE, 21 + self.BRUSH_SIZE), (2200 - self.BRUSH_SIZE, 70 - 21 - self.BRUSH_SIZE), pixel_color, -1),
 
+            (self.canvas, (0 + self.BRUSH_SIZE, 10 + self.BRUSH_SIZE), (415, 70 - 10 - self.BRUSH_SIZE), pixel_color, -1),
+            (self.canvas, (2200 - 415 - self.BRUSH_SIZE, 10 + self.BRUSH_SIZE), (2200 - self.BRUSH_SIZE, 70 - 10 - self.BRUSH_SIZE), pixel_color, -1),
+        ]
         if not self.make_notches_transparent:
-            cv2.rectangle(self.canvas, (415 + self.BRUSH_SIZE, self.BRUSH_SIZE), (415 + 30 - self.BRUSH_SIZE, 70 - self.BRUSH_SIZE), pixel_color, -1)
-            cv2.rectangle(self.canvas, (2200 - 415 - 30 + self.BRUSH_SIZE, self.BRUSH_SIZE), (2200 - 415 - self.BRUSH_SIZE, 70 - self.BRUSH_SIZE), pixel_color, -1)
+            list_of_args.extend([
+                (self.canvas, (415 + self.BRUSH_SIZE, self.BRUSH_SIZE), (415 + 30 - self.BRUSH_SIZE, 70 - self.BRUSH_SIZE), pixel_color, -1),
+                (self.canvas, (2200 - 415 - 30 + self.BRUSH_SIZE, self.BRUSH_SIZE), (2200 - 415 - self.BRUSH_SIZE, 70 - self.BRUSH_SIZE), pixel_color, -1)
+            ])
+        self._shrink_args_by_resize_factor(list_of_args)
+        for arg_list in list_of_args:
+            cv2.rectangle(*arg_list)
 
     def _erase_first_plate(self):
         plate_width = 30
-        cv2.rectangle(self.canvas, (415 - plate_width, 0), (415, 70), self.TRANSPARENT_PIXEL, -1)
-        cv2.rectangle(self.canvas, (2200 - 415 - plate_width, 0), (2200 - 415, 70), self.TRANSPARENT_PIXEL, -1)
+        list_of_args = [
+            (self.canvas, (415 - plate_width, 0), (415, 70), self.TRANSPARENT_PIXEL, -1),
+            (self.canvas, (2200 - 415 - plate_width, 0), (2200 - 415, 70), self.TRANSPARENT_PIXEL, -1)
+        ]
+        self._shrink_args_by_resize_factor(list_of_args)
+        for arg_list in list_of_args:
+            cv2.rectangle(*arg_list)
 
 
 def convert_transparency_to_noise(png_img):
@@ -1383,7 +1423,6 @@ def filter_by_no_frame_neighbors(detected_barbells):
 
 
 def run(file_to_read):
-    import pdb; pdb.set_trace()
     video_filename = (file_to_read.split("/")[-1]).split(".")[0]
     start_time = datetime.datetime.utcnow()
     capture_path = file_to_read

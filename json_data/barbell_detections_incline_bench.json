@@ -1,1 +1,3058 @@
-[]
+[
+    {
+        "angle": 0, 
+        "impact_score": 53.948998715073401, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 192, 
+        "frame_number": 21
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.604931154319502, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 184, 
+        "frame_number": 22
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.382846681690609, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 74, 
+        "frame_number": 32
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.390200220841109, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 78, 
+        "frame_number": 33
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.705675905728675, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 64, 
+        "frame_number": 35
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.120589728900363, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 60, 
+        "frame_number": 36
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 70.38020092565317, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 66, 
+        "frame_number": 37
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.819542811910964, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 64, 
+        "frame_number": 44
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.542038424907695, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 68, 
+        "frame_number": 45
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.948517997104851, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 72, 
+        "frame_number": 46
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.819582570539936, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 77, 
+        "frame_number": 47
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.500662342614561, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 86, 
+        "frame_number": 48
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.749475457179052, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 92, 
+        "frame_number": 49
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.008446901447392, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 97, 
+        "frame_number": 50
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.565580954893832, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 97, 
+        "frame_number": 51
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 45.482010123992708, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 52
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 46.530418061983703, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 107, 
+        "frame_number": 53
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 46.697241654754137, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 111, 
+        "frame_number": 54
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 48.565020719667331, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 115, 
+        "frame_number": 55
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.970618373185332, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 115, 
+        "frame_number": 56
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.083142522034414, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 118, 
+        "frame_number": 57
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 65.727113035589397, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 127, 
+        "frame_number": 59
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 72.389457457363392, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 136, 
+        "frame_number": 60
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 71.353031324378009, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 155, 
+        "frame_number": 134
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.823829514998941, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 154, 
+        "frame_number": 135
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.402583226557319, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 153, 
+        "frame_number": 136
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.385111116331942, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 150, 
+        "frame_number": 137
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.837193835966737, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 148, 
+        "frame_number": 138
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.644583157883325, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 143, 
+        "frame_number": 139
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.515087496091908, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 139, 
+        "frame_number": 140
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.639915133399235, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 129, 
+        "frame_number": 141
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.107586850014187, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 125, 
+        "frame_number": 142
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.45271524327763, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 124, 
+        "frame_number": 143
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.008045700736801, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 119, 
+        "frame_number": 144
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 50.358604761276538, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 111, 
+        "frame_number": 145
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 50.858614700933785, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 107, 
+        "frame_number": 146
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 50.849397927852543, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 147
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 45.99123683673119, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 148
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 47.028584647024701, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 99, 
+        "frame_number": 149
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 46.428572719436005, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 95, 
+        "frame_number": 150
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 48.170542831790279, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 91, 
+        "frame_number": 151
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 44.718400474212011, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 88, 
+        "frame_number": 152
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 40.716016763683747, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 86, 
+        "frame_number": 153
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.911130428182361, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 84, 
+        "frame_number": 154
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.560209925561004, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 86, 
+        "frame_number": 165
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.850800323129221, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 86, 
+        "frame_number": 166
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.457724830528846, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 90, 
+        "frame_number": 167
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.330533362007735, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 94, 
+        "frame_number": 169
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.086328633983868, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 95, 
+        "frame_number": 170
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.189957693204349, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 100, 
+        "frame_number": 171
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.915738814722978, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 172
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 46.350230148245466, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 173
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 46.990335038737555, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 107, 
+        "frame_number": 174
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 44.682915897849242, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 108, 
+        "frame_number": 175
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.500984026067201, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 111, 
+        "frame_number": 176
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.401903715443879, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 113, 
+        "frame_number": 177
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.241130663119712, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 118, 
+        "frame_number": 178
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.649874669958201, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 122, 
+        "frame_number": 179
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.450792371403423, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 118, 
+        "frame_number": 180
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.646187960725705, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 124, 
+        "frame_number": 181
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.282125424016741, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 127, 
+        "frame_number": 182
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.285871771192703, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 183
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.969295495166612, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 128, 
+        "frame_number": 184
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.996624130957692, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 130, 
+        "frame_number": 185
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 65.513283900104639, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 135, 
+        "frame_number": 186
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 66.88612225055526, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 139, 
+        "frame_number": 187
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 67.365394450779718, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 138, 
+        "frame_number": 188
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 68.405968131651662, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 140, 
+        "frame_number": 189
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 70.03825864433918, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 145, 
+        "frame_number": 190
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.78894493249166, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 146, 
+        "frame_number": 191
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 73.897321533454175, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 146, 
+        "frame_number": 192
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 76.127780619114134, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 148, 
+        "frame_number": 193
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 72.272865277885714, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 152, 
+        "frame_number": 204
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 66.443256304001707, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 151, 
+        "frame_number": 205
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.215963450976709, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 149, 
+        "frame_number": 206
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.351410256641948, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 146, 
+        "frame_number": 207
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.426145635857942, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 141, 
+        "frame_number": 208
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 65.635406143431055, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 129, 
+        "frame_number": 209
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.792472607208239, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 127, 
+        "frame_number": 210
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.278117031331604, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 120, 
+        "frame_number": 211
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.533882484336004, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 212
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.634885666833533, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 113, 
+        "frame_number": 213
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.315484720939601, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 112, 
+        "frame_number": 214
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.64033621342432, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 107, 
+        "frame_number": 215
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.76338013405887, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 216
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.948037279136294, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 89, 
+        "frame_number": 219
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.417611988310959, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 86, 
+        "frame_number": 220
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.474553573848937, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 84, 
+        "frame_number": 221
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 66.79533703570506, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 87, 
+        "frame_number": 223
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.30941430117884, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 84, 
+        "frame_number": 224
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.414425876361506, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 86, 
+        "frame_number": 225
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.840201034085794, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 90, 
+        "frame_number": 227
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.665141983485711, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 93, 
+        "frame_number": 228
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.333779111900661, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 94, 
+        "frame_number": 229
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.876666925700157, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 99, 
+        "frame_number": 230
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.259123249942618, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 100, 
+        "frame_number": 231
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 50.709302977017707, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 232
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.058618676796684, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 105, 
+        "frame_number": 233
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.250748636911545, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 108, 
+        "frame_number": 234
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.240669824465655, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 110, 
+        "frame_number": 235
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.55448106856737, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 112, 
+        "frame_number": 236
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.41488671501557, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 115, 
+        "frame_number": 237
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.801089386433993, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 120, 
+        "frame_number": 238
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.232835567346598, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 122, 
+        "frame_number": 239
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.412503004487306, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 124, 
+        "frame_number": 240
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.370145606942579, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 124, 
+        "frame_number": 241
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.233697606711253, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 242
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.799726749786295, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 128, 
+        "frame_number": 243
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.365676375603378, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 132, 
+        "frame_number": 244
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.798983986308571, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 135, 
+        "frame_number": 245
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 66.080115444600864, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 137, 
+        "frame_number": 246
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 67.240046336874869, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 139, 
+        "frame_number": 247
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.693551331100821, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 141, 
+        "frame_number": 248
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.221191710687293, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 142, 
+        "frame_number": 249
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 70.634583862695379, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 143, 
+        "frame_number": 250
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 76.70935900054036, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 156, 
+        "frame_number": 256
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 76.707976484578168, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 158, 
+        "frame_number": 257
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 75.067390876117528, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 150, 
+        "frame_number": 258
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 75.197808215217066, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 151, 
+        "frame_number": 259
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 68.56311411268679, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 153, 
+        "frame_number": 264
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.062083099148985, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 150, 
+        "frame_number": 265
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.813210346641029, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 149, 
+        "frame_number": 266
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.427488393191155, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 145, 
+        "frame_number": 267
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.124316196761839, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 140, 
+        "frame_number": 268
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.196647986135083, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 129, 
+        "frame_number": 269
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.593851147307525, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 270
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.911710542723355, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 119, 
+        "frame_number": 271
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.800688185723395, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 122, 
+        "frame_number": 272
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.206246080612424, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 119, 
+        "frame_number": 273
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.682252651629469, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 114, 
+        "frame_number": 274
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.103939899410669, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 107, 
+        "frame_number": 275
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.595154146011758, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 105, 
+        "frame_number": 276
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 67.942364445665319, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 87, 
+        "frame_number": 281
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 68.885240331876119, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 87, 
+        "frame_number": 282
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.374332913458112, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 90, 
+        "frame_number": 285
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.424623964694334, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 98, 
+        "frame_number": 286
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.80110926574848, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 94, 
+        "frame_number": 287
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.219550763636754, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 104, 
+        "frame_number": 288
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.080798570135123, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 109, 
+        "frame_number": 289
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.255456420024615, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 108, 
+        "frame_number": 290
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 50.698242849320216, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 108, 
+        "frame_number": 291
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.645266283417577, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 111, 
+        "frame_number": 292
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.12315596767985, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 114, 
+        "frame_number": 293
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.100634511574277, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 114, 
+        "frame_number": 294
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.176692768808991, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 123, 
+        "frame_number": 295
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.092780375140734, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 122, 
+        "frame_number": 296
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.987729041329096, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 297
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.236160834497475, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 298
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.754123602348649, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 128, 
+        "frame_number": 299
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.206246080612424, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 127, 
+        "frame_number": 300
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.763018691977251, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 129, 
+        "frame_number": 301
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.652437294316869, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 131, 
+        "frame_number": 302
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 67.707336732093708, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 135, 
+        "frame_number": 304
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.454836908296727, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 140, 
+        "frame_number": 305
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 70.737811721205262, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 141, 
+        "frame_number": 306
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 71.55672200947339, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 142, 
+        "frame_number": 307
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 73.220810389291188, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 144, 
+        "frame_number": 308
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 74.834667355816237, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 150, 
+        "frame_number": 317
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 73.431874492851577, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 151, 
+        "frame_number": 318
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.376033498452117, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 152, 
+        "frame_number": 322
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.357500555717195, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 150, 
+        "frame_number": 323
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.752860362273395, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 148, 
+        "frame_number": 324
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.683253846195548, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 144, 
+        "frame_number": 325
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.645504835191446, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 140, 
+        "frame_number": 326
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.107666367272138, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 129, 
+        "frame_number": 327
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.321936462096474, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 328
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.268900258250369, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 119, 
+        "frame_number": 329
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.087770787889518, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 115, 
+        "frame_number": 330
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.926918218307399, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 120, 
+        "frame_number": 331
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.438449124316193, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 108, 
+        "frame_number": 332
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.37441243071607, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 106, 
+        "frame_number": 333
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.098389956247438, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 105, 
+        "frame_number": 334
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.275753200117826, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 104, 
+        "frame_number": 335
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.899248019749194, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 93, 
+        "frame_number": 337
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.171524147041865, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 90, 
+        "frame_number": 338
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.154973714124615, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 88, 
+        "frame_number": 339
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.22874765740351, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 88, 
+        "frame_number": 350
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.484012513124867, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 90, 
+        "frame_number": 351
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.648090953285418, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 91, 
+        "frame_number": 352
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.784999792170801, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 101, 
+        "frame_number": 353
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.020909424421554, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 108, 
+        "frame_number": 355
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.274831522809706, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 107, 
+        "frame_number": 356
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.021370263075617, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 108, 
+        "frame_number": 357
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.659151080982902, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 111, 
+        "frame_number": 358
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.086809351952418, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 114, 
+        "frame_number": 359
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.189536613179264, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 123, 
+        "frame_number": 360
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 48.732305151091822, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 361
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.994081385913518, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 362
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.81216939344597, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 128, 
+        "frame_number": 363
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.24124993900665, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 132, 
+        "frame_number": 364
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.590164438075028, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 135, 
+        "frame_number": 365
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 65.509597190872142, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 136, 
+        "frame_number": 366
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 66.554318419630647, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 138, 
+        "frame_number": 367
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.496773225816355, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 142, 
+        "frame_number": 368
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 70.046553740112302, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 148, 
+        "frame_number": 369
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.583410892780009, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 145, 
+        "frame_number": 370
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.701385588219878, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 145, 
+        "frame_number": 371
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 71.004176463253089, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 153, 
+        "frame_number": 372
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 71.57469471698181, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 158, 
+        "frame_number": 376
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 66.805014647440359, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 156, 
+        "frame_number": 377
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.458404341642286, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 155, 
+        "frame_number": 378
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.952443258111217, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 151, 
+        "frame_number": 379
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 67.046033263514772, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 141, 
+        "frame_number": 380
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 68.215641767524062, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 137, 
+        "frame_number": 381
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.444138222680849, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 129, 
+        "frame_number": 382
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.247741438792495, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 383
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.892434836510709, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 120, 
+        "frame_number": 384
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.333878508473106, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 115, 
+        "frame_number": 385
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.219610401580226, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 119, 
+        "frame_number": 386
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.050383218967035, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 107, 
+        "frame_number": 387
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.996906055781352, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 90, 
+        "frame_number": 395
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.531959612461797, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 94, 
+        "frame_number": 396
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.047236865646553, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 94, 
+        "frame_number": 397
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.850899719701665, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 98, 
+        "frame_number": 398
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.371186560137637, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 399
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.244054729559998, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 117, 
+        "frame_number": 400
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.395670646746389, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 122, 
+        "frame_number": 401
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.604370919092993, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 127, 
+        "frame_number": 402
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.292863868261591, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 121, 
+        "frame_number": 403
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.238504786396767, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 127, 
+        "frame_number": 404
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.509958632953754, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 137, 
+        "frame_number": 405
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.297972852085252, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 141, 
+        "frame_number": 406
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.307189625166487, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 142, 
+        "frame_number": 407
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.911368979956229, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 147, 
+        "frame_number": 408
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.989751309775741, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 149, 
+        "frame_number": 409
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 67.021147976195422, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 151, 
+        "frame_number": 410
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 67.96494553971435, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 153, 
+        "frame_number": 411
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 70.057153029155728, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 154, 
+        "frame_number": 414
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 65.731260583475958, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 152, 
+        "frame_number": 415
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.996663889586671, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 146, 
+        "frame_number": 416
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.245055924126078, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 143, 
+        "frame_number": 417
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.681930968176829, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 141, 
+        "frame_number": 418
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.410497000934328, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 137, 
+        "frame_number": 419
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.408093411091571, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 129, 
+        "frame_number": 420
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.313621487008866, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 421
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.043550156414057, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 129, 
+        "frame_number": 422
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.373510632722436, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 423
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.927438694904929, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 121, 
+        "frame_number": 424
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.494329877344626, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 87, 
+        "frame_number": 434
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.951302908343706, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 88, 
+        "frame_number": 435
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.610302183652337, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 89, 
+        "frame_number": 436
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.77253726919664, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 92, 
+        "frame_number": 437
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.462492251585374, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 96, 
+        "frame_number": 438
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.915977366496847, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 439
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.585575930848897, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 105, 
+        "frame_number": 440
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.069416758985, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 110, 
+        "frame_number": 441
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.652377656373396, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 114, 
+        "frame_number": 442
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.71960046192298, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 119, 
+        "frame_number": 443
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.779068527611464, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 123, 
+        "frame_number": 444
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.181821631947145, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 127, 
+        "frame_number": 445
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.603989597696888, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 131, 
+        "frame_number": 446
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.621962305205308, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 136, 
+        "frame_number": 447
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.55512082105183, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 139, 
+        "frame_number": 448
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.689264628012843, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 142, 
+        "frame_number": 449
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 66.676901501611127, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 145, 
+        "frame_number": 450
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.013814316359415, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 145, 
+        "frame_number": 451
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 70.519835037833943, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 157, 
+        "frame_number": 457
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 65.400378429859458, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 155, 
+        "frame_number": 458
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.874541646260248, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 144, 
+        "frame_number": 460
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 65.281021218457397, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 141, 
+        "frame_number": 461
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 66.434500369574522, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 136, 
+        "frame_number": 462
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.308190819732573, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 132, 
+        "frame_number": 463
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.416388506864685, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 464
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.449568889957149, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 124, 
+        "frame_number": 465
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.232934963919043, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 466
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.597037259256986, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 117, 
+        "frame_number": 467
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.588281324829808, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 111, 
+        "frame_number": 468
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.828298746338142, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 107, 
+        "frame_number": 469
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.171162704960253, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 107, 
+        "frame_number": 471
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.256858815301285, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 104, 
+        "frame_number": 472
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.614990087450913, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 87, 
+        "frame_number": 478
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.850800323129221, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 89, 
+        "frame_number": 479
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.630078487148019, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 92, 
+        "frame_number": 480
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.750436893116152, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 93, 
+        "frame_number": 481
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.657387243624612, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 105, 
+        "frame_number": 482
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.321455744127924, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 101, 
+        "frame_number": 483
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.844487737173772, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 105, 
+        "frame_number": 484
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.627933328393624, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 110, 
+        "frame_number": 485
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.254193179949361, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 114, 
+        "frame_number": 486
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.765684327329176, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 487
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.338467015699237, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 124, 
+        "frame_number": 488
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.897504061705391, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 127, 
+        "frame_number": 489
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.492506402042871, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 132, 
+        "frame_number": 490
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.219670039523692, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 136, 
+        "frame_number": 491
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.334379105756142, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 139, 
+        "frame_number": 492
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.019244983635716, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 142, 
+        "frame_number": 493
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 66.890269798441821, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 142, 
+        "frame_number": 494
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 70.866846544342621, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 143, 
+        "frame_number": 495
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 70.383426796231603, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 151, 
+        "frame_number": 496
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.83641131386004, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 155, 
+        "frame_number": 497
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 68.17370545000442, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 154, 
+        "frame_number": 498
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.34828378263596, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 153, 
+        "frame_number": 503
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.780550440146101, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 145, 
+        "frame_number": 504
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.199432897373939, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 142, 
+        "frame_number": 505
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.698060321068994, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 140, 
+        "frame_number": 506
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 65.989330229750664, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 143, 
+        "frame_number": 507
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.202197929298308, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 131, 
+        "frame_number": 508
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.07901485346234, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 509
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.767988520599488, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 123, 
+        "frame_number": 510
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.043550156414057, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 511
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.457863985730263, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 114, 
+        "frame_number": 512
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.653239695738051, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 111, 
+        "frame_number": 513
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.676241869812173, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 108, 
+        "frame_number": 514
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.277155595394504, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 91, 
+        "frame_number": 524
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.847173251840189, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 93, 
+        "frame_number": 525
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.65923059824086, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 104, 
+        "frame_number": 526
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.958795602695631, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 104, 
+        "frame_number": 527
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.47585657255317, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 104, 
+        "frame_number": 528
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.922349590395761, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 109, 
+        "frame_number": 529
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.080417248739018, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 120, 
+        "frame_number": 530
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.879431957624533, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 531
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.174829534878256, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 128, 
+        "frame_number": 532
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.068777006500532, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 126, 
+        "frame_number": 533
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.455059195176915, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 128, 
+        "frame_number": 534
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.581829583672935, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 136, 
+        "frame_number": 536
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.760714498706939, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 140, 
+        "frame_number": 537
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 64.345979589365655, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 142, 
+        "frame_number": 538
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 65.596234857835796, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 146, 
+        "frame_number": 539
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 68.873719365524565, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 148, 
+        "frame_number": 540
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 69.570968249120341, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 149, 
+        "frame_number": 541
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 70.28296396964609, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 151, 
+        "frame_number": 542
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 68.093058685543582, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 153, 
+        "frame_number": 543
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 67.612864808010997, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 153, 
+        "frame_number": 544
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 66.100392345379589, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 154, 
+        "frame_number": 548
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 62.04915973752076, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 153, 
+        "frame_number": 549
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.697500085842492, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 151, 
+        "frame_number": 550
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.215502612322645, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 149, 
+        "frame_number": 551
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.874942846970846, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 144, 
+        "frame_number": 552
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.924272462269961, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 140, 
+        "frame_number": 553
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 61.782334156818877, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 137, 
+        "frame_number": 554
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.770213196611842, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 129, 
+        "frame_number": 555
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.260525645219296, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 125, 
+        "frame_number": 556
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.74476767406599, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 125, 
+        "frame_number": 557
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.048480226407321, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 122, 
+        "frame_number": 558
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.520839846820842, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 117, 
+        "frame_number": 559
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 45.879253043794129, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 110, 
+        "frame_number": 561
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 41.56810743504434, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 107, 
+        "frame_number": 562
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 42.153833364357112, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 563
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 43.681513502572564, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 100, 
+        "frame_number": 564
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 45.306891435449153, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 97, 
+        "frame_number": 565
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 42.708222265193669, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 94, 
+        "frame_number": 566
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 42.840482958909455, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 92, 
+        "frame_number": 567
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 46.931808529671684, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 90, 
+        "frame_number": 568
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 46.935495238904181, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 88, 
+        "frame_number": 569
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.038361655332444, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 87, 
+        "frame_number": 571
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 50.756769358386087, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 88, 
+        "frame_number": 572
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 43.668610020258825, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 90, 
+        "frame_number": 573
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 47.408315697971766, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 90, 
+        "frame_number": 574
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 45.54837089017763, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 95, 
+        "frame_number": 575
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 47.650255991354307, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 97, 
+        "frame_number": 576
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 42.397617012355894, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 100, 
+        "frame_number": 577
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 42.630801371311257, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 103, 
+        "frame_number": 578
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 41.916040618861132, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 106, 
+        "frame_number": 579
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 43.708242144508155, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 110, 
+        "frame_number": 580
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 50.61943943947562, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 112, 
+        "frame_number": 581
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 47.331816481397482, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 116, 
+        "frame_number": 582
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.435084098536336, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 120, 
+        "frame_number": 583
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 44.988912764146392, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 123, 
+        "frame_number": 584
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 48.480687245973989, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 127, 
+        "frame_number": 585
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 60.182763188569751, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 151, 
+        "frame_number": 593
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.525686785135335, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 152, 
+        "frame_number": 594
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 68.402281422419165, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 157, 
+        "frame_number": 605
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 65.479642678358118, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 149, 
+        "frame_number": 606
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 63.573153166503715, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 152, 
+        "frame_number": 607
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.277135716080018, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 153, 
+        "frame_number": 608
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 55.49511239945133, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 157, 
+        "frame_number": 609
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 57.366117334942956, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 157, 
+        "frame_number": 610
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 59.485514304973982, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 164, 
+        "frame_number": 611
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.913073179371054, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 167, 
+        "frame_number": 612
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.882196989548902, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 169, 
+        "frame_number": 613
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.767428285372979, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 175, 
+        "frame_number": 614
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.948077037765273, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 176, 
+        "frame_number": 615
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 52.720863701998233, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 179, 
+        "frame_number": 616
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 56.867950749901958, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 185, 
+        "frame_number": 618
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 53.905679881591574, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 186, 
+        "frame_number": 619
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.924073669125072, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 189, 
+        "frame_number": 620
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 49.730942514444131, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 196, 
+        "frame_number": 622
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 50.801009869176035, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 199, 
+        "frame_number": 623
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 54.198773265574992, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 201, 
+        "frame_number": 624
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.659091443039436, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 207, 
+        "frame_number": 625
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 51.586739774351706, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 211, 
+        "frame_number": 626
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 58.761075940788558, 
+        "barbell_width": 346, 
+        "offset_x": 79.363874345549732, 
+        "offset_y": 212, 
+        "frame_number": 627
+    }
+]
