@@ -47,8 +47,12 @@ def magic_1rm_formula(frame_to_avg_velocity_meters_per_second):
         if meters_per_second > 0:
             one_rep_max_per_frame[frame_number] = -1.0
             continue
-        percent_1rm = (meters_per_second - 1.7035) / -0.0146
-        scalar_coefficient = percent_1rm / 100.0
+        meters_per_second *= -1.0  # flip sign for this formula
+        # percent_1rm = (meters_per_second - 1.7035) / -0.0146
+        percent_1rm = (meters_per_second - 1.7022) / -0.015622
+        scalar_coefficient = 100.0 / percent_1rm
+        if scalar_coefficient < 1.0:
+            scalar_coefficient = 1.0
         one_rep_max_per_frame[frame_number] = scalar_coefficient
     return one_rep_max_per_frame
 
@@ -642,7 +646,7 @@ def get_best_bar_size_position_angle(olympic_bar,
     deleteme_counter = 0
     height, width = edges.shape[0: 2]
     num_pixels_for_motion = 10  # totally arbitrary right now
-    best_impact = 999999999
+    best_impact = sys.maxint
     min_width = int(max(min_bar_size, width * MIN_BAR_WIDTH_AS_PERCENT_OF_SCREEN))
     max_bar_size = max_bar_size or width
     for bar_width in reversed(xrange(min_width, max_bar_size + 1)):
@@ -857,7 +861,9 @@ class BarbellDetector(object):
                 min_width = get_width_from_points(*points)
                 try:
                     self.find_bar_from_edges_and_line_heuristics(grayscale_motion_detection, center_point, min_width, left_x, right_x)
-                except UnboundLocalError:
+                except UnboundLocalError as e:
+                    print e
+                    print "Bypassing frame"
                     # dirty, dirty hack to just ignore bad frames
                     pass
 
@@ -1099,7 +1105,7 @@ def filter_by_bar_width_and_set_mean_for_barbells(detected_barbells):
     mean = np.mean(barbell_widths)
 
     detected_barbells = [bar for bar in detected_barbells if abs(bar.barbell_width - mean) < 3 * std_dev]
-    final_mean = np.mean(np.asarray([bar.barbell_width for bar in detected_barbells]))
+    final_mean = int(np.mean(np.asarray([bar.barbell_width for bar in detected_barbells])))
 
     olympic_barbell = OlympicBarbell()
     while True:
@@ -1377,10 +1383,11 @@ def filter_by_no_frame_neighbors(detected_barbells):
 
 
 def run(file_to_read):
+    import pdb; pdb.set_trace()
     video_filename = (file_to_read.split("/")[-1]).split(".")[0]
     start_time = datetime.datetime.utcnow()
     capture_path = file_to_read
-    if False:
+    if True:
         capture = cv2.VideoCapture(capture_path)
         # frames_per_sec = capture.get(FRAMES_PER_SEC_KEY)
 
@@ -1433,14 +1440,15 @@ def run(file_to_read):
 
         detected_barbells = []
         for frame_number in relevant_frames:
-            # got a key error
             original_x_offset = frame_num_to_original_val[frame_number][0]
             original_bar_width = frame_num_to_original_val[frame_number][1]
             fabricated_detection = BarbellDetection(frame_number, None, original_bar_width, original_x_offset, None, None)
             detected_barbells.append(fabricated_detection)
+        print "checkpoint 1 detected barbells: %s" % len(detected_barbells)
 
         detected_barbells = filter_smaller_barbells(detected_barbells)
         detected_barbells = filter_by_bar_width_and_set_mean_for_barbells(detected_barbells)
+        print "checkpoint 2 detected barbells: %s" % len(detected_barbells)
 
         x_offsets = [bar.offset_x for bar in detected_barbells]
         min_x = min(x_offsets)
@@ -1448,6 +1456,7 @@ def run(file_to_read):
 
         frame_set = set([barbell.frame_number + ACTUAL_FRAME_OFFSET for barbell in detected_barbells])
         capture = cv2.VideoCapture(capture_path)
+
         barbell_detector = (BarbellDetector(capture).
                             with_frame_num_limits(frame_set).
                             with_min_and_max_x(min_x, max_x).
