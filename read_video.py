@@ -6,12 +6,14 @@ import math
 import numpy as np
 import random
 
+LINE_DETECTION_THRESHOLD = 25  # 50
 FRAMES_PER_SEC_KEY = 5
-MOTION_THRESHOLD = 75
+MOTION_THRESHOLD = 25
 MIN_BAR_WIDTH_AS_PERCENT_OF_SCREEN = 0.50
-MAX_PERCENT_DIFFERENCE_BETWEEN_BARS = 0.10
+MAX_PERCENT_DIFFERENCE_BETWEEN_BARS = 0.15
 MAX_ROM_IN_INCHES = 40
 METERS_PER_INCH = 0.0254
+TOP_PERCENTILE_THRESHOLD_FOR_GOOD_DETECTION = 0.25
 MAX_ROM_IN_METERS = MAX_ROM_IN_INCHES * METERS_PER_INCH
 ACTUAL_FRAME_OFFSET = 2
 
@@ -186,7 +188,12 @@ def determine_acceleration_values(detected_barbells, one_g):
 
 def _eliminate_0_derivatives(x_values, y_values):
     first_derivative = np.diff(y_values) / np.diff(x_values)
+    max_iterations = len(first_derivative)
+    counter = 0
     while len(first_derivative[first_derivative == 0] > 0):
+        counter += 1
+        if counter >= max_iterations:
+            break
         for index, item in enumerate(first_derivative):
             if item == 0:
                 y_values[index] = (y_values[index - 1] + y_values[index + 1]) / 2.0
@@ -386,7 +393,7 @@ class OlympicBarbell(object):
 
     BRUSH_SIZE = 1
 
-    def __init__(self, for_display=False, for_negative=False):
+    def __init__(self, for_display=False, for_negative=False, force_fill=False):
         shape = (70, 2200, 4)
         self.for_display = for_display
         self.make_notches_transparent = True
@@ -397,6 +404,7 @@ class OlympicBarbell(object):
         self.canvas = np.zeros(shape, dtype=np.uint8)
         self.canvas[::] = self.TRANSPARENT_PIXEL
         self.resize_factor = 1.0
+        self.force_fill = force_fill
         self.cached_canvases = {}
 
     def _shrink_args_by_resize_factor(self, arg_list):
@@ -500,7 +508,9 @@ class OlympicBarbell(object):
             cv2.line(*arg_list)
 
     def _fill_with_black(self):
-        pixel_color = self.BLACK_PIXEL
+        pixel_color = self.TRANSPARENT_PIXEL  # BLACK_PIXEL
+        if self.force_fill:
+            pixel_color = self.BLACK_PIXEL
         if self.for_display:
             pixel_color = self.OPAQUE_GREEN if not self.for_negative else self.OPAQUE_YELLOW
 
@@ -589,7 +599,7 @@ def get_line_angle(x1, y1, x2, y2):
 
 
 def filter_noise_from_motion_detected_frame(grayscale_frame):
-    threshold_pixel = 50
+    threshold_pixel = LINE_DETECTION_THRESHOLD
     frame_copy = grayscale_frame.copy()
     frame_copy[frame_copy < threshold_pixel] = 0
     return frame_copy
@@ -746,9 +756,15 @@ def get_best_bar_size_position_angle(olympic_bar,
                     mat_after_overlay = grayscale_with_overlay[y_offset: y_offset + overlay_height, x_offset: x_offset + overlay_width]
 
                     # we want the LEAST impact...
+
+                    # difference is nothing but an array of 255s each case
                     impact = np.sum(abs(mat_after_overlay - mat_before_overlay))
                     num_non_transparent_pixels = np.sum(angled_overlay[:, :, 3]) / 255.0
-                    impact = float(impact) / (num_non_transparent_pixels)
+                    impact = float(impact) / 255.0
+                    impact = impact / num_non_transparent_pixels
+                    # impact = impact / (overlay_width + overlay_height)
+                    # initial impact represents the total number of affected
+                    # pixels
 
                     if impact < best_impact:
                         best_impact = impact
@@ -865,8 +881,6 @@ class BarbellDetector(object):
             motion_detection_frame = None
             if previous_previous_frame is not None:
                 motion_detection_frame = self._get_motion_detection_frame(previous_previous_frame, previous_frame, frame)
-                cv2.imshow("original", motion_detection_frame)
-                cv2.waitKey(1)
             previous_previous_frame = previous_frame
             previous_frame = frame
 
@@ -1150,7 +1164,7 @@ def filter_barbells_by_y_values(detected_barbells):
     return detected_barbells
 
 
-def filter_by_bar_width_and_set_mean_for_barbells(detected_barbells):
+def filter_by_bar_width(detected_barbells):
     ''' barbells will be returned with fixed barbell width; anamolies will be discarded
     based on 3 sigma rule'''
     barbell_widths = np.asarray([bar.barbell_width for bar in detected_barbells])
@@ -1158,7 +1172,12 @@ def filter_by_bar_width_and_set_mean_for_barbells(detected_barbells):
     mean = np.mean(barbell_widths)
 
     detected_barbells = [bar for bar in detected_barbells if abs(bar.barbell_width - mean) < 3 * std_dev]
+    return detected_barbells
+
+
+def set_mean_for_barbells(detected_barbells, mean_value=None):
     final_mean = int(np.mean(np.asarray([bar.barbell_width for bar in detected_barbells])))
+    final_mean = mean_value or final_mean
 
     olympic_barbell = OlympicBarbell()
     while True:
@@ -1302,7 +1321,7 @@ def create_barbell_template_from_detected_barbells(capture, detected_barbells):
 
 
 def amend_barbell_pixels_to_barbell_detections(capture, detected_barbells):
-    olympic_barbell = OlympicBarbell()
+    olympic_barbell = OlympicBarbell(force_fill=True)
     overlay = olympic_barbell.with_width(detected_barbells[0].barbell_width)
     frame_to_detected_barbell = {barbell.frame_number: barbell for barbell in detected_barbells}
     frame_number = 0
@@ -1345,6 +1364,12 @@ def amend_symmetry_score_to_barbell_detections(detected_barbells):
     print "Done"
 
 
+def get_similarity_between_images(img1, img2, total_pixels_compared):
+    error = cv2.norm(img1, img2)
+    similarity = error / total_pixels_compared
+    return similarity
+
+
 def get_symmetry_of_img(img):
     height, width = img.shape[0: 2]
     left_side_img = img[:, 0: width / 2]
@@ -1356,9 +1381,7 @@ def get_symmetry_of_img(img):
     right_side_img = img[:, width / 2 + offset: width]
     mirror = np.fliplr(left_side_img)
 
-    error = cv2.norm(mirror, right_side_img)
-    similarity = error / (width * height)
-    return similarity
+    return get_similarity_between_images(mirror, right_side_img, (width * height))
 
 
 def filter_by_y_pos_and_max_rom(detected_barbells):
@@ -1439,12 +1462,22 @@ def run(file_to_read):
     video_filename = (file_to_read.split("/")[-1]).split(".")[0]
     start_time = datetime.datetime.utcnow()
     capture_path = file_to_read
-    if True:
+    if False:
         capture = cv2.VideoCapture(capture_path)
         # frames_per_sec = capture.get(FRAMES_PER_SEC_KEY)
 
         barbell_detector = BarbellDetector(capture)
         detected_barbells = barbell_detector.get_barbell_frame_data()
+        dump_detected_barbells_to_json(detected_barbells, video_filename)
+
+    else:
+        detected_barbells = []
+        filename = "json_data/barbell_detections_%s.json" % video_filename
+        with open(filename, "rb") as f:
+            json_str = f.read()
+            json_data = json.loads(json_str)
+            for json_dict in json_data:
+                detected_barbells.append(BarbellDetection.from_json(json_dict))
 
         frame_num_to_original_val = {
             bar.frame_number: (bar.offset_x, bar.barbell_width) for bar in detected_barbells
@@ -1453,7 +1486,8 @@ def run(file_to_read):
         detected_barbells = filter_smaller_barbells(detected_barbells)
         detected_barbells = filter_barbells_by_y_values(detected_barbells)
 
-        detected_barbells = filter_by_bar_width_and_set_mean_for_barbells(detected_barbells)
+        detected_barbells = filter_by_bar_width(detected_barbells)
+        detected_barbells = set_mean_for_barbells(detected_barbells)
 
         capture = cv2.VideoCapture(capture_path)
         if len(detected_barbells) == 0:
@@ -1499,7 +1533,11 @@ def run(file_to_read):
         print "checkpoint 1 detected barbells: %s" % len(detected_barbells)
 
         detected_barbells = filter_smaller_barbells(detected_barbells)
-        detected_barbells = filter_by_bar_width_and_set_mean_for_barbells(detected_barbells)
+        detected_barbells = filter_by_bar_width(detected_barbells)
+
+        top_percentile = int(TOP_PERCENTILE_THRESHOLD_FOR_GOOD_DETECTION * len(detected_barbells))
+        more_accurate_mean = int(np.mean(np.asarray([frame_num_to_original_val[detection.frame_number][1] for detection in detected_barbells[:top_percentile]])))
+        detected_barbells = set_mean_for_barbells(detected_barbells, mean_value=more_accurate_mean)
         print "checkpoint 2 detected barbells: %s" % len(detected_barbells)
 
         x_offsets = [bar.offset_x for bar in detected_barbells]
@@ -1517,16 +1555,7 @@ def run(file_to_read):
         detected_barbells = barbell_detector.get_barbell_frame_data()
         print "Length of detected barbells now: %s" % len(detected_barbells)
         detected_barbells = set_bar_offsets_by_average_x(detected_barbells)
-        dump_detected_barbells_to_json(detected_barbells, video_filename)
-        #### END TOTAL REPEAT
-    else:
-        detected_barbells = []
-        filename = "json_data/barbell_detections_%s.json" % video_filename
-        with open(filename, "rb") as f:
-            json_str = f.read()
-            json_data = json.loads(json_str)
-            for json_dict in json_data:
-                detected_barbells.append(BarbellDetection.from_json(json_dict))
+        # ELESE STATEMENT USED TO BE HERE
 
     print "Fixing fluctuations..."
     detected_barbells.sort(key=lambda barbell: barbell.frame_number)
