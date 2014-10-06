@@ -1,3 +1,4 @@
+from collections import defaultdict
 import sys
 import datetime
 import json
@@ -10,7 +11,7 @@ LINE_DETECTION_THRESHOLD = 25  # 50
 FRAMES_PER_SEC_KEY = 5
 MOTION_THRESHOLD = 25
 MIN_BAR_WIDTH_AS_PERCENT_OF_SCREEN = 0.50
-MAX_PERCENT_DIFFERENCE_BETWEEN_BARS = 0.15
+MAX_PERCENT_DIFFERENCE_BETWEEN_BARS = 0.10
 MAX_ROM_IN_INCHES = 40
 METERS_PER_INCH = 0.0254
 TOP_PERCENTILE_THRESHOLD_FOR_GOOD_DETECTION = 0.25
@@ -706,11 +707,13 @@ def get_best_bar_size_position_angle(olympic_bar,
                                      right_x_limit,
                                      show_output=False,
                                      max_bar_size=None):
+    best_bar_width_to_frames_held = defaultdict(int)
     deleteme_counter = 0
     height, width = edges.shape[0: 2]
     num_pixels_for_motion = 10  # totally arbitrary right now
     best_impact = sys.maxint
-    min_width = int(max(min_bar_size, width * MIN_BAR_WIDTH_AS_PERCENT_OF_SCREEN))
+    min_width_threshold = int(width * MIN_BAR_WIDTH_AS_PERCENT_OF_SCREEN)
+    min_width = int(max(min_bar_size, min_width_threshold))
     max_bar_size = max_bar_size or width
     for bar_width in reversed(xrange(min_width, max_bar_size + 1)):
         bar_overlay = olympic_bar.with_width(bar_width)
@@ -761,12 +764,13 @@ def get_best_bar_size_position_angle(olympic_bar,
                     impact = np.sum(abs(mat_after_overlay - mat_before_overlay))
                     num_non_transparent_pixels = np.sum(angled_overlay[:, :, 3]) / 255.0
                     impact = float(impact) / 255.0
+                    # TODO consider punishing smaller bars some more again
                     impact = impact / num_non_transparent_pixels
                     # impact = impact / (overlay_width + overlay_height)
                     # initial impact represents the total number of affected
                     # pixels
 
-                    if impact < best_impact:
+                    if impact < best_impact and bar_width != min_width_threshold:
                         best_impact = impact
                         best_x_offset = x_offset
                         best_y_offset = y_offset
@@ -775,9 +779,25 @@ def get_best_bar_size_position_angle(olympic_bar,
                         if show_output:
                             cv2.imshow("Barbell Finder", grayscale_with_overlay)
                             cv2.waitKey(1)
+                    else:
+                        if "best_bar_width" in locals().keys():
+                            key = (best_impact, best_bar_width, best_x_offset, best_y_offset, best_angle)
+                            best_bar_width_to_frames_held[key] += 1
     # print "Time in function: %s" % (datetime.datetime.utcnow() - start_time).total_seconds()
     # print best_impact, best_x_offset, best_y_offset, best_angle, best_bar_width
-    return best_impact, best_bar_width, best_x_offset, best_y_offset, best_angle
+    if max_bar_size == min_bar_size:
+        # don't care about frames held, just get best result, so find the
+        # minimum bar size
+        return best_impact, best_bar_width, best_x_offset, best_y_offset, best_angle, 0
+    else:
+        max_frames_held = 0
+        for return_values, frames_held in best_bar_width_to_frames_held.items():
+            if frames_held > max_frames_held:
+                max_frames_held = frames_held
+                best_return_value = return_values + (frames_held,)
+
+    print "Returning %s with %s frames held" % (best_return_value[1], max_frames_held)
+    return best_return_value
 
 
 def resized_frame(frame):
@@ -791,13 +811,14 @@ def resized_frame(frame):
 
 class BarbellDetection(object):
 
-    def __init__(self, frame_number, impact_score, barbell_width, offset_x, offset_y, angle):
+    def __init__(self, frame_number, impact_score, barbell_width, offset_x, offset_y, angle, frames_held=None):
         self.frame_number = frame_number
         self.impact_score = impact_score
         self.barbell_width = barbell_width
         self.offset_x = offset_x
         self.offset_y = offset_y
         self.angle = angle
+        self.frames_held = frames_held or 0
 
         self.barbell_pixels = None
         self.symmetry_score = 9999
@@ -816,6 +837,7 @@ class BarbellDetection(object):
             "offset_x": self.offset_x,
             "offset_y": self.offset_y,
             "angle": self.angle,
+            "frames_held": self.frames_held or "",
         }
 
     @classmethod
@@ -825,7 +847,8 @@ class BarbellDetection(object):
                                      json_dict["barbell_width"],
                                      json_dict["offset_x"],
                                      json_dict["offset_y"],
-                                     json_dict["angle"])
+                                     json_dict["angle"],
+                                     frames_held=json_dict["frames_held"] or 0)
         return detection
 
 
@@ -925,7 +948,8 @@ class BarbellDetector(object):
                 self.draw_points_on_draw_img(draw_img, points)
                 # center_point = get_center_from_points(*points)
                 center_point = (width / 2, best_row)
-                min_width = get_width_from_points(*points)
+                # min_width = get_width_from_points(*points)
+                min_width = int(width * MIN_BAR_WIDTH_AS_PERCENT_OF_SCREEN)
                 try:
                     self.find_bar_from_edges_and_line_heuristics(grayscale_motion_detection, center_point, min_width, left_x, right_x)
                 except UnboundLocalError as e:
@@ -1036,16 +1060,16 @@ class BarbellDetector(object):
         min_width = self.min_bar_size or min_width
         left_x = self.min_x or left_x
         right_x = self.max_x or right_x
-        best_impact, barbell_width, best_x_offset, best_y_offset, best_angle = get_best_bar_size_position_angle(self.olympic_bar,
-                                                                                                                edges,
-                                                                                                                min_width,
-                                                                                                                center_point,
-                                                                                                                left_x,
-                                                                                                                right_x,
-                                                                                                                show_output=self.show_output,
-                                                                                                                max_bar_size=self.max_bar_size)
+        best_impact, barbell_width, best_x_offset, best_y_offset, best_angle, frames_held = get_best_bar_size_position_angle(self.olympic_bar,
+                                                                                                                            edges,
+                                                                                                                            min_width,
+                                                                                                                            center_point,
+                                                                                                                            left_x,
+                                                                                                                            right_x,
+                                                                                                                            show_output=self.show_output,
+                                                                                                                            max_bar_size=self.max_bar_size)
         frame_number_for_previous_previous_frame = self.frame_number - ACTUAL_FRAME_OFFSET
-        barbell_detection = BarbellDetection(frame_number_for_previous_previous_frame, best_impact, barbell_width, best_x_offset, best_y_offset, best_angle)
+        barbell_detection = BarbellDetection(frame_number_for_previous_previous_frame, best_impact, barbell_width, best_x_offset, best_y_offset, best_angle, frames_held=frames_held)
         self.barbell_detections.append(barbell_detection)
 
 
@@ -1480,7 +1504,7 @@ def run(file_to_read):
                 detected_barbells.append(BarbellDetection.from_json(json_dict))
 
         frame_num_to_original_val = {
-            bar.frame_number: (bar.offset_x, bar.barbell_width) for bar in detected_barbells
+            bar.frame_number: (bar.offset_x, bar.barbell_width, bar.frames_held) for bar in detected_barbells
         }
 
         detected_barbells = filter_smaller_barbells(detected_barbells)
@@ -1501,13 +1525,14 @@ def run(file_to_read):
         detected_barbells = barbell_detector.get_barbell_frame_data()
         for bar in detected_barbells:
             if bar.frame_number not in frame_num_to_original_val:
-                frame_num_to_original_val[bar.frame_number] = (bar.offset_x, bar.barbell_width)
+                frame_num_to_original_val[bar.frame_number] = (bar.offset_x, bar.barbell_width, 0)
 
         detected_barbells = set_bar_offsets_by_average_x(detected_barbells)
 
         capture = cv2.VideoCapture(capture_path)
         amend_barbell_pixels_to_barbell_detections(capture, detected_barbells)
         amend_likeness_score_to_barbell_detections(detected_barbells)
+        # TODO consider adding a likeness score with the average detections...
         amend_symmetry_score_to_barbell_detections(detected_barbells)
         detected_barbells = sorted(detected_barbells, key=lambda detection: detection.total_score)
 
@@ -1528,7 +1553,8 @@ def run(file_to_read):
         for frame_number in relevant_frames:
             original_x_offset = frame_num_to_original_val[frame_number][0]
             original_bar_width = frame_num_to_original_val[frame_number][1]
-            fabricated_detection = BarbellDetection(frame_number, None, original_bar_width, original_x_offset, None, None)
+            original_frames_held = frame_num_to_original_val[frame_number][2]
+            fabricated_detection = BarbellDetection(frame_number, None, original_bar_width, original_x_offset, None, None, frames_held=original_frames_held)
             detected_barbells.append(fabricated_detection)
         print "checkpoint 1 detected barbells: %s" % len(detected_barbells)
 
@@ -1536,7 +1562,12 @@ def run(file_to_read):
         detected_barbells = filter_by_bar_width(detected_barbells)
 
         top_percentile = int(TOP_PERCENTILE_THRESHOLD_FOR_GOOD_DETECTION * len(detected_barbells))
-        more_accurate_mean = int(np.mean(np.asarray([frame_num_to_original_val[detection.frame_number][1] for detection in detected_barbells[:top_percentile]])))
+        solid_detections = detected_barbells[:top_percentile]
+        original_values = [frame_num_to_original_val[detection.frame_number] for detection in solid_detections]
+        original_values.sort(key=lambda t: t[2])
+        original_values.reverse()
+        more_accurate_mean = int(np.mean(np.asarray([t[1] for t in original_values[:len(original_values) / 2]])))
+
         detected_barbells = set_mean_for_barbells(detected_barbells, mean_value=more_accurate_mean)
         print "checkpoint 2 detected barbells: %s" % len(detected_barbells)
 
