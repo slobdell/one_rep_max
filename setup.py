@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='one-rep-max',
-    version=1.0,
+    version="1.0.1",
     url='https://github.com/slobdell/one_rep_max',
     author="Scott Lobdell",
     author_email="scott.lobdell@gmail.com",
