@@ -1,6 +1,61 @@
+'''
+What's happening is...these huge fucking outliers will exist, so when we go to find the better start point
+in those cases, we end up discarding the current rep entirely
+
+Need to iterate again with those points now removed
+
+Then I also need to iterate again and find possible points other than the maxima itself
+'''
+
 import pylab
 import json
 import numpy as np
+
+
+def establish_point_pairs(min_maxima, max_maxima, x_values, y_values):
+    point_pairs = []
+    while True:
+        try:
+            if min_maxima[0][0] < max_maxima[0][0]:
+                starting_maxima = min_maxima
+                maxima_to_search = max_maxima
+            else:
+                starting_maxima = max_maxima
+                maxima_to_search = min_maxima
+        except IndexError:
+            break
+
+        start_point = starting_maxima[0]
+
+        max_score = 0
+        for point in maxima_to_search:
+            if starting_maxima == max_maxima and point[1] > start_point[1]:
+                continue
+            elif starting_maxima == min_maxima and point[1] < start_point[1]:
+                continue
+            actual_distance_to_point = _get_distance_to_point(start_point, point, x_values, y_values)
+            delta_y = abs(point[1] - start_point[1])
+            score = delta_y ** 2 / actual_distance_to_point
+            if score > max_score:
+                max_score = score
+                best_endpoint = point
+
+        for possible_better_start in starting_maxima:
+            if not (possible_better_start[0] > start_point[0] and possible_better_start[0] < best_endpoint[0]):
+                continue
+            actual_distance_to_point = _get_distance_to_point(possible_better_start, best_endpoint, x_values, y_values)
+            delta_y = abs(best_endpoint[1] - possible_better_start[1])
+            score = delta_y ** 2 / actual_distance_to_point
+            if score > max_score:
+                max_score = score
+                start_point = possible_better_start
+        point_pairs.append((start_point, best_endpoint))
+        # need to see about finding a better start point...this can happen in
+        # between sets or something
+
+        min_maxima = [t for t in min_maxima if t[0] >= best_endpoint[0]]
+        max_maxima = [t for t in max_maxima if t[0] >= best_endpoint[0]]
+    return point_pairs
 
 
 def smooth_list_gaussian(input_list, degree=10):
@@ -187,7 +242,7 @@ def get_instantaneous_acceleration_from_points(point_pairs, x_values, y_values):
 if __name__ == "__main__":
     # with open("json_data/final.json", "rb") as f:
     # with open("json_data/lobbdawg.json", "rb") as f:
-    with open("json_data/flat_bench_points.json", "rb") as f:
+    with open("json_data/plot_data_benchpress_girl.json", "rb") as f:
         json_str = f.read()
     # TODO go back and change how we're doing this
     frame_number_to_y = json.loads(json_str)
@@ -206,19 +261,28 @@ if __name__ == "__main__":
 
     pylab.figure()
 
-    # START FINDING ACCELERATION
+    pylab.plot(x_values, y_values, marker='o', color='b', label='Position')
+
+    ##### TEST
+
+    print "Finding the local maxima..."
     min_maxima, max_maxima = find_maxima(x_values, y_values)
     min_x = [t[0] for t in min_maxima]
     min_y = [t[1] for t in min_maxima]
 
     max_x = [t[0] for t in max_maxima]
     max_y = [t[1] for t in max_maxima]
-    point_pairs = get_accelerations_from_maxima(min_maxima, max_maxima, x_values, y_values)
-    get_acceleration_values_from_acceleration_points(point_pairs)
-    # END FINDING ACCELERATION
-
-    pylab.plot(x_values, y_values, marker='o', color='b', label='Position')
-
+    pylab.plot(min_x, min_y, 'o', color='r')
+    pylab.plot(max_x, max_y, 'o', color='g')
+    print "Calculating basic velocity..."
+    point_pairs = establish_point_pairs(min_maxima, max_maxima, x_values, y_values)
+    for point_pair in point_pairs:
+        x_values = [point[0] for point in point_pair]
+        y_values = [point[1] for point in point_pair]
+        pylab.plot(x_values, y_values, '-', color='r')
+    ##### TEST
+    '''
+    GRADIENT STUFF
     smoother_y = smooth_list_gaussian(y_values)
 
     x_vals_to_remove = len(y_values) - len(smoother_y)
@@ -229,8 +293,10 @@ if __name__ == "__main__":
     something = get_instantaneous_acceleration_from_points(point_pairs, smoother_x, smoother_y)
     print something
     pylab.plot(smoother_x, smooth_list_gaussian(y_values), '-', color='r')
+    '''
 
     '''
+    This method no longer used
     pylab.plot(min_x, min_y, 'o', color='r')
     pylab.plot(max_x, max_y, 'o', color='g')
 

@@ -148,45 +148,6 @@ def get_max_accelerations_from_points(point_pairs, frame_to_instantaneous_accele
     return frame_to_max_acceleration
 
 
-def determine_acceleration_values(detected_barbells, one_g):
-    # this should already be done, but just being cautious
-    detected_barbells.sort(key=lambda barbell: barbell.frame_number)
-    x_values = np.asarray([detection.frame_number for detection in detected_barbells]).astype(np.float)
-    y_values = np.asarray([detection.offset_y for detection in detected_barbells]).astype(np.float)
-
-    print "Finding the local maxima..."
-    min_maxima, max_maxima = find_maxima(x_values, y_values)
-    print "Calculating basic acceleration..."
-    point_pairs = establish_point_pairs(min_maxima, max_maxima, x_values, y_values)
-    frame_to_acceleration_pixels_per_frame = get_acceleration_values_from_acceleration_points(point_pairs)
-
-    print "Smoothing X and Y values..."
-    smoother_y = smooth_list_gaussian(y_values)
-    x_vals_to_remove = len(y_values) - len(smoother_y)
-    remove_from_start = x_vals_to_remove / 2
-    remove_from_end = x_vals_to_remove - remove_from_start
-    smoother_x = x_values[remove_from_start:len(x_values) - remove_from_end]
-
-    print "Calculating instantaneous acceleration..."
-    frame_to_instantaneous_acceleration = get_instantaneous_acceleration_from_points(point_pairs, smoother_x, smoother_y)
-
-    print "Converting to g units..."
-    frame_to_acceleration_in_gs = {}
-    for frame_number, acceleration in frame_to_acceleration_pixels_per_frame.items():
-        acceleration_in_gs = -1 * acceleration / one_g
-        frame_to_acceleration_in_gs[frame_number] = acceleration_in_gs
-
-    frame_to_instantaneous_acceleration_in_gs = {}
-    for frame_number, acceleration in frame_to_instantaneous_acceleration.items():
-        acceleration_in_gs = -1 * acceleration / one_g
-        frame_to_instantaneous_acceleration_in_gs[frame_number] = acceleration_in_gs
-
-    print "Calculating max instantaneous accelerations..."
-    frame_to_max_acceleration = get_max_accelerations_from_points(point_pairs, frame_to_instantaneous_acceleration_in_gs)
-
-    return frame_to_acceleration_in_gs, frame_to_instantaneous_acceleration_in_gs, frame_to_max_acceleration
-
-
 def _eliminate_0_derivatives(x_values, y_values):
     first_derivative = np.diff(y_values) / np.diff(x_values)
     max_iterations = len(first_derivative)
@@ -314,18 +275,6 @@ def establish_point_pairs(min_maxima, max_maxima, x_values, y_values):
         min_maxima = [t for t in min_maxima if t[0] >= best_endpoint[0]]
         max_maxima = [t for t in max_maxima if t[0] >= best_endpoint[0]]
     return point_pairs
-
-
-def get_acceleration_values_from_acceleration_points(point_pairs):
-    ''' returns a dictionary of frame numbers to acceleration in pixels per frame per frame '''
-    frame_to_acceleration = {}
-    for start_point, end_point in point_pairs:
-        delta_time_frames = end_point[0] - start_point[0]
-        delta_distance_pixels = end_point[1] - start_point[1]
-        acceleration_pixels_per_ff = 2 * delta_distance_pixels / (delta_time_frames ** 2)
-        for x in range(int(start_point[0]), int(end_point[0])):
-            frame_to_acceleration[x] = acceleration_pixels_per_ff
-    return frame_to_acceleration
 
 
 def has_fluctuations(detected_barbells):
