@@ -12,7 +12,9 @@ import json
 import numpy as np
 
 
-def establish_point_pairs(min_maxima, max_maxima, x_values, y_values):
+def establish_point_pairs(initial_min_maxima, initial_max_maxima, x_values, y_values):
+    min_maxima = list(initial_min_maxima)
+    max_maxima = list(initial_max_maxima)
     point_pairs = []
     while True:
         try:
@@ -55,7 +57,61 @@ def establish_point_pairs(min_maxima, max_maxima, x_values, y_values):
 
         min_maxima = [t for t in min_maxima if t[0] >= best_endpoint[0]]
         max_maxima = [t for t in max_maxima if t[0] >= best_endpoint[0]]
+
+    continuous_paths = _get_continuous_paths(point_pairs)
+    non_continuous_paths = _get_non_continuous_paths(continuous_paths, x_values, y_values)
+
+    # discard any points which reside in a continuous point pair block
+    # establish_point_pairs(initial_min_maxima, initial_max_maxima, x_values, y_values)
     return point_pairs
+
+
+def _get_non_continuous_paths(continuous_paths, x_values, y_values):
+    # return start point up to the first continuous path point
+    # return last continuous path point up to the end point
+    # return end to next start for every single item in continuous path
+    non_continuous = []
+    start_point = (x_values[0], y_values[0])
+    non_continuous.append((start_point, continuous_paths[0][0]))
+
+    if len(continuous_paths) > 1:
+        for index in xrange(len(continuous_paths) - 1):
+            start1, end1 = continuous_paths[index]
+            start2, end2 = continuous_paths[index + 1]
+            non_continuous.append((end1, start2))
+
+    end_point = (x_values[-1], y_values[-1])
+    non_continuous.append((continuous_paths[-1][1], end_point))
+
+    final_non_continuous = []
+    for start_point, end_point in non_continuous:
+        if start_point != end_point:
+            final_non_continuous.append((start_point, end_point))
+    return final_non_continuous
+
+
+def _get_continuous_paths(point_pairs):
+    continuous_paths = []
+    for index in xrange(len(point_pairs) - 1):
+        start1, end1 = point_pairs[index]
+        start_x = start1[0]
+        x_pairs = [(st[0], en[0]) for st, en in continuous_paths]
+        accounted_for = False
+        for st, en in x_pairs:
+            if st <= start_x <= en:
+                accounted_for = True
+        if accounted_for:
+            continue
+        points_to_add = None
+        end = end1
+        for index2 in xrange(index + 1, len(point_pairs)):
+            start2, end2 = point_pairs[index2]
+            if end == start2:
+                points_to_add = (start1, end2)
+                end = end2
+        if points_to_add:
+            continuous_paths.append(points_to_add)
+    return continuous_paths
 
 
 def smooth_list_gaussian(input_list, degree=10):

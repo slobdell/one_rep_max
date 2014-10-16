@@ -1,0 +1,1793 @@
+[
+    {
+        "angle": 0, 
+        "impact_score": 0.77898603610178563, 
+        "barbell_width": 420, 
+        "offset_x": 47, 
+        "offset_y": 159, 
+        "frames_held": 3632, 
+        "frame_number": 9
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.88991833519877295, 
+        "barbell_width": 495, 
+        "offset_x": 1, 
+        "offset_y": 83, 
+        "frames_held": 6690, 
+        "frame_number": 14
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.85067652792110993, 
+        "barbell_width": 358, 
+        "offset_x": 84, 
+        "offset_y": 50, 
+        "frames_held": 42465, 
+        "frame_number": 15
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.80205958352333184, 
+        "barbell_width": 270, 
+        "offset_x": 107, 
+        "offset_y": 99, 
+        "frames_held": 8813, 
+        "frame_number": 18
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.82714271275520523, 
+        "barbell_width": 405, 
+        "offset_x": 37, 
+        "offset_y": 231, 
+        "frames_held": 34990, 
+        "frame_number": 21
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.81128234041220326, 
+        "barbell_width": 328, 
+        "offset_x": 102, 
+        "offset_y": 145, 
+        "frames_held": 23207, 
+        "frame_number": 23
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.82928550207961971, 
+        "barbell_width": 277, 
+        "offset_x": 88, 
+        "offset_y": 149, 
+        "frames_held": 11785, 
+        "frame_number": 24
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.67022729489805877, 
+        "barbell_width": 421, 
+        "offset_x": 31, 
+        "offset_y": 231, 
+        "frames_held": 15029, 
+        "frame_number": 29
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.81039379540116885, 
+        "barbell_width": 375, 
+        "offset_x": 49, 
+        "offset_y": 237, 
+        "frames_held": 5054, 
+        "frame_number": 30
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.6121371029031768, 
+        "barbell_width": 270, 
+        "offset_x": 136, 
+        "offset_y": 98, 
+        "frames_held": 8556, 
+        "frame_number": 34
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.43623560535325245, 
+        "barbell_width": 264, 
+        "offset_x": 140, 
+        "offset_y": 98, 
+        "frames_held": 3320, 
+        "frame_number": 35
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.48818335281132325, 
+        "barbell_width": 317, 
+        "offset_x": 88, 
+        "offset_y": 96, 
+        "frames_held": 9334, 
+        "frame_number": 36
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.40534687770690608, 
+        "barbell_width": 260, 
+        "offset_x": 143, 
+        "offset_y": 96, 
+        "frames_held": 4317, 
+        "frame_number": 37
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.43384252925976596, 
+        "barbell_width": 270, 
+        "offset_x": 135, 
+        "offset_y": 95, 
+        "frames_held": 8565, 
+        "frame_number": 38
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.46485028119775046, 
+        "barbell_width": 270, 
+        "offset_x": 131, 
+        "offset_y": 93, 
+        "frames_held": 8602, 
+        "frame_number": 39
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.41833865329077369, 
+        "barbell_width": 270, 
+        "offset_x": 121, 
+        "offset_y": 93, 
+        "frames_held": 8691, 
+        "frame_number": 40
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.41058671530627755, 
+        "barbell_width": 270, 
+        "offset_x": 122, 
+        "offset_y": 92, 
+        "frames_held": 8680, 
+        "frame_number": 41
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.41981922880676437, 
+        "barbell_width": 282, 
+        "offset_x": 111, 
+        "offset_y": 91, 
+        "frames_held": 3230, 
+        "frame_number": 42
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.43725490196078431, 
+        "barbell_width": 293, 
+        "offset_x": 102, 
+        "offset_y": 91, 
+        "frames_held": 8714, 
+        "frame_number": 43
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.36512066365007545, 
+        "barbell_width": 271, 
+        "offset_x": 134, 
+        "offset_y": 86, 
+        "frames_held": 5978, 
+        "frame_number": 44
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.31753592125109154, 
+        "barbell_width": 259, 
+        "offset_x": 133, 
+        "offset_y": 88, 
+        "frames_held": 3974, 
+        "frame_number": 45
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.40568422490947603, 
+        "barbell_width": 302, 
+        "offset_x": 98, 
+        "offset_y": 84, 
+        "frames_held": 9960, 
+        "frame_number": 46
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.49811712764576033, 
+        "barbell_width": 317, 
+        "offset_x": 76, 
+        "offset_y": 83, 
+        "frames_held": 6767, 
+        "frame_number": 48
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.39972549019607845, 
+        "barbell_width": 261, 
+        "offset_x": 97, 
+        "offset_y": 83, 
+        "frames_held": 5143, 
+        "frame_number": 49
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.37618290559467032, 
+        "barbell_width": 272, 
+        "offset_x": 125, 
+        "offset_y": 80, 
+        "frames_held": 6867, 
+        "frame_number": 50
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.37957896336829305, 
+        "barbell_width": 270, 
+        "offset_x": 122, 
+        "offset_y": 78, 
+        "frames_held": 8682, 
+        "frame_number": 51
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.44159446724426205, 
+        "barbell_width": 270, 
+        "offset_x": 133, 
+        "offset_y": 77, 
+        "frames_held": 4141, 
+        "frame_number": 52
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.59545325376527425, 
+        "barbell_width": 360, 
+        "offset_x": 59, 
+        "offset_y": 76, 
+        "frames_held": 11646, 
+        "frame_number": 53
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.81554477461087527, 
+        "barbell_width": 406, 
+        "offset_x": 53, 
+        "offset_y": 29, 
+        "frames_held": 24458, 
+        "frame_number": 54
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.6991499131298089, 
+        "barbell_width": 330, 
+        "offset_x": 101, 
+        "offset_y": 39, 
+        "frames_held": 32497, 
+        "frame_number": 55
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.71378191564395543, 
+        "barbell_width": 291, 
+        "offset_x": 121, 
+        "offset_y": 78, 
+        "frames_held": 8722, 
+        "frame_number": 60
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.679511224779767, 
+        "barbell_width": 360, 
+        "offset_x": 79, 
+        "offset_y": 77, 
+        "frames_held": 17125, 
+        "frame_number": 61
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.62895645149445545, 
+        "barbell_width": 280, 
+        "offset_x": 130, 
+        "offset_y": 78, 
+        "frames_held": 4058, 
+        "frame_number": 62
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.80209562334962636, 
+        "barbell_width": 365, 
+        "offset_x": 79, 
+        "offset_y": 30, 
+        "frames_held": 44773, 
+        "frame_number": 63
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.77951122477976698, 
+        "barbell_width": 361, 
+        "offset_x": 81, 
+        "offset_y": 31, 
+        "frames_held": 39163, 
+        "frame_number": 64
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.87837563966154941, 
+        "barbell_width": 404, 
+        "offset_x": 50, 
+        "offset_y": 7, 
+        "frames_held": 47899, 
+        "frame_number": 65
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.67598227030275715, 
+        "barbell_width": 274, 
+        "offset_x": 132, 
+        "offset_y": 79, 
+        "frames_held": 10195, 
+        "frame_number": 66
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.6969025291275931, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 77, 
+        "frames_held": 12028, 
+        "frame_number": 67
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.81574968295776018, 
+        "barbell_width": 421, 
+        "offset_x": 42, 
+        "offset_y": 77, 
+        "frames_held": 8813, 
+        "frame_number": 68
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.77390462357782619, 
+        "barbell_width": 423, 
+        "offset_x": 44, 
+        "offset_y": 76, 
+        "frames_held": 11558, 
+        "frame_number": 74
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.73321646539410468, 
+        "barbell_width": 317, 
+        "offset_x": 106, 
+        "offset_y": 77, 
+        "frames_held": 9146, 
+        "frame_number": 75
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.64645317586494055, 
+        "barbell_width": 272, 
+        "offset_x": 109, 
+        "offset_y": 81, 
+        "frames_held": 9600, 
+        "frame_number": 77
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.57337741298069622, 
+        "barbell_width": 270, 
+        "offset_x": 123, 
+        "offset_y": 81, 
+        "frames_held": 8669, 
+        "frame_number": 78
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.62328715269891743, 
+        "barbell_width": 272, 
+        "offset_x": 127, 
+        "offset_y": 81, 
+        "frames_held": 6713, 
+        "frame_number": 79
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.72841617267061864, 
+        "barbell_width": 270, 
+        "offset_x": 117, 
+        "offset_y": 86, 
+        "frames_held": 8723, 
+        "frame_number": 80
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.79690252912759307, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 80, 
+        "frames_held": 15552, 
+        "frame_number": 82
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.79255470304063658, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 80, 
+        "frames_held": 11302, 
+        "frame_number": 83
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.67541922935393994, 
+        "barbell_width": 391, 
+        "offset_x": 44, 
+        "offset_y": 81, 
+        "frames_held": 6079, 
+        "frame_number": 84
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.55606414751331001, 
+        "barbell_width": 317, 
+        "offset_x": 104, 
+        "offset_y": 82, 
+        "frames_held": 9147, 
+        "frame_number": 85
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.49977275678483318, 
+        "barbell_width": 315, 
+        "offset_x": 73, 
+        "offset_y": 85, 
+        "frames_held": 7974, 
+        "frame_number": 87
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.58047486984868391, 
+        "barbell_width": 422, 
+        "offset_x": 43, 
+        "offset_y": 82, 
+        "frames_held": 4147, 
+        "frame_number": 88
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.53724965922197754, 
+        "barbell_width": 392, 
+        "offset_x": 49, 
+        "offset_y": 87, 
+        "frames_held": 7103, 
+        "frame_number": 89
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.26172549019607844, 
+        "barbell_width": 261, 
+        "offset_x": 129, 
+        "offset_y": 90, 
+        "frames_held": 4855, 
+        "frame_number": 90
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.5068877409320669, 
+        "barbell_width": 371, 
+        "offset_x": 53, 
+        "offset_y": 88, 
+        "frames_held": 9465, 
+        "frame_number": 91
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.48156083625503182, 
+        "barbell_width": 317, 
+        "offset_x": 75, 
+        "offset_y": 91, 
+        "frames_held": 9246, 
+        "frame_number": 92
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.42027663778689772, 
+        "barbell_width": 270, 
+        "offset_x": 127, 
+        "offset_y": 93, 
+        "frames_held": 8637, 
+        "frame_number": 93
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.63754683014645064, 
+        "barbell_width": 422, 
+        "offset_x": 44, 
+        "offset_y": 92, 
+        "frames_held": 11359, 
+        "frame_number": 94
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.55820903860119553, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
+        "offset_y": 93, 
+        "frames_held": 6924, 
+        "frame_number": 95
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.56485466815452468, 
+        "barbell_width": 385, 
+        "offset_x": 54, 
+        "offset_y": 95, 
+        "frames_held": 4605, 
+        "frame_number": 96
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.53411971648817835, 
+        "barbell_width": 397, 
+        "offset_x": 45, 
+        "offset_y": 96, 
+        "frames_held": 8805, 
+        "frame_number": 97
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.39702082383340936, 
+        "barbell_width": 270, 
+        "offset_x": 125, 
+        "offset_y": 99, 
+        "frames_held": 8653, 
+        "frame_number": 98
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.48156083625503182, 
+        "barbell_width": 317, 
+        "offset_x": 74, 
+        "offset_y": 100, 
+        "frames_held": 8178, 
+        "frame_number": 100
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.45838202830801195, 
+        "barbell_width": 317, 
+        "offset_x": 72, 
+        "offset_y": 103, 
+        "frames_held": 9549, 
+        "frame_number": 102
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.48321646539410468, 
+        "barbell_width": 317, 
+        "offset_x": 72, 
+        "offset_y": 104, 
+        "frames_held": 10250, 
+        "frame_number": 103
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.47659394883781331, 
+        "barbell_width": 317, 
+        "offset_x": 72, 
+        "offset_y": 105, 
+        "frames_held": 9430, 
+        "frame_number": 104
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.63024829497016199, 
+        "barbell_width": 386, 
+        "offset_x": 54, 
+        "offset_y": 107, 
+        "frames_held": 4640, 
+        "frame_number": 107
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.36601307189542487, 
+        "barbell_width": 270, 
+        "offset_x": 122, 
+        "offset_y": 110, 
+        "frames_held": 8682, 
+        "frame_number": 108
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.54116633733596797, 
+        "barbell_width": 404, 
+        "offset_x": 47, 
+        "offset_y": 110, 
+        "frames_held": 9502, 
+        "frame_number": 109
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.39702082383340936, 
+        "barbell_width": 270, 
+        "offset_x": 122, 
+        "offset_y": 111, 
+        "frames_held": 5987, 
+        "frame_number": 110
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.36601307189542487, 
+        "barbell_width": 270, 
+        "offset_x": 120, 
+        "offset_y": 114, 
+        "frames_held": 8700, 
+        "frame_number": 111
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.3708898944193062, 
+        "barbell_width": 271, 
+        "offset_x": 127, 
+        "offset_y": 115, 
+        "frames_held": 5911, 
+        "frame_number": 112
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.50496496799233836, 
+        "barbell_width": 407, 
+        "offset_x": 46, 
+        "offset_y": 116, 
+        "frames_held": 7241, 
+        "frame_number": 114
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.565714140953539, 
+        "barbell_width": 404, 
+        "offset_x": 47, 
+        "offset_y": 118, 
+        "frames_held": 3067, 
+        "frame_number": 115
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.53083042002330649, 
+        "barbell_width": 404, 
+        "offset_x": 45, 
+        "offset_y": 120, 
+        "frames_held": 3574, 
+        "frame_number": 116
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.41699129983119076, 
+        "barbell_width": 317, 
+        "offset_x": 76, 
+        "offset_y": 123, 
+        "frames_held": 5356, 
+        "frame_number": 117
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.51013240347685462, 
+        "barbell_width": 406, 
+        "offset_x": 44, 
+        "offset_y": 123, 
+        "frames_held": 7956, 
+        "frame_number": 118
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.4983518044899119, 
+        "barbell_width": 360, 
+        "offset_x": 72, 
+        "offset_y": 126, 
+        "frames_held": 6375, 
+        "frame_number": 119
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.60430689688810846, 
+        "barbell_width": 421, 
+        "offset_x": 31, 
+        "offset_y": 125, 
+        "frames_held": 4146, 
+        "frame_number": 120
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.53987434767188536, 
+        "barbell_width": 404, 
+        "offset_x": 46, 
+        "offset_y": 130, 
+        "frames_held": 6016, 
+        "frame_number": 121
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.48385905086672354, 
+        "barbell_width": 360, 
+        "offset_x": 71, 
+        "offset_y": 131, 
+        "frames_held": 10797, 
+        "frame_number": 122
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.4636229827051464, 
+        "barbell_width": 391, 
+        "offset_x": 48, 
+        "offset_y": 133, 
+        "frames_held": 7515, 
+        "frame_number": 123
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.44183343440468975, 
+        "barbell_width": 406, 
+        "offset_x": 41, 
+        "offset_y": 135, 
+        "frames_held": 13697, 
+        "frame_number": 124
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.42154021028701338, 
+        "barbell_width": 361, 
+        "offset_x": 56, 
+        "offset_y": 137, 
+        "frames_held": 4464, 
+        "frame_number": 125
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.43731351236146632, 
+        "barbell_width": 386, 
+        "offset_x": 51, 
+        "offset_y": 140, 
+        "frames_held": 13523, 
+        "frame_number": 126
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.30440851837423716, 
+        "barbell_width": 315, 
+        "offset_x": 109, 
+        "offset_y": 143, 
+        "frames_held": 8460, 
+        "frame_number": 127
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.4413895993179881, 
+        "barbell_width": 386, 
+        "offset_x": 50, 
+        "offset_y": 145, 
+        "frames_held": 8316, 
+        "frame_number": 128
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.51844013039458958, 
+        "barbell_width": 420, 
+        "offset_x": 46, 
+        "offset_y": 146, 
+        "frames_held": 3647, 
+        "frame_number": 129
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.58872120276682105, 
+        "barbell_width": 359, 
+        "offset_x": 61, 
+        "offset_y": 150, 
+        "frames_held": 7182, 
+        "frame_number": 130
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.58063159257102182, 
+        "barbell_width": 318, 
+        "offset_x": 108, 
+        "offset_y": 149, 
+        "frames_held": 9721, 
+        "frame_number": 132
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.56278235759862139, 
+        "barbell_width": 440, 
+        "offset_x": 35, 
+        "offset_y": 147, 
+        "frames_held": 7553, 
+        "frame_number": 133
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.41902889289420503, 
+        "barbell_width": 375, 
+        "offset_x": 55, 
+        "offset_y": 145, 
+        "frames_held": 4992, 
+        "frame_number": 134
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.41740606857268048, 
+        "barbell_width": 376, 
+        "offset_x": 53, 
+        "offset_y": 142, 
+        "frames_held": 5281, 
+        "frame_number": 135
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.39801900141499902, 
+        "barbell_width": 406, 
+        "offset_x": 42, 
+        "offset_y": 138, 
+        "frames_held": 11081, 
+        "frame_number": 136
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.41971930891219539, 
+        "barbell_width": 404, 
+        "offset_x": 44, 
+        "offset_y": 136, 
+        "frames_held": 11509, 
+        "frame_number": 137
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.39690252912759311, 
+        "barbell_width": 360, 
+        "offset_x": 82, 
+        "offset_y": 133, 
+        "frames_held": 7035, 
+        "frame_number": 138
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.26523787809697524, 
+        "barbell_width": 270, 
+        "offset_x": 128, 
+        "offset_y": 133, 
+        "frames_held": 5876, 
+        "frame_number": 139
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.36372173390428969, 
+        "barbell_width": 274, 
+        "offset_x": 127, 
+        "offset_y": 130, 
+        "frames_held": 5752, 
+        "frame_number": 140
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.55251103290318981, 
+        "barbell_width": 367, 
+        "offset_x": 78, 
+        "offset_y": 126, 
+        "frames_held": 2267, 
+        "frame_number": 141
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.61459465052511775, 
+        "barbell_width": 397, 
+        "offset_x": 49, 
+        "offset_y": 125, 
+        "frames_held": 7493, 
+        "frame_number": 142
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.75853575260950157, 
+        "barbell_width": 421, 
+        "offset_x": 31, 
+        "offset_y": 121, 
+        "frames_held": 5678, 
+        "frame_number": 146
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.71505826529900218, 
+        "barbell_width": 294, 
+        "offset_x": 119, 
+        "offset_y": 123, 
+        "frames_held": 6182, 
+        "frame_number": 147
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.86206976852498718, 
+        "barbell_width": 440, 
+        "offset_x": 28, 
+        "offset_y": 116, 
+        "frames_held": 3608, 
+        "frame_number": 149
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.80414890593918731, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 89, 
+        "frames_held": 32968, 
+        "frame_number": 150
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.88126642409541134, 
+        "barbell_width": 406, 
+        "offset_x": 37, 
+        "offset_y": 88, 
+        "frames_held": 24376, 
+        "frame_number": 151
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.78493491060335985, 
+        "barbell_width": 381, 
+        "offset_x": 53, 
+        "offset_y": 121, 
+        "frames_held": 6820, 
+        "frame_number": 154
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.62560057135436953, 
+        "barbell_width": 317, 
+        "offset_x": 107, 
+        "offset_y": 119, 
+        "frames_held": 7795, 
+        "frame_number": 155
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.74734172275875521, 
+        "barbell_width": 421, 
+        "offset_x": 43, 
+        "offset_y": 116, 
+        "frames_held": 3924, 
+        "frame_number": 156
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.64535244477537856, 
+        "barbell_width": 330, 
+        "offset_x": 99, 
+        "offset_y": 117, 
+        "frames_held": 4256, 
+        "frame_number": 157
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.58853811794988264, 
+        "barbell_width": 272, 
+        "offset_x": 130, 
+        "offset_y": 118, 
+        "frames_held": 9411, 
+        "frame_number": 158
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.75477124183006539, 
+        "barbell_width": 314, 
+        "offset_x": 110, 
+        "offset_y": 31, 
+        "frames_held": 26252, 
+        "frame_number": 159
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.76168689698101466, 
+        "barbell_width": 329, 
+        "offset_x": 101, 
+        "offset_y": 31, 
+        "frames_held": 32122, 
+        "frame_number": 160
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.80331187201248655, 
+        "barbell_width": 421, 
+        "offset_x": 31, 
+        "offset_y": 115, 
+        "frames_held": 4053, 
+        "frame_number": 161
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.759168220602362, 
+        "barbell_width": 363, 
+        "offset_x": 77, 
+        "offset_y": 54, 
+        "frames_held": 21740, 
+        "frame_number": 166
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.78022673089086758, 
+        "barbell_width": 420, 
+        "offset_x": 32, 
+        "offset_y": 39, 
+        "frames_held": 12779, 
+        "frame_number": 167
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.88416053921568627, 
+        "barbell_width": 334, 
+        "offset_x": 98, 
+        "offset_y": 7, 
+        "frames_held": 31339, 
+        "frame_number": 168
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.85450533489749181, 
+        "barbell_width": 367, 
+        "offset_x": 65, 
+        "offset_y": 34, 
+        "frames_held": 45575, 
+        "frame_number": 169
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.79335008024562137, 
+        "barbell_width": 294, 
+        "offset_x": 98, 
+        "offset_y": 43, 
+        "frames_held": 18652, 
+        "frame_number": 170
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.79709296653984973, 
+        "barbell_width": 421, 
+        "offset_x": 32, 
+        "offset_y": 111, 
+        "frames_held": 4039, 
+        "frame_number": 171
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.72659394883781325, 
+        "barbell_width": 317, 
+        "offset_x": 103, 
+        "offset_y": 111, 
+        "frames_held": 7839, 
+        "frame_number": 172
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.76781978300004872, 
+        "barbell_width": 420, 
+        "offset_x": 44, 
+        "offset_y": 41, 
+        "frames_held": 27760, 
+        "frame_number": 173
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.72579237174321787, 
+        "barbell_width": 307, 
+        "offset_x": 114, 
+        "offset_y": 34, 
+        "frames_held": 23603, 
+        "frame_number": 174
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.71873475758462591, 
+        "barbell_width": 421, 
+        "offset_x": 31, 
+        "offset_y": 109, 
+        "frames_held": 4053, 
+        "frame_number": 175
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.70826643312411819, 
+        "barbell_width": 420, 
+        "offset_x": 47, 
+        "offset_y": 107, 
+        "frames_held": 3659, 
+        "frame_number": 176
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.71606438718738186, 
+        "barbell_width": 381, 
+        "offset_x": 69, 
+        "offset_y": 107, 
+        "frames_held": 4632, 
+        "frame_number": 178
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.7539937590237995, 
+        "barbell_width": 440, 
+        "offset_x": 35, 
+        "offset_y": 105, 
+        "frames_held": 20870, 
+        "frame_number": 179
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.72588803637396992, 
+        "barbell_width": 360, 
+        "offset_x": 83, 
+        "offset_y": 35, 
+        "frames_held": 20708, 
+        "frame_number": 180
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.68514072295584905, 
+        "barbell_width": 308, 
+        "offset_x": 114, 
+        "offset_y": 36, 
+        "frames_held": 23993, 
+        "frame_number": 181
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.53461772305821553, 
+        "barbell_width": 270, 
+        "offset_x": 130, 
+        "offset_y": 105, 
+        "frames_held": 8051, 
+        "frame_number": 183
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.62161826756018868, 
+        "barbell_width": 330, 
+        "offset_x": 97, 
+        "offset_y": 102, 
+        "frames_held": 5930, 
+        "frame_number": 184
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.57593169718218418, 
+        "barbell_width": 315, 
+        "offset_x": 109, 
+        "offset_y": 103, 
+        "frames_held": 8500, 
+        "frame_number": 185
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.49159094532121794, 
+        "barbell_width": 258, 
+        "offset_x": 120, 
+        "offset_y": 102, 
+        "frames_held": 3660, 
+        "frame_number": 187
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.61054231819310001, 
+        "barbell_width": 330, 
+        "offset_x": 97, 
+        "offset_y": 99, 
+        "frames_held": 6198, 
+        "frame_number": 188
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.63717410040939459, 
+        "barbell_width": 380, 
+        "offset_x": 71, 
+        "offset_y": 98, 
+        "frames_held": 6433, 
+        "frame_number": 189
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.54566890047158101, 
+        "barbell_width": 330, 
+        "offset_x": 98, 
+        "offset_y": 97, 
+        "frames_held": 4597, 
+        "frame_number": 190
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.57799348027052011, 
+        "barbell_width": 420, 
+        "offset_x": 42, 
+        "offset_y": 93, 
+        "frames_held": 3703, 
+        "frame_number": 192
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.51098148756709394, 
+        "barbell_width": 376, 
+        "offset_x": 73, 
+        "offset_y": 94, 
+        "frames_held": 4066, 
+        "frame_number": 193
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.53003124326653739, 
+        "barbell_width": 380, 
+        "offset_x": 71, 
+        "offset_y": 92, 
+        "frames_held": 3312, 
+        "frame_number": 194
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.58419695421592954, 
+        "barbell_width": 420, 
+        "offset_x": 33, 
+        "offset_y": 90, 
+        "frames_held": 3829, 
+        "frame_number": 195
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.58791903858317518, 
+        "barbell_width": 420, 
+        "offset_x": 40, 
+        "offset_y": 86, 
+        "frames_held": 3731, 
+        "frame_number": 196
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.42225117895259373, 
+        "barbell_width": 330, 
+        "offset_x": 93, 
+        "offset_y": 86, 
+        "frames_held": 2705, 
+        "frame_number": 197
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.53092381231099406, 
+        "barbell_width": 421, 
+        "offset_x": 33, 
+        "offset_y": 84, 
+        "frames_held": 4024, 
+        "frame_number": 198
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.54138884773052798, 
+        "barbell_width": 416, 
+        "offset_x": 36, 
+        "offset_y": 83, 
+        "frames_held": 4930, 
+        "frame_number": 199
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.61147594429695873, 
+        "barbell_width": 440, 
+        "offset_x": 32, 
+        "offset_y": 81, 
+        "frames_held": 7598, 
+        "frame_number": 200
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.60125035521454961, 
+        "barbell_width": 360, 
+        "offset_x": 81, 
+        "offset_y": 81, 
+        "frames_held": 16781, 
+        "frame_number": 201
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.70604413382514719, 
+        "barbell_width": 316, 
+        "offset_x": 77, 
+        "offset_y": 45, 
+        "frames_held": 19149, 
+        "frame_number": 202
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.81248416679333235, 
+        "barbell_width": 404, 
+        "offset_x": 45, 
+        "offset_y": 34, 
+        "frames_held": 29929, 
+        "frame_number": 203
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.81958363592350525, 
+        "barbell_width": 423, 
+        "offset_x": 41, 
+        "offset_y": 41, 
+        "frames_held": 47325, 
+        "frame_number": 204
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.73023586246092642, 
+        "barbell_width": 361, 
+        "offset_x": 78, 
+        "offset_y": 85, 
+        "frames_held": 23699, 
+        "frame_number": 207
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.74315024022854181, 
+        "barbell_width": 315, 
+        "offset_x": 97, 
+        "offset_y": 86, 
+        "frames_held": 18215, 
+        "frame_number": 208
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.75763923803139488, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
+        "offset_y": 80, 
+        "frames_held": 37198, 
+        "frame_number": 209
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.87310457516339868, 
+        "barbell_width": 314, 
+        "offset_x": 110, 
+        "offset_y": 9, 
+        "frames_held": 26252, 
+        "frame_number": 215
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.82786077393920532, 
+        "barbell_width": 396, 
+        "offset_x": 61, 
+        "offset_y": 32, 
+        "frames_held": 47300, 
+        "frame_number": 216
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.76279351246671512, 
+        "barbell_width": 423, 
+        "offset_x": 33, 
+        "offset_y": 42, 
+        "frames_held": 17339, 
+        "frame_number": 217
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.56850933144342075, 
+        "barbell_width": 434, 
+        "offset_x": 29, 
+        "offset_y": 80, 
+        "frames_held": 6861, 
+        "frame_number": 218
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.46356919579425976, 
+        "barbell_width": 360, 
+        "offset_x": 63, 
+        "offset_y": 81, 
+        "frames_held": 8210, 
+        "frame_number": 219
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.4360329639102018, 
+        "barbell_width": 361, 
+        "offset_x": 63, 
+        "offset_y": 82, 
+        "frames_held": 7578, 
+        "frame_number": 220
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.44881408654113203, 
+        "barbell_width": 371, 
+        "offset_x": 68, 
+        "offset_y": 84, 
+        "frames_held": 10947, 
+        "frame_number": 221
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.37573728678463258, 
+        "barbell_width": 257, 
+        "offset_x": 96, 
+        "offset_y": 87, 
+        "frames_held": 3433, 
+        "frame_number": 222
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.48815201756378229, 
+        "barbell_width": 272, 
+        "offset_x": 99, 
+        "offset_y": 88, 
+        "frames_held": 9688, 
+        "frame_number": 223
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.70493268532484221, 
+        "barbell_width": 367, 
+        "offset_x": 71, 
+        "offset_y": 87, 
+        "frames_held": 13116, 
+        "frame_number": 224
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.70856455789863115, 
+        "barbell_width": 445, 
+        "offset_x": 31, 
+        "offset_y": 86, 
+        "frames_held": 8393, 
+        "frame_number": 226
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.69441075399231855, 
+        "barbell_width": 406, 
+        "offset_x": 37, 
+        "offset_y": 88, 
+        "frames_held": 13749, 
+        "frame_number": 227
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.73603296391020179, 
+        "barbell_width": 360, 
+        "offset_x": 73, 
+        "offset_y": 90, 
+        "frames_held": 10771, 
+        "frame_number": 228
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.62443876101165108, 
+        "barbell_width": 361, 
+        "offset_x": 71, 
+        "offset_y": 90, 
+        "frames_held": 8457, 
+        "frame_number": 229
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.61574310883773797, 
+        "barbell_width": 361, 
+        "offset_x": 71, 
+        "offset_y": 90, 
+        "frames_held": 4103, 
+        "frame_number": 230
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.6067818880129372, 
+        "barbell_width": 406, 
+        "offset_x": 55, 
+        "offset_y": 91, 
+        "frames_held": 13515, 
+        "frame_number": 231
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.4732826905596676, 
+        "barbell_width": 315, 
+        "offset_x": 73, 
+        "offset_y": 93, 
+        "frames_held": 4676, 
+        "frame_number": 232
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.45025997619495084, 
+        "barbell_width": 328, 
+        "offset_x": 91, 
+        "offset_y": 93, 
+        "frames_held": 4872, 
+        "frame_number": 233
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.3195014439884481, 
+        "barbell_width": 270, 
+        "offset_x": 95, 
+        "offset_y": 96, 
+        "frames_held": 5156, 
+        "frame_number": 234
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.50458758325182806, 
+        "barbell_width": 440, 
+        "offset_x": 31, 
+        "offset_y": 98, 
+        "frames_held": 7613, 
+        "frame_number": 235
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.34673086316377089, 
+        "barbell_width": 294, 
+        "offset_x": 87, 
+        "offset_y": 102, 
+        "frames_held": 6979, 
+        "frame_number": 236
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.48135806046556556, 
+        "barbell_width": 424, 
+        "offset_x": 44, 
+        "offset_y": 103, 
+        "frames_held": 4487, 
+        "frame_number": 237
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.54971822458199437, 
+        "barbell_width": 440, 
+        "offset_x": 31, 
+        "offset_y": 106, 
+        "frames_held": 5655, 
+        "frame_number": 238
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.64120687034503732, 
+        "barbell_width": 270, 
+        "offset_x": 137, 
+        "offset_y": 106, 
+        "frames_held": 8543, 
+        "frame_number": 239
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.5916910825632935, 
+        "barbell_width": 274, 
+        "offset_x": 129, 
+        "offset_y": 107, 
+        "frames_held": 10221, 
+        "frame_number": 240
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.57839465374164645, 
+        "barbell_width": 280, 
+        "offset_x": 126, 
+        "offset_y": 107, 
+        "frames_held": 12642, 
+        "frame_number": 241
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.76791702188121624, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 106, 
+        "frames_held": 11477, 
+        "frame_number": 242
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.62394494221529673, 
+        "barbell_width": 315, 
+        "offset_x": 100, 
+        "offset_y": 105, 
+        "frames_held": 4269, 
+        "frame_number": 243
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.65488901831359614, 
+        "barbell_width": 318, 
+        "offset_x": 96, 
+        "offset_y": 46, 
+        "frames_held": 16265, 
+        "frame_number": 244
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.65818934834659937, 
+        "barbell_width": 318, 
+        "offset_x": 97, 
+        "offset_y": 46, 
+        "frames_held": 11197, 
+        "frame_number": 245
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.78793636317576132, 
+        "barbell_width": 404, 
+        "offset_x": 44, 
+        "offset_y": 62, 
+        "frames_held": 24134, 
+        "frame_number": 246
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.83483972934261863, 
+        "barbell_width": 416, 
+        "offset_x": 34, 
+        "offset_y": 64, 
+        "frames_held": 54126, 
+        "frame_number": 249
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.86837535014005607, 
+        "barbell_width": 366, 
+        "offset_x": 79, 
+        "offset_y": 56, 
+        "frames_held": 27058, 
+        "frame_number": 250
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.83089858459940269, 
+        "barbell_width": 317, 
+        "offset_x": 108, 
+        "offset_y": 151, 
+        "frames_held": 9404, 
+        "frame_number": 251
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.73779991229718722, 
+        "barbell_width": 328, 
+        "offset_x": 100, 
+        "offset_y": 57, 
+        "frames_held": 24865, 
+        "frame_number": 252
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.77330875370091057, 
+        "barbell_width": 367, 
+        "offset_x": 74, 
+        "offset_y": 91, 
+        "frames_held": 16809, 
+        "frame_number": 253
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.79515304471623638, 
+        "barbell_width": 318, 
+        "offset_x": 108, 
+        "offset_y": 148, 
+        "frames_held": 15197, 
+        "frame_number": 254
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.87095714574489591, 
+        "barbell_width": 406, 
+        "offset_x": 51, 
+        "offset_y": 63, 
+        "frames_held": 52378, 
+        "frame_number": 255
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.81882975412387182, 
+        "barbell_width": 329, 
+        "offset_x": 100, 
+        "offset_y": 2, 
+        "frames_held": 32140, 
+        "frame_number": 256
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.87626874279123412, 
+        "barbell_width": 356, 
+        "offset_x": 84, 
+        "offset_y": 9, 
+        "frames_held": 23373, 
+        "frame_number": 257
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.82860755295775812, 
+        "barbell_width": 495, 
+        "offset_x": 1, 
+        "offset_y": 91, 
+        "frames_held": 11001, 
+        "frame_number": 267
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.71407258555596154, 
+        "barbell_width": 336, 
+        "offset_x": 85, 
+        "offset_y": 104, 
+        "frames_held": 13615, 
+        "frame_number": 268
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.77732843137254903, 
+        "barbell_width": 418, 
+        "offset_x": 48, 
+        "offset_y": 108, 
+        "frames_held": 13511, 
+        "frame_number": 269
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.73137753829267083, 
+        "barbell_width": 410, 
+        "offset_x": 53, 
+        "offset_y": 108, 
+        "frames_held": 8928, 
+        "frame_number": 270
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.77154186736729435, 
+        "barbell_width": 420, 
+        "offset_x": 46, 
+        "offset_y": 158, 
+        "frames_held": 3672, 
+        "frame_number": 271
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.68888154512741429, 
+        "barbell_width": 280, 
+        "offset_x": 101, 
+        "offset_y": 135, 
+        "frames_held": 5183, 
+        "frame_number": 272
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.64964798975970217, 
+        "barbell_width": 353, 
+        "offset_x": 77, 
+        "offset_y": 159, 
+        "frames_held": 7245, 
+        "frame_number": 275
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.64569793923235019, 
+        "barbell_width": 371, 
+        "offset_x": 74, 
+        "offset_y": 158, 
+        "frames_held": 3571, 
+        "frame_number": 277
+    }, 
+    {
+        "angle": 0, 
+        "impact_score": 0.58888241765353011, 
+        "barbell_width": 318, 
+        "offset_x": 105, 
+        "offset_y": 159, 
+        "frames_held": 9294, 
+        "frame_number": 278
+    }
+]
