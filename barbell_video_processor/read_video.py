@@ -231,7 +231,9 @@ def _get_distance_to_point(start_point, end_point, x_values, y_values):
     return total_distance
 
 
-def establish_point_pairs(min_maxima, max_maxima, x_values, y_values):
+def establish_point_pairs(initial_min_maxima, initial_max_maxima, x_values, y_values):
+    min_maxima = list(initial_min_maxima)
+    max_maxima = list(initial_max_maxima)
     point_pairs = []
     while True:
         try:
@@ -274,7 +276,70 @@ def establish_point_pairs(min_maxima, max_maxima, x_values, y_values):
 
         min_maxima = [t for t in min_maxima if t[0] >= best_endpoint[0]]
         max_maxima = [t for t in max_maxima if t[0] >= best_endpoint[0]]
+
+    continuous_paths = _get_continuous_paths(point_pairs)
+    non_continuous_paths = _get_non_continuous_paths(continuous_paths, x_values, y_values)
+    for start_point, end_point in non_continuous_paths:
+        indexes_to_keep = [index for index, x in enumerate(x_values) if start_point[0] <= x <= end_point[0]]
+        new_x = [x_values[index] for index in indexes_to_keep]
+        new_y = [y_values[index] for index in indexes_to_keep]
+        min_maxima = [t for t in initial_min_maxima if start_point[0] <= t[0] <= end_point[0]]
+        max_maxima = [t for t in initial_max_maxima if start_point[0] <= t[0] <= end_point[0]]
+
+        recursive_point_pairs = establish_point_pairs(min_maxima, max_maxima, new_x, new_y)
+        point_pairs += recursive_point_pairs
+
+    point_pairs.sort(key=lambda pair: pair[0][0])
     return point_pairs
+
+
+def _get_non_continuous_paths(continuous_paths, x_values, y_values):
+    if not continuous_paths:
+        return []
+    non_continuous = []
+    start_point = (x_values[0], y_values[0])
+    non_continuous.append((start_point, continuous_paths[0][0]))
+
+    if len(continuous_paths) > 1:
+        for index in xrange(len(continuous_paths) - 1):
+            start1, end1 = continuous_paths[index]
+            start2, end2 = continuous_paths[index + 1]
+            non_continuous.append((end1, start2))
+
+    end_point = (x_values[-1], y_values[-1])
+    non_continuous.append((continuous_paths[-1][1], end_point))
+
+    final_non_continuous = []
+    for start_point, end_point in non_continuous:
+        if start_point != end_point:
+            final_non_continuous.append((start_point, end_point))
+    return final_non_continuous
+
+
+def _get_continuous_paths(point_pairs):
+    continuous_paths = []
+    if len(point_pairs) == 1:
+        return list(point_pairs)
+    for index in xrange(len(point_pairs) - 1):
+        start1, end1 = point_pairs[index]
+        start_x = start1[0]
+        x_pairs = [(st[0], en[0]) for st, en in continuous_paths]
+        accounted_for = False
+        for st, en in x_pairs:
+            if st <= start_x <= en:
+                accounted_for = True
+        if accounted_for:
+            continue
+        points_to_add = None
+        end = end1
+        for index2 in xrange(index + 1, len(point_pairs)):
+            start2, end2 = point_pairs[index2]
+            if end == start2:
+                points_to_add = (start1, end2)
+                end = end2
+        if points_to_add:
+            continuous_paths.append(points_to_add)
+    return continuous_paths
 
 
 def has_fluctuations(detected_barbells):
@@ -1515,7 +1580,7 @@ def run(file_to_read):
         original_values = [frame_num_to_original_val[detection.frame_number] for detection in solid_detections]
         original_values.sort(key=lambda t: t[2])
         original_values.reverse()
-        more_accurate_mean = int(np.mean(np.asarray([t[1] for t in original_values[:len(original_values) / 2]])))
+        more_accurate_mean = int(np.mean(np.asarray([t[1] for t in original_values[:len(original_values) / 1]])))
 
         detected_barbells = set_mean_for_barbells(detected_barbells, mean_value=more_accurate_mean)
         print "checkpoint 2 detected barbells: %s" % len(detected_barbells)

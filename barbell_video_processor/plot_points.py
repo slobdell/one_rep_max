@@ -52,24 +52,29 @@ def establish_point_pairs(initial_min_maxima, initial_max_maxima, x_values, y_va
                 max_score = score
                 start_point = possible_better_start
         point_pairs.append((start_point, best_endpoint))
-        # need to see about finding a better start point...this can happen in
-        # between sets or something
 
         min_maxima = [t for t in min_maxima if t[0] >= best_endpoint[0]]
         max_maxima = [t for t in max_maxima if t[0] >= best_endpoint[0]]
 
     continuous_paths = _get_continuous_paths(point_pairs)
     non_continuous_paths = _get_non_continuous_paths(continuous_paths, x_values, y_values)
+    for start_point, end_point in non_continuous_paths:
+        indexes_to_keep = [index for index, x in enumerate(x_values) if start_point[0] <= x <= end_point[0]]
+        new_x = [x_values[index] for index in indexes_to_keep]
+        new_y = [y_values[index] for index in indexes_to_keep]
+        min_maxima = [t for t in initial_min_maxima if start_point[0] <= t[0] <= end_point[0]]
+        max_maxima = [t for t in initial_max_maxima if start_point[0] <= t[0] <= end_point[0]]
 
-    # discard any points which reside in a continuous point pair block
-    # establish_point_pairs(initial_min_maxima, initial_max_maxima, x_values, y_values)
+        recursive_point_pairs = establish_point_pairs(min_maxima, max_maxima, new_x, new_y)
+        point_pairs += recursive_point_pairs
+
+    point_pairs.sort(key=lambda pair: pair[0][0])
     return point_pairs
 
 
 def _get_non_continuous_paths(continuous_paths, x_values, y_values):
-    # return start point up to the first continuous path point
-    # return last continuous path point up to the end point
-    # return end to next start for every single item in continuous path
+    if not continuous_paths:
+        return []
     non_continuous = []
     start_point = (x_values[0], y_values[0])
     non_continuous.append((start_point, continuous_paths[0][0]))
@@ -92,6 +97,8 @@ def _get_non_continuous_paths(continuous_paths, x_values, y_values):
 
 def _get_continuous_paths(point_pairs):
     continuous_paths = []
+    if len(point_pairs) == 1:
+        return list(point_pairs)
     for index in xrange(len(point_pairs) - 1):
         start1, end1 = point_pairs[index]
         start_x = start1[0]

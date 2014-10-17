@@ -1,10 +1,11 @@
 [
     {
         "angle": 0, 
-        "impact_score": 0.64375030409186007, 
-        "barbell_width": 422, 
-        "offset_x": 42, 
+        "impact_score": 0.63289760348583879, 
+        "barbell_width": 404, 
+        "offset_x": 44, 
         "offset_y": 134, 
+        "frames_held": 30752, 
         "frame_number": 98
     }, 
     {
@@ -13,70 +14,79 @@
         "barbell_width": 399, 
         "offset_x": 51, 
         "offset_y": 136, 
+        "frames_held": 28381, 
         "frame_number": 99
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.49485416056970055, 
-        "barbell_width": 421, 
-        "offset_x": 39, 
+        "impact_score": 0.47915083345999898, 
+        "barbell_width": 404, 
+        "offset_x": 41, 
         "offset_y": 137, 
+        "frames_held": 13432, 
         "frame_number": 100
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.45888678051865911, 
-        "barbell_width": 422, 
-        "offset_x": 44, 
-        "offset_y": 137, 
+        "impact_score": 0.36069990910271393, 
+        "barbell_width": 315, 
+        "offset_x": 73, 
+        "offset_y": 140, 
+        "frames_held": 8614, 
         "frame_number": 101
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.43407288473702138, 
-        "barbell_width": 422, 
-        "offset_x": 44, 
-        "offset_y": 139, 
+        "impact_score": 0.42838987446830584, 
+        "barbell_width": 396, 
+        "offset_x": 61, 
+        "offset_y": 140, 
+        "frames_held": 10929, 
         "frame_number": 102
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.43764023022144183, 
-        "barbell_width": 421, 
-        "offset_x": 45, 
-        "offset_y": 141, 
+        "impact_score": 0.37958773252890904, 
+        "barbell_width": 327, 
+        "offset_x": 68, 
+        "offset_y": 144, 
+        "frames_held": 10872, 
         "frame_number": 103
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.35641181537214373, 
-        "barbell_width": 404, 
-        "offset_x": 42, 
+        "impact_score": 0.35367155458171812, 
+        "barbell_width": 365, 
+        "offset_x": 68, 
         "offset_y": 146, 
+        "frames_held": 19771, 
         "frame_number": 104
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.41375031025068254, 
-        "barbell_width": 413, 
-        "offset_x": 42, 
-        "offset_y": 147, 
+        "impact_score": 0.39338592579889098, 
+        "barbell_width": 359, 
+        "offset_x": 62, 
+        "offset_y": 149, 
+        "frames_held": 10568, 
         "frame_number": 105
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.39932505665582818, 
-        "barbell_width": 417, 
-        "offset_x": 37, 
-        "offset_y": 150, 
+        "impact_score": 0.36157977402847447, 
+        "barbell_width": 404, 
+        "offset_x": 38, 
+        "offset_y": 151, 
+        "frames_held": 41769, 
         "frame_number": 106
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.38384374368304025, 
-        "barbell_width": 405, 
-        "offset_x": 38, 
+        "impact_score": 0.36287176369255714, 
+        "barbell_width": 404, 
+        "offset_x": 39, 
         "offset_y": 153, 
+        "frames_held": 37968, 
         "frame_number": 107
     }, 
     {
@@ -85,6 +95,7 @@
         "barbell_width": 420, 
         "offset_x": 36, 
         "offset_y": 155, 
+        "frames_held": 57217, 
         "frame_number": 108
     }, 
     {
@@ -93,6 +104,7 @@
         "barbell_width": 420, 
         "offset_x": 36, 
         "offset_y": 157, 
+        "frames_held": 27349, 
         "frame_number": 109
     }, 
     {
@@ -101,14 +113,16 @@
         "barbell_width": 411, 
         "offset_x": 37, 
         "offset_y": 159, 
+        "frames_held": 41622, 
         "frame_number": 110
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.36800801080527223, 
-        "barbell_width": 440, 
-        "offset_x": 35, 
-        "offset_y": 160, 
+        "impact_score": 0.34617544934640526, 
+        "barbell_width": 402, 
+        "offset_x": 41, 
+        "offset_y": 161, 
+        "frames_held": 12735, 
         "frame_number": 111
     }, 
     {
@@ -117,14 +131,16 @@
         "barbell_width": 404, 
         "offset_x": 56, 
         "offset_y": 162, 
+        "frames_held": 37748, 
         "frame_number": 112
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.3627935124667151, 
-        "barbell_width": 423, 
-        "offset_x": 34, 
-        "offset_y": 164, 
+        "impact_score": 0.3008674674058105, 
+        "barbell_width": 399, 
+        "offset_x": 55, 
+        "offset_y": 165, 
+        "frames_held": 36388, 
         "frame_number": 113
     }, 
     {
@@ -133,46 +149,52 @@
         "barbell_width": 411, 
         "offset_x": 37, 
         "offset_y": 167, 
+        "frames_held": 39682, 
         "frame_number": 114
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.40646528881823002, 
-        "barbell_width": 426, 
-        "offset_x": 33, 
-        "offset_y": 168, 
+        "impact_score": 0.38958365498430347, 
+        "barbell_width": 398, 
+        "offset_x": 59, 
+        "offset_y": 169, 
+        "frames_held": 22186, 
         "frame_number": 115
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.44561776517836049, 
-        "barbell_width": 434, 
-        "offset_x": 38, 
-        "offset_y": 168, 
+        "impact_score": 0.40126874279123415, 
+        "barbell_width": 355, 
+        "offset_x": 57, 
+        "offset_y": 173, 
+        "frames_held": 26155, 
         "frame_number": 116
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.47899846212995001, 
-        "barbell_width": 425, 
-        "offset_x": 36, 
-        "offset_y": 172, 
+        "impact_score": 0.4130334486735871, 
+        "barbell_width": 355, 
+        "offset_x": 57, 
+        "offset_y": 175, 
+        "frames_held": 33314, 
         "frame_number": 117
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.47287101114955787, 
-        "barbell_width": 425, 
-        "offset_x": 36, 
-        "offset_y": 174, 
+        "impact_score": 0.42743206607401807, 
+        "barbell_width": 325, 
+        "offset_x": 69, 
+        "offset_y": 177, 
+        "frames_held": 12552, 
         "frame_number": 118
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.48880238369857748, 
-        "barbell_width": 427, 
-        "offset_x": 33, 
-        "offset_y": 176, 
+        "impact_score": 0.43707836832482189, 
+        "barbell_width": 325, 
+        "offset_x": 69, 
+        "offset_y": 178, 
+        "frames_held": 12456, 
         "frame_number": 119
     }, 
     {
@@ -181,30 +203,34 @@
         "barbell_width": 422, 
         "offset_x": 32, 
         "offset_y": 178, 
+        "frames_held": 17829, 
         "frame_number": 120
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.39561134627548289, 
-        "barbell_width": 422, 
+        "impact_score": 0.39410789191298412, 
+        "barbell_width": 421, 
         "offset_x": 32, 
         "offset_y": 180, 
+        "frames_held": 42021, 
         "frame_number": 121
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.406003389009925, 
-        "barbell_width": 423, 
-        "offset_x": 32, 
-        "offset_y": 182, 
+        "impact_score": 0.37661267405512933, 
+        "barbell_width": 360, 
+        "offset_x": 73, 
+        "offset_y": 183, 
+        "frames_held": 24857, 
         "frame_number": 122
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.41152082723636718, 
-        "barbell_width": 421, 
-        "offset_x": 31, 
-        "offset_y": 184, 
+        "impact_score": 0.39173306210092107, 
+        "barbell_width": 363, 
+        "offset_x": 72, 
+        "offset_y": 185, 
+        "frames_held": 15584, 
         "frame_number": 123
     }, 
     {
@@ -213,102 +239,115 @@
         "barbell_width": 421, 
         "offset_x": 32, 
         "offset_y": 186, 
+        "frames_held": 11643, 
         "frame_number": 124
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.37749650943968921, 
-        "barbell_width": 338, 
-        "offset_x": 64, 
-        "offset_y": 190, 
+        "impact_score": 0.38584436623652313, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
+        "offset_y": 189, 
+        "frames_held": 7900, 
         "frame_number": 125
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.37287881513461657, 
-        "barbell_width": 341, 
-        "offset_x": 63, 
-        "offset_y": 192, 
+        "impact_score": 0.40109208240258132, 
+        "barbell_width": 413, 
+        "offset_x": 34, 
+        "offset_y": 190, 
+        "frames_held": 15462, 
         "frame_number": 126
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.37894674486108643, 
-        "barbell_width": 347, 
-        "offset_x": 60, 
-        "offset_y": 194, 
+        "impact_score": 0.40543717486994801, 
+        "barbell_width": 411, 
+        "offset_x": 35, 
+        "offset_y": 192, 
+        "frames_held": 14986, 
         "frame_number": 127
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.37090488369260749, 
-        "barbell_width": 336, 
-        "offset_x": 66, 
-        "offset_y": 196, 
+        "impact_score": 0.42636951687891655, 
+        "barbell_width": 405, 
+        "offset_x": 37, 
+        "offset_y": 194, 
+        "frames_held": 7851, 
         "frame_number": 128
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.43690605076386385, 
-        "barbell_width": 342, 
-        "offset_x": 64, 
+        "impact_score": 0.38553434618880666, 
+        "barbell_width": 315, 
+        "offset_x": 73, 
         "offset_y": 196, 
+        "frames_held": 8616, 
         "frame_number": 129
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.41202441241397225, 
-        "barbell_width": 315, 
-        "offset_x": 73, 
-        "offset_y": 198, 
+        "impact_score": 0.45632281898266552, 
+        "barbell_width": 361, 
+        "offset_x": 60, 
+        "offset_y": 197, 
+        "frames_held": 11231, 
         "frame_number": 130
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.44948589191774274, 
-        "barbell_width": 343, 
-        "offset_x": 63, 
-        "offset_y": 200, 
+        "impact_score": 0.33881751934490273, 
+        "barbell_width": 274, 
+        "offset_x": 90, 
+        "offset_y": 201, 
+        "frames_held": 10572, 
         "frame_number": 131
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.46084539734897073, 
-        "barbell_width": 335, 
-        "offset_x": 65, 
-        "offset_y": 202, 
+        "impact_score": 0.4103687832748994, 
+        "barbell_width": 315, 
+        "offset_x": 73, 
+        "offset_y": 201, 
+        "frames_held": 8616, 
         "frame_number": 132
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.46828473509747742, 
-        "barbell_width": 365, 
-        "offset_x": 79, 
-        "offset_y": 202, 
+        "impact_score": 0.40705752499675368, 
+        "barbell_width": 315, 
+        "offset_x": 73, 
+        "offset_y": 203, 
+        "frames_held": 8616, 
         "frame_number": 133
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.50603318250377072, 
-        "barbell_width": 422, 
-        "offset_x": 34, 
-        "offset_y": 203, 
+        "impact_score": 0.47558795598011289, 
+        "barbell_width": 367, 
+        "offset_x": 76, 
+        "offset_y": 204, 
+        "frames_held": 12958, 
         "frame_number": 134
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.59672189289152355, 
-        "barbell_width": 404, 
-        "offset_x": 38, 
-        "offset_y": 209, 
+        "impact_score": 0.48756575801052132, 
+        "barbell_width": 302, 
+        "offset_x": 80, 
+        "offset_y": 206, 
+        "frames_held": 12859, 
         "frame_number": 135
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.71628195582030285, 
-        "barbell_width": 413, 
-        "offset_x": 35, 
-        "offset_y": 205, 
+        "impact_score": 0.68385905086672349, 
+        "barbell_width": 361, 
+        "offset_x": 76, 
+        "offset_y": 206, 
+        "frames_held": 11380, 
         "frame_number": 136
     }, 
     {
@@ -317,14 +356,16 @@
         "barbell_width": 403, 
         "offset_x": 38, 
         "offset_y": 209, 
+        "frames_held": 56021, 
         "frame_number": 137
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.62320054604120134, 
-        "barbell_width": 330, 
-        "offset_x": 100, 
-        "offset_y": 207, 
+        "impact_score": 0.68154720320432216, 
+        "barbell_width": 440, 
+        "offset_x": 34, 
+        "offset_y": 205, 
+        "frames_held": 6840, 
         "frame_number": 138
     }, 
     {
@@ -333,14 +374,16 @@
         "barbell_width": 355, 
         "offset_x": 57, 
         "offset_y": 207, 
+        "frames_held": 15133, 
         "frame_number": 139
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.44795577805590325, 
-        "barbell_width": 393, 
-        "offset_x": 49, 
+        "impact_score": 0.33024442653773839, 
+        "barbell_width": 307, 
+        "offset_x": 76, 
         "offset_y": 205, 
+        "frames_held": 13622, 
         "frame_number": 140
     }, 
     {
@@ -349,6 +392,7 @@
         "barbell_width": 427, 
         "offset_x": 34, 
         "offset_y": 202, 
+        "frames_held": 16036, 
         "frame_number": 141
     }, 
     {
@@ -357,6 +401,7 @@
         "barbell_width": 410, 
         "offset_x": 36, 
         "offset_y": 201, 
+        "frames_held": 10893, 
         "frame_number": 142
     }, 
     {
@@ -365,30 +410,34 @@
         "barbell_width": 417, 
         "offset_x": 40, 
         "offset_y": 199, 
+        "frames_held": 28472, 
         "frame_number": 143
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.27643790849673205, 
-        "barbell_width": 314, 
-        "offset_x": 74, 
+        "impact_score": 0.2148502811977504, 
+        "barbell_width": 270, 
+        "offset_x": 106, 
         "offset_y": 199, 
+        "frames_held": 8826, 
         "frame_number": 144
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.28237917240474786, 
-        "barbell_width": 313, 
-        "offset_x": 74, 
+        "impact_score": 0.27373757722266989, 
+        "barbell_width": 307, 
+        "offset_x": 76, 
         "offset_y": 197, 
+        "frames_held": 23987, 
         "frame_number": 145
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.32917321231163088, 
-        "barbell_width": 353, 
-        "offset_x": 58, 
+        "impact_score": 0.3586040013969965, 
+        "barbell_width": 410, 
+        "offset_x": 38, 
         "offset_y": 194, 
+        "frames_held": 14718, 
         "frame_number": 146
     }, 
     {
@@ -397,6 +446,7 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 192, 
+        "frames_held": 12597, 
         "frame_number": 147
     }, 
     {
@@ -405,14 +455,16 @@
         "barbell_width": 363, 
         "offset_x": 54, 
         "offset_y": 190, 
+        "frames_held": 17824, 
         "frame_number": 148
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.38396972824217407, 
-        "barbell_width": 298, 
-        "offset_x": 84, 
-        "offset_y": 190, 
+        "impact_score": 0.40446230038407116, 
+        "barbell_width": 406, 
+        "offset_x": 37, 
+        "offset_y": 188, 
+        "frames_held": 30266, 
         "frame_number": 149
     }, 
     {
@@ -421,6 +473,7 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 187, 
+        "frames_held": 26682, 
         "frame_number": 150
     }, 
     {
@@ -429,22 +482,25 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 186, 
+        "frames_held": 26682, 
         "frame_number": 151
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.40953479430988082, 
-        "barbell_width": 266, 
-        "offset_x": 93, 
-        "offset_y": 188, 
+        "impact_score": 0.42631519466576256, 
+        "barbell_width": 363, 
+        "offset_x": 54, 
+        "offset_y": 184, 
+        "frames_held": 35722, 
         "frame_number": 152
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.42559457242973237, 
-        "barbell_width": 275, 
-        "offset_x": 133, 
-        "offset_y": 184, 
+        "impact_score": 0.44424892464108151, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
+        "offset_y": 182, 
+        "frames_held": 32339, 
         "frame_number": 153
     }, 
     {
@@ -453,22 +509,25 @@
         "barbell_width": 363, 
         "offset_x": 54, 
         "offset_y": 181, 
+        "frames_held": 35326, 
         "frame_number": 154
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.59164112295042093, 
-        "barbell_width": 420, 
-        "offset_x": 36, 
-        "offset_y": 180, 
+        "impact_score": 0.51397909321457291, 
+        "barbell_width": 331, 
+        "offset_x": 67, 
+        "offset_y": 181, 
+        "frames_held": 6610, 
         "frame_number": 155
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.59879530218256971, 
-        "barbell_width": 407, 
-        "offset_x": 36, 
+        "impact_score": 0.52272599584246304, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
         "offset_y": 178, 
+        "frames_held": 23054, 
         "frame_number": 156
     }, 
     {
@@ -477,22 +536,25 @@
         "barbell_width": 363, 
         "offset_x": 54, 
         "offset_y": 177, 
+        "frames_held": 35905, 
         "frame_number": 157
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.5829562594268477, 
-        "barbell_width": 420, 
-        "offset_x": 37, 
-        "offset_y": 173, 
+        "impact_score": 0.49978004022121669, 
+        "barbell_width": 327, 
+        "offset_x": 68, 
+        "offset_y": 177, 
+        "frames_held": 19766, 
         "frame_number": 158
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.54993770083284155, 
-        "barbell_width": 313, 
-        "offset_x": 74, 
-        "offset_y": 177, 
+        "impact_score": 0.60008064922627147, 
+        "barbell_width": 407, 
+        "offset_x": 41, 
+        "offset_y": 172, 
+        "frames_held": 6736, 
         "frame_number": 159
     }, 
     {
@@ -501,14 +563,16 @@
         "barbell_width": 399, 
         "offset_x": 45, 
         "offset_y": 171, 
+        "frames_held": 13759, 
         "frame_number": 160
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.58419695421592954, 
-        "barbell_width": 420, 
-        "offset_x": 41, 
+        "impact_score": 0.58272376308036167, 
+        "barbell_width": 403, 
+        "offset_x": 42, 
         "offset_y": 170, 
+        "frames_held": 23910, 
         "frame_number": 161
     }, 
     {
@@ -517,22 +581,25 @@
         "barbell_width": 403, 
         "offset_x": 40, 
         "offset_y": 169, 
+        "frames_held": 25916, 
         "frame_number": 162
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.44322750020510299, 
-        "barbell_width": 250, 
-        "offset_x": 115, 
-        "offset_y": 174, 
+        "impact_score": 0.57843137254901966, 
+        "barbell_width": 405, 
+        "offset_x": 37, 
+        "offset_y": 169, 
+        "frames_held": 13502, 
         "frame_number": 163
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.57799348027052011, 
-        "barbell_width": 420, 
-        "offset_x": 37, 
-        "offset_y": 166, 
+        "impact_score": 0.49336978381096031, 
+        "barbell_width": 327, 
+        "offset_x": 68, 
+        "offset_y": 168, 
+        "frames_held": 13324, 
         "frame_number": 164
     }, 
     {
@@ -541,30 +608,34 @@
         "barbell_width": 361, 
         "offset_x": 55, 
         "offset_y": 167, 
+        "frames_held": 25755, 
         "frame_number": 165
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.55193888969980054, 
-        "barbell_width": 420, 
-        "offset_x": 38, 
-        "offset_y": 164, 
+        "impact_score": 0.49110542767831772, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 166, 
+        "frames_held": 17546, 
         "frame_number": 166
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.41933871587850829, 
-        "barbell_width": 268, 
-        "offset_x": 105, 
-        "offset_y": 169, 
+        "impact_score": 0.47674747132282308, 
+        "barbell_width": 363, 
+        "offset_x": 54, 
+        "offset_y": 164, 
+        "frames_held": 20455, 
         "frame_number": 167
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.52340290955091717, 
-        "barbell_width": 420, 
-        "offset_x": 46, 
+        "impact_score": 0.44792902751878849, 
+        "barbell_width": 363, 
+        "offset_x": 54, 
         "offset_y": 163, 
+        "frames_held": 12709, 
         "frame_number": 168
     }, 
     {
@@ -573,54 +644,61 @@
         "barbell_width": 363, 
         "offset_x": 54, 
         "offset_y": 161, 
+        "frames_held": 17823, 
         "frame_number": 169
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.49194585970871291, 
-        "barbell_width": 398, 
-        "offset_x": 40, 
+        "impact_score": 0.42919703904616602, 
+        "barbell_width": 363, 
+        "offset_x": 54, 
         "offset_y": 160, 
+        "frames_held": 20064, 
         "frame_number": 170
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.54319227691076433, 
-        "barbell_width": 411, 
-        "offset_x": 38, 
-        "offset_y": 157, 
+        "impact_score": 0.46666101599141097, 
+        "barbell_width": 363, 
+        "offset_x": 54, 
+        "offset_y": 159, 
+        "frames_held": 17823, 
         "frame_number": 171
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.42099785119527267, 
-        "barbell_width": 307, 
-        "offset_x": 76, 
-        "offset_y": 159, 
+        "impact_score": 0.46646774651889744, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 157, 
+        "frames_held": 12051, 
         "frame_number": 172
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.53417652048096598, 
-        "barbell_width": 410, 
-        "offset_x": 39, 
-        "offset_y": 154, 
+        "impact_score": 0.46831580314244903, 
+        "barbell_width": 317, 
+        "offset_x": 75, 
+        "offset_y": 157, 
+        "frames_held": 19267, 
         "frame_number": 173
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.46283513405362148, 
-        "barbell_width": 409, 
-        "offset_x": 38, 
+        "impact_score": 0.45858601172427738, 
+        "barbell_width": 406, 
+        "offset_x": 40, 
         "offset_y": 153, 
+        "frames_held": 30214, 
         "frame_number": 174
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.45513363846979715, 
-        "barbell_width": 363, 
-        "offset_x": 54, 
-        "offset_y": 151, 
+        "impact_score": 0.40965149310607635, 
+        "barbell_width": 297, 
+        "offset_x": 80, 
+        "offset_y": 153, 
+        "frames_held": 11511, 
         "frame_number": 175
     }, 
     {
@@ -629,6 +707,7 @@
         "barbell_width": 406, 
         "offset_x": 38, 
         "offset_y": 150, 
+        "frames_held": 41280, 
         "frame_number": 176
     }, 
     {
@@ -637,6 +716,7 @@
         "barbell_width": 359, 
         "offset_x": 56, 
         "offset_y": 149, 
+        "frames_held": 16515, 
         "frame_number": 177
     }, 
     {
@@ -645,6 +725,7 @@
         "barbell_width": 404, 
         "offset_x": 39, 
         "offset_y": 147, 
+        "frames_held": 35918, 
         "frame_number": 178
     }, 
     {
@@ -653,14 +734,16 @@
         "barbell_width": 404, 
         "offset_x": 39, 
         "offset_y": 145, 
+        "frames_held": 36329, 
         "frame_number": 179
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.45518207282913165, 
-        "barbell_width": 411, 
-        "offset_x": 39, 
-        "offset_y": 142, 
+        "impact_score": 0.43134721588893959, 
+        "barbell_width": 404, 
+        "offset_x": 51, 
+        "offset_y": 143, 
+        "frames_held": 23716, 
         "frame_number": 180
     }, 
     {
@@ -669,30 +752,34 @@
         "barbell_width": 330, 
         "offset_x": 68, 
         "offset_y": 142, 
+        "frames_held": 18987, 
         "frame_number": 181
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.34229777537926487, 
-        "barbell_width": 341, 
-        "offset_x": 63, 
+        "impact_score": 0.33623480544865925, 
+        "barbell_width": 337, 
+        "offset_x": 64, 
         "offset_y": 140, 
+        "frames_held": 18968, 
         "frame_number": 182
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.44168313320160107, 
-        "barbell_width": 404, 
-        "offset_x": 42, 
+        "impact_score": 0.43103545142985561, 
+        "barbell_width": 365, 
+        "offset_x": 73, 
         "offset_y": 137, 
+        "frames_held": 12358, 
         "frame_number": 183
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.43635070608554305, 
-        "barbell_width": 403, 
-        "offset_x": 43, 
+        "impact_score": 0.40213228148402219, 
+        "barbell_width": 359, 
+        "offset_x": 56, 
         "offset_y": 137, 
+        "frames_held": 16515, 
         "frame_number": 184
     }, 
     {
@@ -701,6 +788,7 @@
         "barbell_width": 420, 
         "offset_x": 39, 
         "offset_y": 134, 
+        "frames_held": 27449, 
         "frame_number": 185
     }, 
     {
@@ -709,6 +797,7 @@
         "barbell_width": 401, 
         "offset_x": 55, 
         "offset_y": 133, 
+        "frames_held": 36203, 
         "frame_number": 186
     }, 
     {
@@ -717,14 +806,16 @@
         "barbell_width": 327, 
         "offset_x": 68, 
         "offset_y": 137, 
+        "frames_held": 31728, 
         "frame_number": 194
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.57799786581299184, 
-        "barbell_width": 308, 
-        "offset_x": 80, 
-        "offset_y": 136, 
+        "impact_score": 0.63506544056828684, 
+        "barbell_width": 422, 
+        "offset_x": 40, 
+        "offset_y": 132, 
+        "frames_held": 10034, 
         "frame_number": 197
     }, 
     {
@@ -733,22 +824,25 @@
         "barbell_width": 421, 
         "offset_x": 38, 
         "offset_y": 134, 
+        "frames_held": 23138, 
         "frame_number": 198
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.40732271460863168, 
-        "barbell_width": 389, 
-        "offset_x": 62, 
-        "offset_y": 137, 
+        "impact_score": 0.31909260054386718, 
+        "barbell_width": 287, 
+        "offset_x": 84, 
+        "offset_y": 139, 
+        "frames_held": 15326, 
         "frame_number": 199
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.3701161946259986, 
-        "barbell_width": 283, 
-        "offset_x": 117, 
-        "offset_y": 143, 
+        "impact_score": 0.42231395482169476, 
+        "barbell_width": 358, 
+        "offset_x": 57, 
+        "offset_y": 142, 
+        "frames_held": 7378, 
         "frame_number": 200
     }, 
     {
@@ -757,22 +851,25 @@
         "barbell_width": 369, 
         "offset_x": 67, 
         "offset_y": 143, 
+        "frames_held": 7367, 
         "frame_number": 201
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.40598223203490513, 
-        "barbell_width": 391, 
-        "offset_x": 46, 
+        "impact_score": 0.38463957011375982, 
+        "barbell_width": 359, 
+        "offset_x": 58, 
         "offset_y": 146, 
+        "frames_held": 10617, 
         "frame_number": 202
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.43903566389334892, 
-        "barbell_width": 420, 
-        "offset_x": 36, 
-        "offset_y": 147, 
+        "impact_score": 0.4055981813015061, 
+        "barbell_width": 360, 
+        "offset_x": 83, 
+        "offset_y": 148, 
+        "frames_held": 9915, 
         "frame_number": 203
     }, 
     {
@@ -781,86 +878,97 @@
         "barbell_width": 405, 
         "offset_x": 38, 
         "offset_y": 150, 
+        "frames_held": 10888, 
         "frame_number": 204
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.44210465251189235, 
-        "barbell_width": 354, 
-        "offset_x": 59, 
-        "offset_y": 157, 
+        "impact_score": 0.48178188801293714, 
+        "barbell_width": 405, 
+        "offset_x": 38, 
+        "offset_y": 152, 
+        "frames_held": 11403, 
         "frame_number": 205
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.49858901376927944, 
-        "barbell_width": 422, 
-        "offset_x": 41, 
-        "offset_y": 155, 
+        "impact_score": 0.48044282312408171, 
+        "barbell_width": 404, 
+        "offset_x": 38, 
+        "offset_y": 161, 
+        "frames_held": 10972, 
         "frame_number": 206
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.47005303362039608, 
-        "barbell_width": 420, 
-        "offset_x": 46, 
-        "offset_y": 155, 
+        "impact_score": 0.44338942926251868, 
+        "barbell_width": 398, 
+        "offset_x": 60, 
+        "offset_y": 156, 
+        "frames_held": 11492, 
         "frame_number": 207
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.4526310524209684, 
-        "barbell_width": 409, 
-        "offset_x": 37, 
+        "impact_score": 0.37436096550831555, 
+        "barbell_width": 316, 
+        "offset_x": 109, 
         "offset_y": 161, 
+        "frames_held": 6007, 
         "frame_number": 208
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.40041442444485681, 
-        "barbell_width": 331, 
-        "offset_x": 76, 
-        "offset_y": 165, 
+        "impact_score": 0.44904003267973858, 
+        "barbell_width": 402, 
+        "offset_x": 57, 
+        "offset_y": 161, 
+        "frames_held": 10251, 
         "frame_number": 209
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.47253442319855982, 
-        "barbell_width": 420, 
-        "offset_x": 47, 
-        "offset_y": 163, 
+        "impact_score": 0.45423031090889399, 
+        "barbell_width": 378, 
+        "offset_x": 72, 
+        "offset_y": 164, 
+        "frames_held": 5665, 
         "frame_number": 210
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.49982970855836134, 
-        "barbell_width": 422, 
-        "offset_x": 45, 
-        "offset_y": 165, 
+        "impact_score": 0.45460302984242795, 
+        "barbell_width": 404, 
+        "offset_x": 56, 
+        "offset_y": 166, 
+        "frames_held": 13310, 
         "frame_number": 211
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.54087406106721292, 
-        "barbell_width": 421, 
-        "offset_x": 45, 
+        "impact_score": 0.50628261640573546, 
+        "barbell_width": 404, 
+        "offset_x": 56, 
         "offset_y": 168, 
+        "frames_held": 22146, 
         "frame_number": 212
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.52831961800264149, 
-        "barbell_width": 403, 
-        "offset_x": 38, 
+        "impact_score": 0.37570299437604504, 
+        "barbell_width": 270, 
+        "offset_x": 118, 
         "offset_y": 178, 
+        "frames_held": 8716, 
         "frame_number": 213
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.47377511798764171, 
-        "barbell_width": 420, 
-        "offset_x": 41, 
-        "offset_y": 177, 
+        "impact_score": 0.4598746715180918, 
+        "barbell_width": 405, 
+        "offset_x": 39, 
+        "offset_y": 178, 
+        "frames_held": 11196, 
         "frame_number": 215
     }, 
     {
@@ -869,38 +977,43 @@
         "barbell_width": 421, 
         "offset_x": 34, 
         "offset_y": 180, 
+        "frames_held": 16707, 
         "frame_number": 216
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.43390888693785973, 
-        "barbell_width": 421, 
-        "offset_x": 34, 
-        "offset_y": 182, 
+        "impact_score": 0.40679941227136851, 
+        "barbell_width": 404, 
+        "offset_x": 38, 
+        "offset_y": 185, 
+        "frames_held": 7807, 
         "frame_number": 217
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.38475881150006014, 
-        "barbell_width": 340, 
-        "offset_x": 64, 
+        "impact_score": 0.38965615231599887, 
+        "barbell_width": 361, 
+        "offset_x": 59, 
         "offset_y": 187, 
+        "frames_held": 5566, 
         "frame_number": 218
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.41946778711484595, 
-        "barbell_width": 411, 
-        "offset_x": 35, 
+        "impact_score": 0.41606023852840107, 
+        "barbell_width": 405, 
+        "offset_x": 37, 
         "offset_y": 189, 
+        "frames_held": 11222, 
         "frame_number": 219
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.38164660676950896, 
-        "barbell_width": 363, 
-        "offset_x": 54, 
-        "offset_y": 192, 
+        "impact_score": 0.41670315768987498, 
+        "barbell_width": 420, 
+        "offset_x": 38, 
+        "offset_y": 190, 
+        "frames_held": 14623, 
         "frame_number": 220
     }, 
     {
@@ -909,6 +1022,7 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 194, 
+        "frames_held": 12598, 
         "frame_number": 221
     }, 
     {
@@ -917,14 +1031,16 @@
         "barbell_width": 360, 
         "offset_x": 56, 
         "offset_y": 196, 
+        "frames_held": 10978, 
         "frame_number": 222
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.40523678758972875, 
-        "barbell_width": 426, 
-        "offset_x": 33, 
-        "offset_y": 197, 
+        "impact_score": 0.3476271668087525, 
+        "barbell_width": 360, 
+        "offset_x": 56, 
+        "offset_y": 198, 
+        "frames_held": 14047, 
         "frame_number": 223
     }, 
     {
@@ -933,6 +1049,7 @@
         "barbell_width": 394, 
         "offset_x": 50, 
         "offset_y": 200, 
+        "frames_held": 21193, 
         "frame_number": 224
     }, 
     {
@@ -941,6 +1058,7 @@
         "barbell_width": 404, 
         "offset_x": 41, 
         "offset_y": 202, 
+        "frames_held": 30081, 
         "frame_number": 225
     }, 
     {
@@ -949,30 +1067,34 @@
         "barbell_width": 361, 
         "offset_x": 55, 
         "offset_y": 203, 
+        "frames_held": 12830, 
         "frame_number": 226
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.4145180381864032, 
-        "barbell_width": 398, 
-        "offset_x": 46, 
+        "impact_score": 0.40762953225983134, 
+        "barbell_width": 374, 
+        "offset_x": 52, 
         "offset_y": 205, 
+        "frames_held": 15369, 
         "frame_number": 227
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.53546644310931024, 
-        "barbell_width": 440, 
-        "offset_x": 33, 
-        "offset_y": 206, 
+        "impact_score": 0.49465470942899126, 
+        "barbell_width": 404, 
+        "offset_x": 40, 
+        "offset_y": 207, 
+        "frames_held": 10948, 
         "frame_number": 228
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.54977862112586973, 
-        "barbell_width": 324, 
-        "offset_x": 74, 
+        "impact_score": 0.61122117240678653, 
+        "barbell_width": 403, 
+        "offset_x": 38, 
         "offset_y": 207, 
+        "frames_held": 8556, 
         "frame_number": 229
     }, 
     {
@@ -981,14 +1103,16 @@
         "barbell_width": 358, 
         "offset_x": 56, 
         "offset_y": 209, 
+        "frames_held": 16277, 
         "frame_number": 230
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.70935143288084468, 
-        "barbell_width": 273, 
-        "offset_x": 115, 
-        "offset_y": 208, 
+        "impact_score": 0.74466848595108148, 
+        "barbell_width": 406, 
+        "offset_x": 40, 
+        "offset_y": 207, 
+        "frames_held": 31146, 
         "frame_number": 231
     }, 
     {
@@ -997,14 +1121,16 @@
         "barbell_width": 440, 
         "offset_x": 34, 
         "offset_y": 205, 
+        "frames_held": 13606, 
         "frame_number": 232
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.45009449562957715, 
-        "barbell_width": 346, 
-        "offset_x": 61, 
-        "offset_y": 206, 
+        "impact_score": 0.50111465774940467, 
+        "barbell_width": 404, 
+        "offset_x": 38, 
+        "offset_y": 207, 
+        "frames_held": 8527, 
         "frame_number": 233
     }, 
     {
@@ -1013,14 +1139,16 @@
         "barbell_width": 404, 
         "offset_x": 38, 
         "offset_y": 205, 
+        "frames_held": 10975, 
         "frame_number": 234
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.47042003075740102, 
-        "barbell_width": 427, 
-        "offset_x": 34, 
-        "offset_y": 202, 
+        "impact_score": 0.42009093492469451, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 203, 
+        "frames_held": 11302, 
         "frame_number": 235
     }, 
     {
@@ -1029,30 +1157,34 @@
         "barbell_width": 404, 
         "offset_x": 42, 
         "offset_y": 202, 
+        "frames_held": 23845, 
         "frame_number": 236
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.44569941378613304, 
-        "barbell_width": 405, 
-        "offset_x": 38, 
+        "impact_score": 0.42154021028701338, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
         "offset_y": 200, 
+        "frames_held": 11301, 
         "frame_number": 237
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.39045457411260326, 
-        "barbell_width": 325, 
-        "offset_x": 69, 
+        "impact_score": 0.42101129857627806, 
+        "barbell_width": 404, 
+        "offset_x": 41, 
         "offset_y": 199, 
+        "frames_held": 23858, 
         "frame_number": 238
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.39750445632798576, 
-        "barbell_width": 321, 
-        "offset_x": 71, 
+        "impact_score": 0.43023549626035984, 
+        "barbell_width": 405, 
+        "offset_x": 39, 
         "offset_y": 197, 
+        "frames_held": 24118, 
         "frame_number": 239
     }, 
     {
@@ -1061,22 +1193,25 @@
         "barbell_width": 404, 
         "offset_x": 43, 
         "offset_y": 196, 
+        "frames_held": 23832, 
         "frame_number": 240
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.41019991058312577, 
-        "barbell_width": 320, 
-        "offset_x": 72, 
+        "impact_score": 0.45252542277656049, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
         "offset_y": 195, 
+        "frames_held": 12597, 
         "frame_number": 241
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.41990853849527032, 
-        "barbell_width": 328, 
-        "offset_x": 68, 
+        "impact_score": 0.44183343440468975, 
+        "barbell_width": 405, 
+        "offset_x": 42, 
         "offset_y": 193, 
+        "frames_held": 21527, 
         "frame_number": 242
     }, 
     {
@@ -1085,6 +1220,7 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 192, 
+        "frames_held": 26991, 
         "frame_number": 243
     }, 
     {
@@ -1093,22 +1229,25 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 191, 
+        "frames_held": 24181, 
         "frame_number": 244
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.3679510563915489, 
-        "barbell_width": 270, 
-        "offset_x": 117, 
-        "offset_y": 191, 
+        "impact_score": 0.43390078094274959, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
+        "offset_y": 190, 
+        "frames_held": 13356, 
         "frame_number": 245
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.43320637607561013, 
-        "barbell_width": 291, 
-        "offset_x": 83, 
-        "offset_y": 190, 
+        "impact_score": 0.44679476375077254, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
+        "offset_y": 189, 
+        "frames_held": 14126, 
         "frame_number": 246
     }, 
     {
@@ -1117,6 +1256,7 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 188, 
+        "frames_held": 28321, 
         "frame_number": 247
     }, 
     {
@@ -1125,6 +1265,7 @@
         "barbell_width": 406, 
         "offset_x": 42, 
         "offset_y": 187, 
+        "frames_held": 44477, 
         "frame_number": 248
     }, 
     {
@@ -1133,6 +1274,7 @@
         "barbell_width": 406, 
         "offset_x": 44, 
         "offset_y": 186, 
+        "frames_held": 43420, 
         "frame_number": 249
     }, 
     {
@@ -1141,6 +1283,7 @@
         "barbell_width": 406, 
         "offset_x": 44, 
         "offset_y": 185, 
+        "frames_held": 56787, 
         "frame_number": 250
     }, 
     {
@@ -1149,6 +1292,7 @@
         "barbell_width": 406, 
         "offset_x": 45, 
         "offset_y": 184, 
+        "frames_held": 56774, 
         "frame_number": 251
     }, 
     {
@@ -1157,14 +1301,16 @@
         "barbell_width": 406, 
         "offset_x": 39, 
         "offset_y": 182, 
+        "frames_held": 43329, 
         "frame_number": 252
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.47434684329495874, 
-        "barbell_width": 391, 
-        "offset_x": 48, 
+        "impact_score": 0.44709792749008437, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
         "offset_y": 182, 
+        "frames_held": 42807, 
         "frame_number": 253
     }, 
     {
@@ -1173,6 +1319,7 @@
         "barbell_width": 367, 
         "offset_x": 52, 
         "offset_y": 181, 
+        "frames_held": 35426, 
         "frame_number": 254
     }, 
     {
@@ -1181,14 +1328,16 @@
         "barbell_width": 367, 
         "offset_x": 52, 
         "offset_y": 180, 
+        "frames_held": 32753, 
         "frame_number": 255
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.59711181770005306, 
-        "barbell_width": 387, 
-        "offset_x": 44, 
+        "impact_score": 0.59667057706273396, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
         "offset_y": 179, 
+        "frames_held": 42852, 
         "frame_number": 256
     }, 
     {
@@ -1197,14 +1346,16 @@
         "barbell_width": 371, 
         "offset_x": 51, 
         "offset_y": 179, 
+        "frames_held": 46987, 
         "frame_number": 257
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.48210474063042941, 
-        "barbell_width": 413, 
-        "offset_x": 38, 
+        "impact_score": 0.45777209434498439, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
         "offset_y": 178, 
+        "frames_held": 40854, 
         "frame_number": 258
     }, 
     {
@@ -1213,6 +1364,7 @@
         "barbell_width": 406, 
         "offset_x": 40, 
         "offset_y": 177, 
+        "frames_held": 56729, 
         "frame_number": 259
     }, 
     {
@@ -1221,6 +1373,7 @@
         "barbell_width": 367, 
         "offset_x": 52, 
         "offset_y": 176, 
+        "frames_held": 36371, 
         "frame_number": 260
     }, 
     {
@@ -1229,6 +1382,7 @@
         "barbell_width": 421, 
         "offset_x": 40, 
         "offset_y": 175, 
+        "frames_held": 16816, 
         "frame_number": 261
     }, 
     {
@@ -1237,30 +1391,34 @@
         "barbell_width": 361, 
         "offset_x": 55, 
         "offset_y": 175, 
+        "frames_held": 17176, 
         "frame_number": 262
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.6029159086314938, 
-        "barbell_width": 406, 
-        "offset_x": 41, 
+        "impact_score": 0.57430192707455474, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
         "offset_y": 173, 
+        "frames_held": 18843, 
         "frame_number": 264
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.5671089984815475, 
-        "barbell_width": 312, 
-        "offset_x": 75, 
-        "offset_y": 175, 
+        "impact_score": 0.63506544056828684, 
+        "barbell_width": 420, 
+        "offset_x": 40, 
+        "offset_y": 172, 
+        "frames_held": 15776, 
         "frame_number": 265
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.62818963201719047, 
-        "barbell_width": 307, 
-        "offset_x": 76, 
-        "offset_y": 174, 
+        "impact_score": 0.6490764421710713, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 172, 
+        "frames_held": 11302, 
         "frame_number": 266
     }, 
     {
@@ -1269,14 +1427,16 @@
         "barbell_width": 367, 
         "offset_x": 52, 
         "offset_y": 171, 
+        "frames_held": 27331, 
         "frame_number": 267
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.55106985760083504, 
-        "barbell_width": 275, 
-        "offset_x": 89, 
-        "offset_y": 173, 
+        "impact_score": 0.57972003234283409, 
+        "barbell_width": 406, 
+        "offset_x": 41, 
+        "offset_y": 170, 
+        "frames_held": 33518, 
         "frame_number": 268
     }, 
     {
@@ -1285,94 +1445,106 @@
         "barbell_width": 377, 
         "offset_x": 48, 
         "offset_y": 169, 
+        "frames_held": 28789, 
         "frame_number": 269
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.64084967320261443, 
-        "barbell_width": 408, 
-        "offset_x": 41, 
+        "impact_score": 0.58954806994022679, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
         "offset_y": 169, 
+        "frames_held": 42952, 
         "frame_number": 270
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.5938952900747928, 
-        "barbell_width": 406, 
-        "offset_x": 41, 
+        "impact_score": 0.5496620300541869, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
         "offset_y": 168, 
+        "frames_held": 33258, 
         "frame_number": 271
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.58761163498478275, 
-        "barbell_width": 410, 
-        "offset_x": 45, 
+        "impact_score": 0.58465648470184994, 
+        "barbell_width": 407, 
+        "offset_x": 47, 
         "offset_y": 167, 
+        "frames_held": 30085, 
         "frame_number": 272
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.63134335620104121, 
-        "barbell_width": 420, 
-        "offset_x": 41, 
-        "offset_y": 165, 
+        "impact_score": 0.55719447900005925, 
+        "barbell_width": 347, 
+        "offset_x": 60, 
+        "offset_y": 167, 
+        "frames_held": 24523, 
         "frame_number": 273
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.57856003293705938, 
-        "barbell_width": 398, 
-        "offset_x": 41, 
+        "impact_score": 0.53969052008267693, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
         "offset_y": 166, 
+        "frames_held": 45734, 
         "frame_number": 274
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.5829562594268477, 
-        "barbell_width": 420, 
-        "offset_x": 41, 
-        "offset_y": 164, 
+        "impact_score": 0.51262499301714992, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
+        "offset_y": 165, 
+        "frames_held": 23751, 
         "frame_number": 275
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.60032598647399404, 
-        "barbell_width": 420, 
-        "offset_x": 40, 
-        "offset_y": 163, 
+        "impact_score": 0.52154021028701336, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 165, 
+        "frames_held": 35256, 
         "frame_number": 276
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.53074175406596746, 
-        "barbell_width": 270, 
-        "offset_x": 136, 
-        "offset_y": 165, 
+        "impact_score": 0.58289791561323667, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
+        "offset_y": 163, 
+        "frames_held": 18842, 
         "frame_number": 277
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.55681642735834491, 
-        "barbell_width": 267, 
-        "offset_x": 92, 
-        "offset_y": 166, 
+        "impact_score": 0.56533154572370259, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
+        "offset_y": 162, 
+        "frames_held": 24091, 
         "frame_number": 278
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.60280737605215784, 
-        "barbell_width": 420, 
-        "offset_x": 40, 
+        "impact_score": 0.5671386032923198, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
         "offset_y": 161, 
+        "frames_held": 32699, 
         "frame_number": 279
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.60901084999756727, 
-        "barbell_width": 420, 
-        "offset_x": 39, 
-        "offset_y": 160, 
+        "impact_score": 0.56608464711533035, 
+        "barbell_width": 363, 
+        "offset_x": 54, 
+        "offset_y": 161, 
+        "frames_held": 17824, 
         "frame_number": 280
     }, 
     {
@@ -1381,30 +1553,34 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 161, 
+        "frames_held": 35146, 
         "frame_number": 281
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.65562133944486889, 
-        "barbell_width": 321, 
-        "offset_x": 105, 
-        "offset_y": 161, 
+        "impact_score": 0.62609029376875303, 
+        "barbell_width": 294, 
+        "offset_x": 107, 
+        "offset_y": 162, 
+        "frames_held": 10866, 
         "frame_number": 282
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.68885307547676611, 
-        "barbell_width": 382, 
-        "offset_x": 47, 
+        "impact_score": 0.68356516395732081, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
         "offset_y": 158, 
+        "frames_held": 13247, 
         "frame_number": 283
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.74264065939691803, 
-        "barbell_width": 401, 
-        "offset_x": 40, 
-        "offset_y": 157, 
+        "impact_score": 0.71719238420005682, 
+        "barbell_width": 361, 
+        "offset_x": 55, 
+        "offset_y": 158, 
+        "frames_held": 18658, 
         "frame_number": 284
     }, 
     {
@@ -1413,46 +1589,52 @@
         "barbell_width": 361, 
         "offset_x": 62, 
         "offset_y": 157, 
+        "frames_held": 23241, 
         "frame_number": 286
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.64824842070719502, 
-        "barbell_width": 250, 
-        "offset_x": 117, 
-        "offset_y": 161, 
+        "impact_score": 0.74646149850668742, 
+        "barbell_width": 315, 
+        "offset_x": 109, 
+        "offset_y": 158, 
+        "frames_held": 16045, 
         "frame_number": 287
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.67762205553362287, 
-        "barbell_width": 311, 
-        "offset_x": 76, 
+        "impact_score": 0.6764359454028962, 
+        "barbell_width": 297, 
+        "offset_x": 80, 
         "offset_y": 158, 
+        "frames_held": 11509, 
         "frame_number": 288
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.55925147836912548, 
-        "barbell_width": 264, 
-        "offset_x": 106, 
-        "offset_y": 159, 
+        "impact_score": 0.6447286160841148, 
+        "barbell_width": 361, 
+        "offset_x": 57, 
+        "offset_y": 156, 
+        "frames_held": 13962, 
         "frame_number": 289
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.65632281898266553, 
-        "barbell_width": 361, 
-        "offset_x": 77, 
+        "impact_score": 0.66648933475198868, 
+        "barbell_width": 404, 
+        "offset_x": 56, 
         "offset_y": 156, 
+        "frames_held": 10920, 
         "frame_number": 290
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.62017710309930429, 
-        "barbell_width": 422, 
-        "offset_x": 45, 
+        "impact_score": 0.60379308418524102, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
         "offset_y": 154, 
+        "frames_held": 18306, 
         "frame_number": 291
     }, 
     {
@@ -1461,6 +1643,7 @@
         "barbell_width": 371, 
         "offset_x": 70, 
         "offset_y": 154, 
+        "frames_held": 28349, 
         "frame_number": 292
     }, 
     {
@@ -1469,6 +1652,7 @@
         "barbell_width": 392, 
         "offset_x": 52, 
         "offset_y": 153, 
+        "frames_held": 26508, 
         "frame_number": 293
     }, 
     {
@@ -1477,14 +1661,16 @@
         "barbell_width": 392, 
         "offset_x": 63, 
         "offset_y": 152, 
+        "frames_held": 25959, 
         "frame_number": 294
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.51740824534942187, 
-        "barbell_width": 327, 
-        "offset_x": 68, 
+        "impact_score": 0.51276419658772598, 
+        "barbell_width": 323, 
+        "offset_x": 70, 
         "offset_y": 152, 
+        "frames_held": 11784, 
         "frame_number": 295
     }, 
     {
@@ -1493,6 +1679,7 @@
         "barbell_width": 392, 
         "offset_x": 63, 
         "offset_y": 150, 
+        "frames_held": 28604, 
         "frame_number": 296
     }, 
     {
@@ -1501,6 +1688,7 @@
         "barbell_width": 428, 
         "offset_x": 42, 
         "offset_y": 147, 
+        "frames_held": 26893, 
         "frame_number": 297
     }, 
     {
@@ -1509,6 +1697,7 @@
         "barbell_width": 404, 
         "offset_x": 46, 
         "offset_y": 147, 
+        "frames_held": 13099, 
         "frame_number": 298
     }, 
     {
@@ -1517,14 +1706,16 @@
         "barbell_width": 402, 
         "offset_x": 45, 
         "offset_y": 146, 
+        "frames_held": 23312, 
         "frame_number": 299
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.44322750020510299, 
-        "barbell_width": 250, 
-        "offset_x": 128, 
-        "offset_y": 147, 
+        "impact_score": 0.55137929097140292, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
+        "offset_y": 144, 
+        "frames_held": 18471, 
         "frame_number": 300
     }, 
     {
@@ -1533,30 +1724,34 @@
         "barbell_width": 359, 
         "offset_x": 56, 
         "offset_y": 145, 
+        "frames_held": 23884, 
         "frame_number": 301
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.55177789770342389, 
-        "barbell_width": 341, 
-        "offset_x": 70, 
+        "impact_score": 0.57475806860211787, 
+        "barbell_width": 404, 
+        "offset_x": 45, 
         "offset_y": 142, 
+        "frames_held": 10849, 
         "frame_number": 302
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.59947468083806732, 
-        "barbell_width": 337, 
-        "offset_x": 64, 
+        "impact_score": 0.60188985154785435, 
+        "barbell_width": 404, 
+        "offset_x": 45, 
         "offset_y": 141, 
+        "frames_held": 20839, 
         "frame_number": 303
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.42858281523991715, 
-        "barbell_width": 258, 
-        "offset_x": 126, 
-        "offset_y": 141, 
+        "impact_score": 0.56806792195786504, 
+        "barbell_width": 422, 
+        "offset_x": 45, 
+        "offset_y": 138, 
+        "frames_held": 16149, 
         "frame_number": 304
     }, 
     {
@@ -1565,46 +1760,52 @@
         "barbell_width": 403, 
         "offset_x": 43, 
         "offset_y": 138, 
+        "frames_held": 12995, 
         "frame_number": 305
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.62389918746654993, 
-        "barbell_width": 422, 
-        "offset_x": 41, 
-        "offset_y": 135, 
+        "impact_score": 0.59413791356335821, 
+        "barbell_width": 404, 
+        "offset_x": 42, 
+        "offset_y": 137, 
+        "frames_held": 11099, 
         "frame_number": 306
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.60563964999680653, 
-        "barbell_width": 320, 
-        "offset_x": 72, 
-        "offset_y": 136, 
+        "impact_score": 0.61641799576973644, 
+        "barbell_width": 359, 
+        "offset_x": 56, 
+        "offset_y": 138, 
+        "frames_held": 10639, 
         "frame_number": 307
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.71404061624649862, 
-        "barbell_width": 293, 
-        "offset_x": 96, 
-        "offset_y": 136, 
+        "impact_score": 0.75692861123777677, 
+        "barbell_width": 404, 
+        "offset_x": 42, 
+        "offset_y": 134, 
+        "frames_held": 37787, 
         "frame_number": 308
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.7900043298076328, 
-        "barbell_width": 332, 
+        "impact_score": 0.77460719387092591, 
+        "barbell_width": 317, 
         "offset_x": 78, 
         "offset_y": 136, 
+        "frames_held": 10994, 
         "frame_number": 343
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.57273794934640521, 
-        "barbell_width": 402, 
-        "offset_x": 45, 
+        "impact_score": 0.5671386032923198, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
         "offset_y": 135, 
+        "frames_held": 12598, 
         "frame_number": 344
     }, 
     {
@@ -1613,14 +1814,16 @@
         "barbell_width": 404, 
         "offset_x": 46, 
         "offset_y": 137, 
+        "frames_held": 10819, 
         "frame_number": 345
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.33255421373847555, 
-        "barbell_width": 315, 
-        "offset_x": 73, 
-        "offset_y": 139, 
+        "impact_score": 0.36258525149190113, 
+        "barbell_width": 386, 
+        "offset_x": 65, 
+        "offset_y": 138, 
+        "frames_held": 8134, 
         "frame_number": 346
     }, 
     {
@@ -1629,22 +1832,25 @@
         "barbell_width": 413, 
         "offset_x": 46, 
         "offset_y": 140, 
+        "frames_held": 12290, 
         "frame_number": 347
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.37900095770956199, 
-        "barbell_width": 407, 
-        "offset_x": 41, 
-        "offset_y": 145, 
+        "impact_score": 0.33367976165731311, 
+        "barbell_width": 297, 
+        "offset_x": 80, 
+        "offset_y": 143, 
+        "frames_held": 20043, 
         "frame_number": 348
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.35976799096601991, 
-        "barbell_width": 399, 
-        "offset_x": 41, 
-        "offset_y": 148, 
+        "impact_score": 0.28960642227905659, 
+        "barbell_width": 289, 
+        "offset_x": 84, 
+        "offset_y": 147, 
+        "frames_held": 8456, 
         "frame_number": 349
     }, 
     {
@@ -1653,6 +1859,7 @@
         "barbell_width": 405, 
         "offset_x": 40, 
         "offset_y": 151, 
+        "frames_held": 38121, 
         "frame_number": 350
     }, 
     {
@@ -1661,6 +1868,7 @@
         "barbell_width": 406, 
         "offset_x": 45, 
         "offset_y": 154, 
+        "frames_held": 27230, 
         "frame_number": 351
     }, 
     {
@@ -1669,54 +1877,61 @@
         "barbell_width": 420, 
         "offset_x": 39, 
         "offset_y": 156, 
+        "frames_held": 50642, 
         "frame_number": 352
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.29756626268597891, 
-        "barbell_width": 417, 
-        "offset_x": 45, 
+        "impact_score": 0.29579690818392851, 
+        "barbell_width": 416, 
+        "offset_x": 46, 
         "offset_y": 160, 
+        "frames_held": 17146, 
         "frame_number": 353
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.29254113705783824, 
-        "barbell_width": 417, 
+        "impact_score": 0.26536625012699383, 
+        "barbell_width": 403, 
         "offset_x": 43, 
-        "offset_y": 162, 
+        "offset_y": 163, 
+        "frames_held": 47619, 
         "frame_number": 354
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.32196858843039705, 
-        "barbell_width": 421, 
-        "offset_x": 38, 
-        "offset_y": 164, 
+        "impact_score": 0.29956982793117248, 
+        "barbell_width": 411, 
+        "offset_x": 42, 
+        "offset_y": 162, 
+        "frames_held": 21129, 
         "frame_number": 355
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.33440639937567068, 
-        "barbell_width": 421, 
-        "offset_x": 41, 
-        "offset_y": 166, 
+        "impact_score": 0.27430766120881345, 
+        "barbell_width": 406, 
+        "offset_x": 45, 
+        "offset_y": 168, 
+        "frames_held": 30530, 
         "frame_number": 356
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.28249088580155679, 
-        "barbell_width": 417, 
-        "offset_x": 36, 
+        "impact_score": 0.27916166466586634, 
+        "barbell_width": 411, 
+        "offset_x": 38, 
         "offset_y": 171, 
+        "frames_held": 58077, 
         "frame_number": 357
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.32107843137254904, 
-        "barbell_width": 418, 
-        "offset_x": 37, 
+        "impact_score": 0.31039013543561755, 
+        "barbell_width": 405, 
+        "offset_x": 39, 
         "offset_y": 170, 
+        "frames_held": 52703, 
         "frame_number": 358
     }, 
     {
@@ -1725,6 +1940,7 @@
         "barbell_width": 402, 
         "offset_x": 42, 
         "offset_y": 177, 
+        "frames_held": 44176, 
         "frame_number": 359
     }, 
     {
@@ -1733,6 +1949,7 @@
         "barbell_width": 411, 
         "offset_x": 39, 
         "offset_y": 178, 
+        "frames_held": 21193, 
         "frame_number": 360
     }, 
     {
@@ -1741,14 +1958,16 @@
         "barbell_width": 403, 
         "offset_x": 41, 
         "offset_y": 182, 
+        "frames_held": 24755, 
         "frame_number": 361
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.31754777860511296, 
-        "barbell_width": 413, 
-        "offset_x": 37, 
+        "impact_score": 0.30630331228536611, 
+        "barbell_width": 370, 
+        "offset_x": 58, 
         "offset_y": 184, 
+        "frames_held": 9797, 
         "frame_number": 362
     }, 
     {
@@ -1757,6 +1976,7 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 186, 
+        "frames_held": 17250, 
         "frame_number": 363
     }, 
     {
@@ -1765,46 +1985,52 @@
         "barbell_width": 404, 
         "offset_x": 40, 
         "offset_y": 189, 
+        "frames_held": 13228, 
         "frame_number": 364
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.27630666414475757, 
-        "barbell_width": 325, 
-        "offset_x": 69, 
-        "offset_y": 190, 
+        "impact_score": 0.31908013865176676, 
+        "barbell_width": 397, 
+        "offset_x": 46, 
+        "offset_y": 188, 
+        "frames_held": 11398, 
         "frame_number": 365
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.3438952900747928, 
-        "barbell_width": 405, 
-        "offset_x": 39, 
-        "offset_y": 192, 
+        "impact_score": 0.27544990598979319, 
+        "barbell_width": 307, 
+        "offset_x": 76, 
+        "offset_y": 193, 
+        "frames_held": 13153, 
         "frame_number": 366
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.37269284241814088, 
-        "barbell_width": 428, 
-        "offset_x": 41, 
+        "impact_score": 0.34365585024941969, 
+        "barbell_width": 416, 
+        "offset_x": 43, 
         "offset_y": 192, 
+        "frames_held": 12057, 
         "frame_number": 367
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.2673290051806676, 
-        "barbell_width": 313, 
-        "offset_x": 74, 
+        "impact_score": 0.20322237422100622, 
+        "barbell_width": 270, 
+        "offset_x": 120, 
         "offset_y": 196, 
+        "frames_held": 8700, 
         "frame_number": 368
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.41485559741137834, 
-        "barbell_width": 424, 
-        "offset_x": 36, 
-        "offset_y": 196, 
+        "impact_score": 0.26860059092130006, 
+        "barbell_width": 307, 
+        "offset_x": 76, 
+        "offset_y": 198, 
+        "frames_held": 21217, 
         "frame_number": 369
     }, 
     {
@@ -1813,6 +2039,7 @@
         "barbell_width": 411, 
         "offset_x": 42, 
         "offset_y": 197, 
+        "frames_held": 40353, 
         "frame_number": 370
     }, 
     {
@@ -1821,6 +2048,7 @@
         "barbell_width": 357, 
         "offset_x": 56, 
         "offset_y": 200, 
+        "frames_held": 15831, 
         "frame_number": 371
     }, 
     {
@@ -1829,6 +2057,7 @@
         "barbell_width": 421, 
         "offset_x": 36, 
         "offset_y": 200, 
+        "frames_held": 27489, 
         "frame_number": 372
     }, 
     {
@@ -1837,14 +2066,16 @@
         "barbell_width": 405, 
         "offset_x": 42, 
         "offset_y": 201, 
+        "frames_held": 25610, 
         "frame_number": 373
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.45600869213664846, 
-        "barbell_width": 406, 
-        "offset_x": 51, 
-        "offset_y": 204, 
+        "impact_score": 0.35261328611712245, 
+        "barbell_width": 313, 
+        "offset_x": 74, 
+        "offset_y": 205, 
+        "frames_held": 26247, 
         "frame_number": 374
     }, 
     {
@@ -1853,14 +2084,16 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 204, 
+        "frames_held": 12598, 
         "frame_number": 375
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.44133562515915459, 
-        "barbell_width": 323, 
-        "offset_x": 70, 
-        "offset_y": 207, 
+        "impact_score": 0.45574653035017537, 
+        "barbell_width": 416, 
+        "offset_x": 41, 
+        "offset_y": 205, 
+        "frames_held": 26580, 
         "frame_number": 376
     }, 
     {
@@ -1869,22 +2102,25 @@
         "barbell_width": 404, 
         "offset_x": 44, 
         "offset_y": 207, 
+        "frames_held": 29693, 
         "frame_number": 377
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.66431748418217129, 
-        "barbell_width": 328, 
-        "offset_x": 102, 
-        "offset_y": 207, 
+        "impact_score": 0.62686077775591842, 
+        "barbell_width": 313, 
+        "offset_x": 74, 
+        "offset_y": 208, 
+        "frames_held": 26243, 
         "frame_number": 378
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.64341522049432798, 
-        "barbell_width": 274, 
-        "offset_x": 123, 
-        "offset_y": 210, 
+        "impact_score": 0.64358318578267426, 
+        "barbell_width": 313, 
+        "offset_x": 74, 
+        "offset_y": 208, 
+        "frames_held": 15973, 
         "frame_number": 380
     }, 
     {
@@ -1893,22 +2129,25 @@
         "barbell_width": 402, 
         "offset_x": 42, 
         "offset_y": 207, 
+        "frames_held": 24509, 
         "frame_number": 381
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.43821516876545341, 
-        "barbell_width": 357, 
-        "offset_x": 56, 
-        "offset_y": 207, 
+        "impact_score": 0.45085405296139075, 
+        "barbell_width": 405, 
+        "offset_x": 44, 
+        "offset_y": 205, 
+        "frames_held": 13413, 
         "frame_number": 382
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.4167136503163566, 
-        "barbell_width": 328, 
-        "offset_x": 68, 
-        "offset_y": 205, 
+        "impact_score": 0.3576300085251492, 
+        "barbell_width": 313, 
+        "offset_x": 74, 
+        "offset_y": 206, 
+        "frames_held": 11509, 
         "frame_number": 383
     }, 
     {
@@ -1917,6 +2156,7 @@
         "barbell_width": 357, 
         "offset_x": 56, 
         "offset_y": 204, 
+        "frames_held": 16201, 
         "frame_number": 384
     }, 
     {
@@ -1925,6 +2165,7 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 201, 
+        "frames_held": 18472, 
         "frame_number": 385
     }, 
     {
@@ -1933,6 +2174,7 @@
         "barbell_width": 358, 
         "offset_x": 56, 
         "offset_y": 200, 
+        "frames_held": 12604, 
         "frame_number": 387
     }, 
     {
@@ -1941,6 +2183,7 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 198, 
+        "frames_held": 18472, 
         "frame_number": 388
     }, 
     {
@@ -1949,6 +2192,7 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 197, 
+        "frames_held": 32375, 
         "frame_number": 389
     }, 
     {
@@ -1957,6 +2201,7 @@
         "barbell_width": 367, 
         "offset_x": 52, 
         "offset_y": 196, 
+        "frames_held": 28490, 
         "frame_number": 390
     }, 
     {
@@ -1965,14 +2210,16 @@
         "barbell_width": 367, 
         "offset_x": 52, 
         "offset_y": 195, 
+        "frames_held": 32357, 
         "frame_number": 391
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.54043167654658764, 
-        "barbell_width": 270, 
-        "offset_x": 123, 
-        "offset_y": 196, 
+        "impact_score": 0.56533154572370259, 
+        "barbell_width": 367, 
+        "offset_x": 52, 
+        "offset_y": 194, 
+        "frames_held": 30610, 
         "frame_number": 392
     }, 
     {
@@ -1981,14 +2228,16 @@
         "barbell_width": 367, 
         "offset_x": 52, 
         "offset_y": 194, 
+        "frames_held": 34147, 
         "frame_number": 393
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.57836579447832648, 
-        "barbell_width": 313, 
-        "offset_x": 74, 
-        "offset_y": 195, 
+        "impact_score": 0.6229636133060189, 
+        "barbell_width": 421, 
+        "offset_x": 38, 
+        "offset_y": 192, 
+        "frames_held": 10843, 
         "frame_number": 394
     }, 
     {
@@ -1997,6 +2246,7 @@
         "barbell_width": 363, 
         "offset_x": 54, 
         "offset_y": 193, 
+        "frames_held": 35976, 
         "frame_number": 395
     }, 
     {
@@ -2005,6 +2255,7 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 191, 
+        "frames_held": 29122, 
         "frame_number": 396
     }, 
     {
@@ -2013,6 +2264,7 @@
         "barbell_width": 363, 
         "offset_x": 54, 
         "offset_y": 191, 
+        "frames_held": 28413, 
         "frame_number": 397
     }, 
     {
@@ -2021,54 +2273,61 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 190, 
+        "frames_held": 18842, 
         "frame_number": 398
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.61988904088767294, 
-        "barbell_width": 270, 
-        "offset_x": 117, 
-        "offset_y": 191, 
+        "impact_score": 0.65453115343558632, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
+        "offset_y": 189, 
+        "frames_held": 12598, 
         "frame_number": 399
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.64195326692977517, 
-        "barbell_width": 328, 
-        "offset_x": 69, 
-        "offset_y": 190, 
+        "impact_score": 0.67848975818615287, 
+        "barbell_width": 420, 
+        "offset_x": 37, 
+        "offset_y": 187, 
+        "frames_held": 14178, 
         "frame_number": 400
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.58917673029476691, 
-        "barbell_width": 317, 
-        "offset_x": 72, 
-        "offset_y": 189, 
+        "impact_score": 0.57572923162197742, 
+        "barbell_width": 296, 
+        "offset_x": 83, 
+        "offset_y": 190, 
+        "frames_held": 9844, 
         "frame_number": 401
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.59224949822448669, 
-        "barbell_width": 267, 
-        "offset_x": 107, 
-        "offset_y": 191, 
+        "impact_score": 0.62948522348420632, 
+        "barbell_width": 363, 
+        "offset_x": 54, 
+        "offset_y": 187, 
+        "frames_held": 17417, 
         "frame_number": 402
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.63345493236054118, 
-        "barbell_width": 270, 
-        "offset_x": 135, 
-        "offset_y": 188, 
+        "impact_score": 0.65362619406737055, 
+        "barbell_width": 327, 
+        "offset_x": 68, 
+        "offset_y": 187, 
+        "frames_held": 19134, 
         "frame_number": 403
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.6621199204319409, 
-        "barbell_width": 361, 
-        "offset_x": 55, 
-        "offset_y": 185, 
+        "impact_score": 0.62725620049344244, 
+        "barbell_width": 317, 
+        "offset_x": 72, 
+        "offset_y": 186, 
+        "frames_held": 17255, 
         "frame_number": 405
     }, 
     {
@@ -2077,14 +2336,16 @@
         "barbell_width": 327, 
         "offset_x": 68, 
         "offset_y": 185, 
+        "frames_held": 13324, 
         "frame_number": 406
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.68646549528902467, 
-        "barbell_width": 323, 
-        "offset_x": 70, 
-        "offset_y": 184, 
+        "impact_score": 0.66983460050686938, 
+        "barbell_width": 308, 
+        "offset_x": 77, 
+        "offset_y": 185, 
+        "frames_held": 8459, 
         "frame_number": 408
     }, 
     {
@@ -2093,6 +2354,7 @@
         "barbell_width": 277, 
         "offset_x": 88, 
         "offset_y": 184, 
+        "frames_held": 11787, 
         "frame_number": 409
     }, 
     {
@@ -2101,102 +2363,115 @@
         "barbell_width": 272, 
         "offset_x": 107, 
         "offset_y": 184, 
+        "frames_held": 9617, 
         "frame_number": 410
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.68172122405447533, 
-        "barbell_width": 250, 
-        "offset_x": 121, 
-        "offset_y": 184, 
+        "impact_score": 0.73694138902173334, 
+        "barbell_width": 385, 
+        "offset_x": 45, 
+        "offset_y": 182, 
+        "frames_held": 8094, 
         "frame_number": 411
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.71548202614379086, 
-        "barbell_width": 251, 
-        "offset_x": 99, 
-        "offset_y": 185, 
+        "impact_score": 0.77081672777512089, 
+        "barbell_width": 385, 
+        "offset_x": 45, 
+        "offset_y": 181, 
+        "frames_held": 25335, 
         "frame_number": 412
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.73095404169572975, 
-        "barbell_width": 265, 
-        "offset_x": 120, 
-        "offset_y": 185, 
+        "impact_score": 0.7897869174770179, 
+        "barbell_width": 385, 
+        "offset_x": 45, 
+        "offset_y": 181, 
+        "frames_held": 20012, 
         "frame_number": 413
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.75075258319095273, 
-        "barbell_width": 253, 
-        "offset_x": 138, 
+        "impact_score": 0.80496095286252034, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
         "offset_y": 180, 
+        "frames_held": 12595, 
         "frame_number": 414
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.7726307189542484, 
-        "barbell_width": 251, 
-        "offset_x": 109, 
-        "offset_y": 183, 
+        "impact_score": 0.81928760042699034, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
+        "offset_y": 180, 
+        "frames_held": 18473, 
         "frame_number": 415
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.76958733284108627, 
-        "barbell_width": 250, 
-        "offset_x": 141, 
-        "offset_y": 174, 
+        "impact_score": 0.78357658853014889, 
+        "barbell_width": 279, 
+        "offset_x": 104, 
+        "offset_y": 170, 
+        "frames_held": 9687, 
         "frame_number": 441
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.7639486688984537, 
-        "barbell_width": 258, 
-        "offset_x": 119, 
-        "offset_y": 171, 
+        "impact_score": 0.83211895029915295, 
+        "barbell_width": 347, 
+        "offset_x": 60, 
+        "offset_y": 167, 
+        "frames_held": 12303, 
         "frame_number": 444
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.81859192952543336, 
-        "barbell_width": 289, 
-        "offset_x": 114, 
-        "offset_y": 170, 
+        "impact_score": 0.84123249299719893, 
+        "barbell_width": 366, 
+        "offset_x": 53, 
+        "offset_y": 166, 
+        "frames_held": 12922, 
         "frame_number": 445
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.58600538254517498, 
-        "barbell_width": 266, 
-        "offset_x": 139, 
-        "offset_y": 155, 
+        "impact_score": 0.68826978027391861, 
+        "barbell_width": 417, 
+        "offset_x": 43, 
+        "offset_y": 151, 
+        "frames_held": 31328, 
         "frame_number": 486
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.6965263262665472, 
-        "barbell_width": 412, 
+        "impact_score": 0.69625350140056019, 
+        "barbell_width": 411, 
         "offset_x": 48, 
         "offset_y": 150, 
+        "frames_held": 24445, 
         "frame_number": 487
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.68965601128788989, 
-        "barbell_width": 420, 
-        "offset_x": 47, 
-        "offset_y": 149, 
+        "impact_score": 0.65087654999694589, 
+        "barbell_width": 337, 
+        "offset_x": 64, 
+        "offset_y": 152, 
+        "frames_held": 27030, 
         "frame_number": 488
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.66177997678822309, 
-        "barbell_width": 337, 
-        "offset_x": 64, 
+        "impact_score": 0.65871315413582654, 
+        "barbell_width": 317, 
+        "offset_x": 75, 
         "offset_y": 151, 
+        "frames_held": 9415, 
         "frame_number": 489
     }, 
     {
@@ -2205,14 +2480,16 @@
         "barbell_width": 330, 
         "offset_x": 100, 
         "offset_y": 148, 
+        "frames_held": 8525, 
         "frame_number": 490
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.67891393317451598, 
-        "barbell_width": 337, 
-        "offset_x": 94, 
+        "impact_score": 0.68505536929797828, 
+        "barbell_width": 403, 
+        "offset_x": 47, 
         "offset_y": 147, 
+        "frames_held": 16365, 
         "frame_number": 492
     }, 
     {
@@ -2221,46 +2498,52 @@
         "barbell_width": 402, 
         "offset_x": 45, 
         "offset_y": 146, 
+        "frames_held": 44386, 
         "frame_number": 493
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.62105176798752981, 
-        "barbell_width": 250, 
-        "offset_x": 131, 
-        "offset_y": 148, 
+        "impact_score": 0.68784656719830795, 
+        "barbell_width": 359, 
+        "offset_x": 56, 
+        "offset_y": 146, 
+        "frames_held": 16905, 
         "frame_number": 494
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.55593555251557991, 
-        "barbell_width": 270, 
-        "offset_x": 123, 
-        "offset_y": 143, 
+        "impact_score": 0.61496026982221463, 
+        "barbell_width": 359, 
+        "offset_x": 56, 
+        "offset_y": 142, 
+        "frames_held": 16515, 
         "frame_number": 499
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.53914853612677949, 
-        "barbell_width": 307, 
-        "offset_x": 76, 
-        "offset_y": 142, 
+        "impact_score": 0.64323352079850027, 
+        "barbell_width": 404, 
+        "offset_x": 45, 
+        "offset_y": 141, 
+        "frames_held": 10091, 
         "frame_number": 500
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.47260221918224654, 
-        "barbell_width": 270, 
-        "offset_x": 123, 
-        "offset_y": 141, 
+        "impact_score": 0.5708820996098698, 
+        "barbell_width": 404, 
+        "offset_x": 45, 
+        "offset_y": 140, 
+        "frames_held": 10091, 
         "frame_number": 501
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.47134238310708904, 
-        "barbell_width": 313, 
-        "offset_x": 74, 
+        "impact_score": 0.43189775910364148, 
+        "barbell_width": 293, 
+        "offset_x": 82, 
         "offset_y": 140, 
+        "frames_held": 16538, 
         "frame_number": 502
     }, 
     {
@@ -2269,30 +2552,34 @@
         "barbell_width": 365, 
         "offset_x": 53, 
         "offset_y": 137, 
+        "frames_held": 12598, 
         "frame_number": 503
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.582510006586614, 
-        "barbell_width": 404, 
-        "offset_x": 45, 
+        "impact_score": 0.52415866059891003, 
+        "barbell_width": 365, 
+        "offset_x": 53, 
         "offset_y": 136, 
+        "frames_held": 12598, 
         "frame_number": 504
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.58390911920323685, 
-        "barbell_width": 329, 
+        "impact_score": 0.58284783561987097, 
+        "barbell_width": 328, 
         "offset_x": 68, 
         "offset_y": 136, 
+        "frames_held": 13709, 
         "frame_number": 505
     }, 
     {
         "angle": 0, 
-        "impact_score": 0.67766465560583211, 
-        "barbell_width": 327, 
-        "offset_x": 68, 
-        "offset_y": 136, 
+        "impact_score": 0.71041698333080006, 
+        "barbell_width": 404, 
+        "offset_x": 43, 
+        "offset_y": 135, 
+        "frames_held": 12786, 
         "frame_number": 506
     }, 
     {
@@ -2301,6 +2588,7 @@
         "barbell_width": 307, 
         "offset_x": 76, 
         "offset_y": 130, 
+        "frames_held": 23987, 
         "frame_number": 543
     }, 
     {
@@ -2309,6 +2597,7 @@
         "barbell_width": 307, 
         "offset_x": 76, 
         "offset_y": 131, 
+        "frames_held": 23983, 
         "frame_number": 545
     }, 
     {
@@ -2317,6 +2606,7 @@
         "barbell_width": 313, 
         "offset_x": 74, 
         "offset_y": 134, 
+        "frames_held": 25503, 
         "frame_number": 548
     }
 ]
