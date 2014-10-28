@@ -19,6 +19,13 @@ MAX_ROM_IN_METERS = MAX_ROM_IN_INCHES * METERS_PER_INCH
 ACTUAL_FRAME_OFFSET = 2
 
 
+class Orientation(object):
+    NONE = 1
+    ROTATE_90 = 2
+    ROTATE_180 = 3
+    ROTATE_270 = 4
+
+
 def get_avg_velocity_between_points(point_pairs):
     frame_to_avg_velocity = {}
     for start_point, end_point in point_pairs:
@@ -689,6 +696,36 @@ def get_center_from_points(top_left, top_right, bottom_right, bottom_left):
     return ((x1 + x2) / 2, (y1 + y2) / 2)
 
 
+def rotate_perpendicular(img, orientation_id):
+    orientation_to_angle = {
+        Orientation.NONE: 0,
+        Orientation.ROTATE_90: 90,
+        Orientation.ROTATE_180: 180,
+        Orientation.ROTATE_270: 270
+    }
+    angle = orientation_to_angle[orientation_id]
+
+    rows, cols = img.shape[:2]
+    expanded_rows = max(rows, cols)
+    expanded_cols = max(rows, cols)
+    temp_img = np.zeros((expanded_rows, expanded_cols, img.shape[2]), dtype=np.uint8)
+    offset_rows = (expanded_rows - rows) / 2
+    offset_cols = (expanded_cols - cols) / 2
+    temp_img[offset_rows: offset_rows + rows, offset_cols: offset_cols + cols] = img
+
+    rotation_matrix = cv2.getRotationMatrix2D((expanded_cols / 2, expanded_rows / 2), angle, 1)
+    square_img = cv2.warpAffine(temp_img, rotation_matrix, (expanded_cols, expanded_rows))
+
+    if orientation_id in (Orientation.ROTATE_90, Orientation.ROTATE_270):
+        temp = offset_rows
+        offset_rows = offset_cols
+        offset_cols = temp
+
+    length = square_img.shape[0]
+
+    return square_img[offset_rows: length - offset_rows, offset_cols: length - offset_cols]
+
+
 def rotate_image_to_scaled_canvas(img, angle):
     angle_radians = angle * math.pi / 180.0
     sina = abs(math.sin(angle_radians))
@@ -870,6 +907,7 @@ class BarbellDetector(object):
 
     olympic_bar = OlympicBarbell()
     show_output = True
+    orientation_id = Orientation.NONE
 
     def __init__(self, capture):
         self.capture = capture
@@ -913,6 +951,7 @@ class BarbellDetector(object):
             self.frame_number += 1
 
             haystack = resized_frame(haystack)
+            haystack = rotate_perpendicular(haystack, self.orientation_id)
 
             frame = haystack.copy()
             motion_detection_frame = None
@@ -1091,6 +1130,7 @@ class BarbellDisplayer(object):
 
     olympic_bar = OlympicBarbell(for_display=True)
     negative_olympic_bar = OlympicBarbell(for_display=True, for_negative=True)
+    orientation_id = Orientation.NONE
 
     def __init__(self,
                  capture,
@@ -1114,6 +1154,7 @@ class BarbellDisplayer(object):
                 break
             self.frame_number += 1
             haystack = resized_frame(haystack)
+            haystack = rotate_perpendicular(haystack, self.orientation_id)
 
             height, width = haystack.shape[0: 2]
             codec = cv2.cv.FOURCC('D', 'I', 'V', 'X')
@@ -1390,7 +1431,8 @@ def get_barbell_pixels_from_frame(bgr_frame, detected_barbell, barbell_overlay):
     return template
 
 
-def create_barbell_template_from_detected_barbells(capture, detected_barbells):
+def create_barbell_template_from_detected_barbells(capture, detected_barbells, orientation_id):
+    ''' pretty sure this is unused '''
     if len(detected_barbells) == 0:
         raise CouldNotDetectException("Could not detect the barbell in the image")
     frame_number = 0
@@ -1405,6 +1447,7 @@ def create_barbell_template_from_detected_barbells(capture, detected_barbells):
         if not success:
             break
         bgr_frame = resized_frame(bgr_frame)
+        bgr_frame = rotate_perpendicular(bgr_frame, orientation_id)
         frame_number += 1
         if frame_number not in frame_to_detected_barbell:
             continue
@@ -1419,7 +1462,7 @@ def create_barbell_template_from_detected_barbells(capture, detected_barbells):
     return final_template
 
 
-def amend_barbell_pixels_to_barbell_detections(capture, detected_barbells):
+def amend_barbell_pixels_to_barbell_detections(capture, detected_barbells, orientation_id):
     olympic_barbell = OlympicBarbell(force_fill=True)
     overlay = olympic_barbell.with_width(detected_barbells[0].barbell_width)
     frame_to_detected_barbell = {barbell.frame_number: barbell for barbell in detected_barbells}
@@ -1429,6 +1472,7 @@ def amend_barbell_pixels_to_barbell_detections(capture, detected_barbells):
         if not success:
             break
         frame = resized_frame(frame)
+        frame = rotate_perpendicular(frame, orientation_id)
         frame_number += 1
         if frame_number not in frame_to_detected_barbell:
             continue
@@ -1557,7 +1601,7 @@ def filter_by_no_frame_neighbors(detected_barbells):
     return barbells_to_keep
 
 
-def run(file_to_read):
+def run(file_to_read, orientation_id):
     video_filename = (file_to_read.split("/")[-1]).split(".")[0]
     start_time = datetime.datetime.utcnow()
     capture_path = file_to_read
@@ -1605,7 +1649,7 @@ def run(file_to_read):
         detected_barbells = set_bar_offsets_by_average_x(detected_barbells)
 
         capture = cv2.VideoCapture(capture_path)
-        amend_barbell_pixels_to_barbell_detections(capture, detected_barbells)
+        amend_barbell_pixels_to_barbell_detections(capture, detected_barbells, orientation_id)
         amend_likeness_score_to_barbell_detections(detected_barbells)
         # TODO consider adding a likeness score with the average detections...
         amend_symmetry_score_to_barbell_detections(detected_barbells)
@@ -1693,6 +1737,15 @@ def run(file_to_read):
     cv2.destroyAllWindows()
 
 
+def process(file_to_read, orientation_id, start_seconds, stop_seconds):
+    BarbellDetector.orientation_id = orientation_id
+    BarbellDisplayer.orientation_id = orientation_id
+    run(file_to_read, orientation_id)
+
+
 if __name__ == "__main__":
     file_to_read = sys.argv[1]
-    run(file_to_read)
+    orientation_id = Orientation.NONE
+    BarbellDetector.orientation_id = orientation_id
+    BarbellDisplayer.orientation_id = orientation_id
+    run(file_to_read, orientation_id)
