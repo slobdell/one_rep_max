@@ -1431,37 +1431,6 @@ def get_barbell_pixels_from_frame(bgr_frame, detected_barbell, barbell_overlay):
     return template
 
 
-def create_barbell_template_from_detected_barbells(capture, detected_barbells, orientation_id):
-    ''' pretty sure this is unused '''
-    if len(detected_barbells) == 0:
-        raise CouldNotDetectException("Could not detect the barbell in the image")
-    frame_number = 0
-    frame_to_detected_barbell = {barbell.frame_number: barbell for barbell in detected_barbells}
-    olympic_barbell = OlympicBarbell()
-    overlay = olympic_barbell.with_width(detected_barbells[0].barbell_width)
-    average_matrix = np.zeros(shape=overlay.shape, dtype=np.uint32)
-    average_matrix[:, :, 3] += overlay[:, :, 3]
-    frames_processed = 0
-    while True:
-        success, bgr_frame = capture.read()
-        if not success:
-            break
-        bgr_frame = resized_frame(bgr_frame)
-        bgr_frame = rotate_perpendicular(bgr_frame, orientation_id)
-        frame_number += 1
-        if frame_number not in frame_to_detected_barbell:
-            continue
-        detected_barbell = frame_to_detected_barbell[frame_number]
-        average_matrix += get_barbell_pixels_from_frame(bgr_frame, detected_barbell, overlay)
-        frames_processed += 1
-
-    if frames_processed == 0:
-        frames_processed = 1
-    final_template = average_matrix / frames_processed
-    final_template = final_template.astype(np.uint8)
-    return final_template
-
-
 def amend_barbell_pixels_to_barbell_detections(capture, detected_barbells, orientation_id):
     olympic_barbell = OlympicBarbell(force_fill=True)
     overlay = olympic_barbell.with_width(detected_barbells[0].barbell_width)
