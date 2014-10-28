@@ -1103,6 +1103,8 @@ class BarbellDisplayer(object):
         self.video_writer = None
         self.frames_per_sec = capture.get(FRAMES_PER_SEC_KEY)
         self.frame_to_1rm = frame_to_1rm
+        self.barbell_width = detected_barbells[0].barbell_width
+        self.barbell_height = self.olympic_bar.with_width(self.barbell_width).shape[0]
 
     def output_video(self, filename):
         print "Creating Video..."
@@ -1122,6 +1124,7 @@ class BarbellDisplayer(object):
                 barbell_detection = self.frame_to_detected_barbell[self.frame_number]
                 self.display_barbell_on_img(haystack, barbell_detection)
             self.draw_metadata_on_canvas(haystack)
+            self.draw_percent_error_notches(haystack)
                 # wait_key_time = 0
             self.video_writer.write(haystack)
             # cv2.imshow("Final output", haystack)
@@ -1130,6 +1133,64 @@ class BarbellDisplayer(object):
         if self.video_writer is not None:
             self.video_writer.release()
         print "Done"
+
+    def draw_percent_error_notches(self, frame):
+        if self.frame_number not in self.frame_to_detected_barbell:
+            return
+        barbell_detection = self.frame_to_detected_barbell[self.frame_number]
+        y_offset = barbell_detection.offset_y
+        x_offset = barbell_detection.offset_x
+
+        center_x = int(x_offset + (self.barbell_width / 2))
+        center_y = int(y_offset + (self.barbell_height / 2))
+
+        line_height = 30
+
+        brush_size = 1
+
+        for percent in (0.9, 1.1):
+            if percent > 1.0:
+                pixel_color = (0, 0, 255)
+            else:
+                pixel_color = (255, 0, 0)
+            display_percent = "%s%%" % abs(int(float("%.2f" % (percent - 1.0)) * 100))
+            if percent >= 1.0:
+                display_percent = "-" + display_percent
+            else:
+                display_percent = "+" + display_percent
+
+            cv2.line(frame, (center_x + int(percent * self.barbell_width / 2.0), center_y - line_height / 2), (center_x + int(percent * self.barbell_width / 2.0), center_y + line_height / 2), pixel_color, brush_size)
+            cv2.line(frame, (center_x - int(percent * self.barbell_width / 2.0), center_y - line_height / 2), (center_x - int(percent * self.barbell_width / 2.0), center_y + line_height / 2), pixel_color, brush_size)
+
+            font_scale = 0.4
+            font_color = (255, 255, 255, 255)
+            font = cv2.FONT_ITALIC
+            opaque_black_pixel = (0, 0, 0, 150)
+            rectangle_height = 25
+            rectangle_width = 40
+            overlay = np.zeros((rectangle_height, rectangle_width, 4), dtype=np.uint8)
+            overlay[:, :] = opaque_black_pixel
+            cv2.putText(overlay, display_percent, (0, 2 * rectangle_height / 3), font, font_scale, font_color)
+
+            if percent < 1.0:
+                y_offset = center_y - int(percent * self.barbell_height / 2.0) - rectangle_height - line_height / 2
+            else:
+                y_offset = center_y + int(percent * self.barbell_height / 2.0) + line_height / 2  # - rectangle_height - line_height / 2
+            x_offset1 = center_x + int(percent * self.barbell_width / 2.0) - rectangle_width / 2
+            x_offset2 = center_x - int(percent * self.barbell_width / 2.0) - rectangle_width / 2
+
+            for x_offset in (x_offset1, x_offset2):
+                if x_offset + rectangle_width < 0:
+                    continue
+                if x_offset < 0:
+                    x_offset = 0
+                for col in xrange(3):
+                    masked_overlay = (overlay[:, :, col] * (overlay[:, :, 3] / 255.0)
+                        + frame[y_offset: y_offset
+                        + overlay.shape[0], x_offset: x_offset
+                        + overlay.shape[1], col]
+                        * (1.0 - overlay[:, :, 3] / 255.0))
+                    frame[y_offset: y_offset + overlay.shape[0], x_offset: x_offset + overlay.shape[1], col] = masked_overlay
 
     def draw_metadata_on_canvas(self, draw_img):
         height, width, channels = draw_img.shape[0: 3]
