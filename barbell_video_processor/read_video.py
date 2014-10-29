@@ -188,6 +188,8 @@ def _get_standard_maxima(x_values, y_values, cleaned_first_derivative):
 
 
 def _append_first_last_points_to_maxima(x_values, y_values, min_maxima, max_maxima):
+    # SBL TODO if there's an index error here that probably indicates that no
+    # detections were ever found
     first_maxima_is_min = min_maxima[0][0] < max_maxima[0][0]
     last_maxima_is_min = min_maxima[-1][0] > max_maxima[-1][0]
     if first_maxima_is_min:
@@ -1183,7 +1185,7 @@ class BarbellDisplayer(object):
             haystack = rotate_perpendicular(haystack, self.orientation_id)
 
             height, width = haystack.shape[0: 2]
-            codec = cv2.cv.FOURCC('D', 'I', 'V', 'X')
+            codec = cv2.cv.FOURCC('M', 'J', 'P', 'G')
             self.video_writer = self.video_writer or cv2.VideoWriter(filename, codec, self.frames_per_sec, (width, height))
 
             # wait_key_time = 5
@@ -1751,8 +1753,8 @@ if __name__ == "__main__":
     BarbellDetector.orientation_id = orientation_id
     BarbellDisplayer.orientation_id = orientation_id
 
-    start_seconds = None
-    stop_seconds = None
+    start_seconds = 3
+    stop_seconds = 5
 
     BarbellDisplayer.start_seconds = start_seconds
     BarbellDisplayer.stop_seconds = stop_seconds
