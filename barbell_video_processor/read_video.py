@@ -830,7 +830,7 @@ def get_best_bar_size_position_angle(olympic_bar,
                         best_y_offset = y_offset
                         best_angle = angle
                         best_bar_width = bar_width
-                        if show_output:
+                        if show_output and LOCAL:
                             cv2.imshow("Barbell Finder", grayscale_with_overlay)
                             cv2.waitKey(1)
                     else:
@@ -1026,7 +1026,7 @@ class BarbellDetector(object):
                     # dirty, dirty hack to just ignore bad frames
                     pass
 
-        if self.show_output:
+        if self.show_output and LOCAL:
             cv2.imshow('some', draw_img)
 
     def _get_most_populated_row(self, grayscale_motion_detection_frame):
