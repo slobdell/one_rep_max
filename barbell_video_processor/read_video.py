@@ -909,6 +909,12 @@ class BarbellDetector(object):
     show_output = True
     orientation_id = Orientation.NONE
 
+    start_seconds = None
+    stop_seconds = None
+
+    def frame_number_to_seconds(self, frame_number):
+        return float(frame_number) / self.frames_per_sec
+
     def __init__(self, capture):
         self.capture = capture
         self.barbell_detections = []
@@ -949,6 +955,12 @@ class BarbellDetector(object):
             if not success:
                 break
             self.frame_number += 1
+
+            current_seconds = self.frame_number_to_seconds(self.frame_number)
+            if self.start_seconds is not None and current_seconds < self.start_seconds:
+                continue
+            if self.stop_seconds is not None and current_seconds > self.stop_seconds:
+                break
 
             haystack = resized_frame(haystack)
             haystack = rotate_perpendicular(haystack, self.orientation_id)
@@ -1132,6 +1144,9 @@ class BarbellDisplayer(object):
     negative_olympic_bar = OlympicBarbell(for_display=True, for_negative=True)
     orientation_id = Orientation.NONE
 
+    start_seconds = None
+    stop_seconds = None
+
     def __init__(self,
                  capture,
                  detected_barbells,
@@ -1141,10 +1156,16 @@ class BarbellDisplayer(object):
         self.frame_number = 0
         self.frame_to_detected_barbell = {barbell.frame_number: barbell for barbell in detected_barbells}
         self.video_writer = None
+
         self.frames_per_sec = capture.get(FRAMES_PER_SEC_KEY)
+        self.total_frames = capture.get(cv2.cv.CV_CAP_PROP_FRAME_COUNT)
+
         self.frame_to_1rm = frame_to_1rm
         self.barbell_width = detected_barbells[0].barbell_width
         self.barbell_height = self.olympic_bar.with_width(self.barbell_width).shape[0]
+
+    def frame_number_to_seconds(self, frame_number):
+        return float(frame_number) / self.frames_per_sec
 
     def output_video(self, filename):
         print "Creating Video..."
@@ -1153,6 +1174,11 @@ class BarbellDisplayer(object):
             if not success:
                 break
             self.frame_number += 1
+            current_seconds = self.frame_number_to_seconds(self.frame_number)
+            if self.start_seconds is not None and current_seconds < self.start_seconds:
+                continue
+            if self.stop_seconds is not None and current_seconds > self.stop_seconds:
+                break
             haystack = resized_frame(haystack)
             haystack = rotate_perpendicular(haystack, self.orientation_id)
 
@@ -1709,6 +1735,13 @@ def run(file_to_read, orientation_id):
 def process(file_to_read, orientation_id, start_seconds, stop_seconds):
     BarbellDetector.orientation_id = orientation_id
     BarbellDisplayer.orientation_id = orientation_id
+
+    BarbellDisplayer.start_seconds = start_seconds
+    BarbellDisplayer.stop_seconds = stop_seconds
+
+    BarbellDetector.start_seconds = start_seconds
+    BarbellDetector.stop_seconds = stop_seconds
+
     run(file_to_read, orientation_id)
 
 
@@ -1717,4 +1750,14 @@ if __name__ == "__main__":
     orientation_id = Orientation.NONE
     BarbellDetector.orientation_id = orientation_id
     BarbellDisplayer.orientation_id = orientation_id
+
+    start_seconds = None
+    stop_seconds = None
+
+    BarbellDisplayer.start_seconds = start_seconds
+    BarbellDisplayer.stop_seconds = stop_seconds
+
+    BarbellDetector.start_seconds = start_seconds
+    BarbellDetector.stop_seconds = stop_seconds
+
     run(file_to_read, orientation_id)
