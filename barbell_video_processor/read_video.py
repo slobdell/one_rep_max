@@ -1254,6 +1254,11 @@ class BarbellDisplayer(object):
                     continue
                 if x_offset < 0:
                     x_offset = 0
+                if x_offset > frame.shape[1]:
+                    continue
+                if x_offset + rectangle_width > frame.shape[1]:
+                    x_offset = frame.shape[1] - rectangle_width
+
                 for col in xrange(3):
                     masked_overlay = (overlay[:, :, col] * (overlay[:, :, 3] / 255.0)
                         + frame[y_offset: y_offset
