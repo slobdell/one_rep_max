@@ -1259,13 +1259,17 @@ class BarbellDisplayer(object):
                 if x_offset + rectangle_width > frame.shape[1]:
                     x_offset = frame.shape[1] - rectangle_width
 
-                for col in xrange(3):
-                    masked_overlay = (overlay[:, :, col] * (overlay[:, :, 3] / 255.0)
-                        + frame[y_offset: y_offset
-                        + overlay.shape[0], x_offset: x_offset
-                        + overlay.shape[1], col]
-                        * (1.0 - overlay[:, :, 3] / 255.0))
-                    frame[y_offset: y_offset + overlay.shape[0], x_offset: x_offset + overlay.shape[1], col] = masked_overlay
+                try:
+                    for col in xrange(3):
+                        masked_overlay = (overlay[:, :, col] * (overlay[:, :, 3] / 255.0)
+                            + frame[y_offset: y_offset
+                            + overlay.shape[0], x_offset: x_offset
+                            + overlay.shape[1], col]
+                            * (1.0 - overlay[:, :, 3] / 255.0))
+                        frame[y_offset: y_offset + overlay.shape[0], x_offset: x_offset + overlay.shape[1], col] = masked_overlay
+                except ValueError:
+                    print "WARNING: Ignoring a frame because of broadcast shapes"
+                    continue
 
     def draw_metadata_on_canvas(self, draw_img):
         height, width, channels = draw_img.shape[0: 3]
