@@ -702,9 +702,9 @@ def get_center_from_points(top_left, top_right, bottom_right, bottom_left):
 def rotate_perpendicular(img, orientation_id):
     orientation_to_angle = {
         Orientation.NONE: 0,
-        Orientation.ROTATE_90: 90,
+        Orientation.ROTATE_90: 270,  # FIXME kind of a hack for now, I dunno what I did wrong
         Orientation.ROTATE_180: 180,
-        Orientation.ROTATE_270: 270
+        Orientation.ROTATE_270: 90
     }
     angle = orientation_to_angle[orientation_id]
 
@@ -1636,7 +1636,7 @@ def run(file_to_read, orientation_id):
         bar.frame_number: (bar.offset_x, bar.barbell_width, bar.frames_held) for bar in detected_barbells
     }
 
-    detected_barbells = filter_smaller_barbells(detected_barbells)
+    # detected_barbells = filter_smaller_barbells(detected_barbells)
     detected_barbells = filter_barbells_by_y_values(detected_barbells)
 
     detected_barbells = filter_by_bar_width(detected_barbells)
@@ -1687,7 +1687,7 @@ def run(file_to_read, orientation_id):
         detected_barbells.append(fabricated_detection)
     print "checkpoint 1 detected barbells: %s" % len(detected_barbells)
 
-    detected_barbells = filter_smaller_barbells(detected_barbells)
+    # detected_barbells = filter_smaller_barbells(detected_barbells)
     detected_barbells = filter_by_bar_width(detected_barbells)
 
     top_percentile = int(TOP_PERCENTILE_THRESHOLD_FOR_GOOD_DETECTION * len(detected_barbells))
