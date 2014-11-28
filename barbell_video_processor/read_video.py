@@ -10,7 +10,7 @@ import random
 LINE_DETECTION_THRESHOLD = 25  # 50
 FRAMES_PER_SEC_KEY = 5
 MOTION_THRESHOLD = 25
-MIN_BAR_WIDTH_AS_PERCENT_OF_SCREEN = 0.50
+MIN_BAR_WIDTH_AS_PERCENT_OF_SCREEN = 0.40
 MAX_PERCENT_DIFFERENCE_BETWEEN_BARS = 0.10
 MAX_ROM_IN_INCHES = 40
 METERS_PER_INCH = 0.0254
@@ -753,6 +753,52 @@ def rotate_image_to_scaled_canvas(img, angle):
     return cv2.warpAffine(temp_img, rotated_matrix, (new_cols, new_rows), flags=cv2.INTER_LINEAR)
 
 
+def _get_impact(x_offset, y_offset, edges, overlay_height, overlay_width, angled_overlay, show_output):
+    num_pixels_for_motion = 10  # totally arbitrary right now
+    pixel_sum_before_overlay = np.sum(edges[y_offset: y_offset + overlay_height, x_offset: x_offset + overlay_width])
+    if pixel_sum_before_overlay < num_pixels_for_motion:
+        return None
+    grayscale_with_overlay = edges.copy()
+
+    # this works because white and black have identical BGR
+    # channels, so index 0 works fine
+    masked_overlay = (angled_overlay[:, :, 0] * (angled_overlay[:, :, 3] / 255.0)
+        + edges[y_offset: y_offset
+        + angled_overlay.shape[0], x_offset: x_offset
+        + angled_overlay.shape[1]]
+        * (1.0 - angled_overlay[:, :, 3] / 255.0))
+    grayscale_with_overlay[y_offset: y_offset + angled_overlay.shape[0], x_offset: x_offset + angled_overlay.shape[1]] = masked_overlay
+
+    mat_before_overlay = edges[y_offset: y_offset + overlay_height, x_offset: x_offset + overlay_width]
+    mat_after_overlay = grayscale_with_overlay[y_offset: y_offset + overlay_height, x_offset: x_offset + overlay_width]
+
+    # we want the LEAST impact...
+
+    # difference is nothing but an array of 255s each case
+    impact = np.sum(abs(mat_after_overlay - mat_before_overlay))
+    num_non_transparent_pixels = np.sum(angled_overlay[:, :, 3]) / 255.0
+    impact = float(impact) / 255.0
+    # TODO consider punishing smaller bars some more again
+    impact = impact / num_non_transparent_pixels
+    # impact = impact / (overlay_width + overlay_height)
+    # initial impact represents the total number of affected
+    # pixels
+    if show_output and LOCAL:
+        cv2.imshow("Barbell Finder", grayscale_with_overlay)
+        cv2.waitKey(1)
+    return impact
+
+
+def _out_of_bounds(center_motion_detected_bar, x_offset, y_offset, overlay_width, overlay_height):
+    center_x = center_motion_detected_bar[0]
+    center_y = center_motion_detected_bar[1]
+    if center_x < x_offset or center_x > x_offset + overlay_width:
+        return True
+    if center_y < y_offset or center_y > y_offset + overlay_height:
+        return True
+    return False
+
+
 def get_best_bar_size_position_angle(olympic_bar,
                                      edges,
                                      min_bar_size,
@@ -764,7 +810,6 @@ def get_best_bar_size_position_angle(olympic_bar,
     best_bar_width_to_frames_held = defaultdict(int)
     deleteme_counter = 0
     height, width = edges.shape[0: 2]
-    num_pixels_for_motion = 10  # totally arbitrary right now
     best_impact = sys.maxint
     min_width_threshold = int(width * MIN_BAR_WIDTH_AS_PERCENT_OF_SCREEN)
     min_width = int(max(min_bar_size, min_width_threshold))
@@ -788,41 +833,12 @@ def get_best_bar_size_position_angle(olympic_bar,
                     continue
                 for y_offset in xrange(0, height - overlay_height):
                     deleteme_counter += 1
-                    center_x = center_motion_detected_bar[0]
-                    center_y = center_motion_detected_bar[1]
-                    if center_x < x_offset or center_x > x_offset + overlay_width:
-                        continue
-                    if center_y < y_offset or center_y > y_offset + overlay_height:
+                    if _out_of_bounds(center_motion_detected_bar, x_offset, y_offset, overlay_width, overlay_height):
                         continue
 
-                    pixel_sum_before_overlay = np.sum(edges[y_offset: y_offset + overlay_height, x_offset: x_offset + overlay_width])
-                    if pixel_sum_before_overlay < num_pixels_for_motion:
+                    impact = _get_impact(x_offset, y_offset, edges, overlay_height, overlay_width, angled_overlay, show_output)
+                    if impact is None:
                         continue
-                    grayscale_with_overlay = edges.copy()
-
-                    # this works because white and black have identical BGR
-                    # channels, so index 0 works fine
-                    masked_overlay = (angled_overlay[:, :, 0] * (angled_overlay[:, :, 3] / 255.0)
-                        + edges[y_offset: y_offset
-                        + angled_overlay.shape[0], x_offset: x_offset
-                        + angled_overlay.shape[1]]
-                        * (1.0 - angled_overlay[:, :, 3] / 255.0))
-                    grayscale_with_overlay[y_offset: y_offset + angled_overlay.shape[0], x_offset: x_offset + angled_overlay.shape[1]] = masked_overlay
-
-                    mat_before_overlay = edges[y_offset: y_offset + overlay_height, x_offset: x_offset + overlay_width]
-                    mat_after_overlay = grayscale_with_overlay[y_offset: y_offset + overlay_height, x_offset: x_offset + overlay_width]
-
-                    # we want the LEAST impact...
-
-                    # difference is nothing but an array of 255s each case
-                    impact = np.sum(abs(mat_after_overlay - mat_before_overlay))
-                    num_non_transparent_pixels = np.sum(angled_overlay[:, :, 3]) / 255.0
-                    impact = float(impact) / 255.0
-                    # TODO consider punishing smaller bars some more again
-                    impact = impact / num_non_transparent_pixels
-                    # impact = impact / (overlay_width + overlay_height)
-                    # initial impact represents the total number of affected
-                    # pixels
 
                     if impact < best_impact and bar_width != min_width_threshold:
                         best_impact = impact
@@ -830,9 +846,6 @@ def get_best_bar_size_position_angle(olympic_bar,
                         best_y_offset = y_offset
                         best_angle = angle
                         best_bar_width = bar_width
-                        if show_output and LOCAL:
-                            cv2.imshow("Barbell Finder", grayscale_with_overlay)
-                            cv2.waitKey(1)
                     else:
                         if "best_bar_width" in locals().keys():
                             key = (best_impact, best_bar_width, best_x_offset, best_y_offset, best_angle)
