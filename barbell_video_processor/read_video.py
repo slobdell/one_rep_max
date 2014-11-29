@@ -775,11 +775,16 @@ def _get_impact(x_offset, y_offset, edges, overlay_height, overlay_width, angled
     # we want the LEAST impact...
 
     # difference is nothing but an array of 255s each case
-    impact = np.sum(abs(mat_after_overlay - mat_before_overlay))
+    total_before_overlay = np.sum(mat_before_overlay)
+    if total_before_overlay == 0:
+        return None
+
+    impact = float(np.sum(mat_after_overlay)) / total_before_overlay
     num_non_transparent_pixels = np.sum(angled_overlay[:, :, 3]) / 255.0
-    impact = float(impact) / 255.0
-    # TODO consider punishing smaller bars some more again
     impact = impact / num_non_transparent_pixels
+    '''
+    impact = float(impact) / 255.0
+    '''
     # impact = impact / (overlay_width + overlay_height)
     # initial impact represents the total number of affected
     # pixels
@@ -840,7 +845,7 @@ def get_best_bar_size_position_angle(olympic_bar,
                     if impact is None:
                         continue
 
-                    if impact < best_impact and bar_width != min_width_threshold:
+                    if impact < best_impact:  # and bar_width != min_width_threshold:
                         best_impact = impact
                         best_x_offset = x_offset
                         best_y_offset = y_offset
@@ -850,9 +855,7 @@ def get_best_bar_size_position_angle(olympic_bar,
                         if "best_bar_width" in locals().keys():
                             key = (best_impact, best_bar_width, best_x_offset, best_y_offset, best_angle)
                             best_bar_width_to_frames_held[key] += 1
-    # print "Time in function: %s" % (datetime.datetime.utcnow() - start_time).total_seconds()
-    # print best_impact, best_x_offset, best_y_offset, best_angle, best_bar_width
-    if max_bar_size == min_bar_size:
+    if max_bar_size == min_bar_size or True:  # SBL attempting this!
         # don't care about frames held, just get best result, so find the
         # minimum bar size
         return best_impact, best_bar_width, best_x_offset, best_y_offset, best_angle, 0
