@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-DEBUG = False
+DEBUG = True
 
 
 def grayscale(frame):
@@ -10,10 +10,27 @@ def grayscale(frame):
     return np.asarray(gray[:, :])
 
 
+def smooth_list_gaussian(input_list, degree=10):
+    window = degree * 2 - 1
+    weight = np.array([1.0] * window)
+    weightGauss = []
+    for i in range(window):
+        i = i - degree + 1
+        frac = i / float(window)
+        gauss = 1 / (np.exp((4 * (frac)) ** 2))
+        weightGauss.append(gauss)
+    weight = np.array(weightGauss) * weight
+    smoothed = [0.0] * (len(input_list) - window)
+    for i in range(len(smoothed)):
+        smoothed[i] = sum(np.array(input_list[i: i + window]) * weight) / sum(weight)
+    smoothed = [0 for _ in xrange(degree)] + smoothed
+    return smoothed
+
+
 class BarbellWidthFinder(object):
 
     MOTION_THRESHOLD = 25
-    Y_OFFSET_FOR_INSPECTION = 10
+    Y_OFFSET_FOR_INSPECTION = 40
     MIN_BAR_AS_PERCENT_OF_SCREEN = 0.50
 
     def __init__(self, filtered_motion_detection_frames):
@@ -67,12 +84,13 @@ class BarbellWidthFinder(object):
         cropped_aggregate_motion = self._get_cropped_matrix(union_frame, probable_barbell_row)
         displayable_frame = self._make_frame_displayable(cropped_aggregate_motion)
         motion_by_column = self._collapse_motion_to_one_row(displayable_frame)
-        x_offset, bar_width = self._find_width(motion_by_column)
+        smoothed_motion_by_column = smooth_list_gaussian(motion_by_column)
+        x_offset, bar_width = self._find_width(smoothed_motion_by_column)
 
         if DEBUG:
             cv2.imshow("initial", self._make_frame_displayable(union_frame))
             self._display_motion_column(motion_by_column, union_frame.shape[0: 2])
-            self._plot(motion_by_column, (x_offset, bar_width))
+            self._plot(motion_by_column, smoothed_motion_by_column, (x_offset, bar_width))
             cv2.waitKey(0)
 
         return x_offset, bar_width
@@ -93,17 +111,19 @@ class BarbellWidthFinder(object):
             row_scores[row_index] = motion_score / differential_score
         return row_scores.argmax()
 
-    def _plot(self, motion_by_column, found_bar_tuple):
+    def _plot(self, motion_by_column, smoothed_motion_by_column, found_bar_tuple):
         import pylab
         x_values = range(len(motion_by_column))
-        y_values = motion_by_column
+        x_values2 = range(len(smoothed_motion_by_column))
 
         bar_x = [i + found_bar_tuple[0] for i in xrange(found_bar_tuple[1])]
-        bar_y = [500 for _ in xrange(found_bar_tuple[1])]
+        bar_y_value = np.min([smoothed_motion_by_column[index] for index in bar_x])
+        bar_y = [bar_y_value for _ in xrange(found_bar_tuple[1])]
 
         pylab.figure()
-        pylab.plot(x_values, y_values, '-', color='b', label='Position')
-        pylab.plot(bar_x, bar_y, '-', color='b', label='Bar')
+        pylab.plot(x_values, motion_by_column, '-', color='b', label='Motion Intensity')
+        pylab.plot(x_values2, smoothed_motion_by_column, '-', color='r', label='Smoothed Motion Intensity')
+        pylab.plot(bar_x, bar_y, '-', color='g', label='Bar')
         pylab.legend()
         pylab.xlabel('Frame Number')
         pylab.ylabel('Position')

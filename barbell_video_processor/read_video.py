@@ -7,6 +7,10 @@ import math
 import numpy as np
 import random
 
+from barbell_video_processor.shaky_motion_detector import ShakyMotionDetector
+from barbell_video_processor.barbell_width_finder import BarbellWidthFinder
+
+
 LINE_DETECTION_THRESHOLD = 25  # 50
 FRAMES_PER_SEC_KEY = 5
 MOTION_THRESHOLD = 25
@@ -17,7 +21,8 @@ METERS_PER_INCH = 0.0254
 TOP_PERCENTILE_THRESHOLD_FOR_GOOD_DETECTION = 0.25
 MAX_ROM_IN_METERS = MAX_ROM_IN_INCHES * METERS_PER_INCH
 ACTUAL_FRAME_OFFSET = 2
-LOCAL = False
+RESIZE_WIDTH = 500
+LOCAL = True
 
 
 class Orientation(object):
@@ -830,7 +835,7 @@ def get_best_bar_size_position_angle(olympic_bar,
             lower_x = 0
             upper_x = width - overlay_width
             center = (upper_x + lower_x) / 2
-            percent_offset = 0.20
+            percent_offset = 0.80  # this is actually useless now, revisit
             for x_offset in xrange(int(center - center * percent_offset), int(center + center * percent_offset)):
                 if x_offset < left_x_limit:
                     continue
@@ -872,7 +877,7 @@ def get_best_bar_size_position_angle(olympic_bar,
 
 def resized_frame(frame):
     height, width = frame.shape[0: 2]
-    desired_width = 500
+    desired_width = RESIZE_WIDTH
     desired_to_actual = float(desired_width) / width
     new_width = int(width * desired_to_actual)
     new_height = int(height * desired_to_actual)
@@ -1632,21 +1637,14 @@ def run(file_to_read, orientation_id):
     # if true/false statement could be added here
     capture = cv2.VideoCapture(capture_path)
 
-    barbell_detector = BarbellDetector(capture)
-    detected_barbells = barbell_detector.get_barbell_frame_data()
-    if LOCAL:
-        dump_detected_barbells_to_json(detected_barbells, video_filename)
+    motion_detection_frames = ShakyMotionDetector(file_to_read).get_frames()
+    x_offset, barbell_width = BarbellWidthFinder(motion_detection_frames).find_barbell_width()
+    max_x = x_offset + barbell_width + 1
+    barbell_detector = (BarbellDetector(capture).
+                        with_bar_size(barbell_width).
+                        with_min_and_max_x(x_offset, max_x))
 
-    # else statement could be added here
-    '''
-    detected_barbells = []
-    filename = "json_data/barbell_detections_%s.json" % video_filename
-    with open(filename, "rb") as f:
-        json_str = f.read()
-        json_data = json.loads(json_str)
-        for json_dict in json_data:
-            detected_barbells.append(BarbellDetection.from_json(json_dict))
-    '''
+    detected_barbells = barbell_detector.get_barbell_frame_data()
 
     frame_num_to_original_val = {
         bar.frame_number: (bar.offset_x, bar.barbell_width, bar.frames_held) for bar in detected_barbells
@@ -1655,7 +1653,7 @@ def run(file_to_read, orientation_id):
     # detected_barbells = filter_smaller_barbells(detected_barbells)
     detected_barbells = filter_barbells_by_y_values(detected_barbells)
 
-    detected_barbells = filter_by_bar_width(detected_barbells)
+    # detected_barbells = filter_by_bar_width(detected_barbells)
     detected_barbells = set_mean_for_barbells(detected_barbells)
 
     capture = cv2.VideoCapture(capture_path)
@@ -1666,6 +1664,7 @@ def run(file_to_read, orientation_id):
     min_x = min(x_offsets)
     max_x = max(x_offsets) + bar.barbell_width
 
+    # SBL TODO: I can remove this stuff now
     barbell_detector = BarbellDetector(capture).with_bar_size(detected_barbells[0].barbell_width).with_min_and_max_x(min_x, max_x)
     detected_barbells = barbell_detector.get_barbell_frame_data()
     for bar in detected_barbells:
@@ -1704,7 +1703,7 @@ def run(file_to_read, orientation_id):
     print "checkpoint 1 detected barbells: %s" % len(detected_barbells)
 
     # detected_barbells = filter_smaller_barbells(detected_barbells)
-    detected_barbells = filter_by_bar_width(detected_barbells)
+    # detected_barbells = filter_by_bar_width(detected_barbells)
 
     top_percentile = int(TOP_PERCENTILE_THRESHOLD_FOR_GOOD_DETECTION * len(detected_barbells))
     solid_detections = detected_barbells[:top_percentile]
@@ -1784,14 +1783,5 @@ if __name__ == "__main__":
     orientation_id = Orientation.NONE
     BarbellDetector.orientation_id = orientation_id
     BarbellDisplayer.orientation_id = orientation_id
-
-    start_seconds = 3
-    stop_seconds = 5
-
-    BarbellDisplayer.start_seconds = start_seconds
-    BarbellDisplayer.stop_seconds = stop_seconds
-
-    BarbellDetector.start_seconds = start_seconds
-    BarbellDetector.stop_seconds = stop_seconds
 
     run(file_to_read, orientation_id)
