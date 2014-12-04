@@ -1646,7 +1646,7 @@ def filter_by_no_frame_neighbors(detected_barbells):
     return barbells_to_keep
 
 
-def filter_barbells_with_original_video(capture_path, detected_barbells):
+def filter_barbells_with_original_video(capture_path, detected_barbells, orientation_id):
     capture = cv2.VideoCapture(capture_path)
     amend_barbell_pixels_to_barbell_detections(capture, detected_barbells, orientation_id)
     amend_likeness_score_to_barbell_detections(detected_barbells)
@@ -1686,7 +1686,7 @@ def run(file_to_read, orientation_id):
     if len(detected_barbells) == 0:
         raise CouldNotDetectException("Could not detect the barbell in the image")
 
-    detected_barbells = filter_barbells_with_original_video(capture_path, detected_barbells)
+    detected_barbells = filter_barbells_with_original_video(capture_path, detected_barbells, orientation_id)
     detected_barbells = filter_by_y_pos_and_max_rom(detected_barbells)
     detected_barbells = filter_by_no_frame_neighbors(detected_barbells)
 
