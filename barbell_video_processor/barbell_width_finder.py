@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-DEBUG = True
+DEBUG = False
 
 
 def grayscale(frame):
@@ -10,7 +10,7 @@ def grayscale(frame):
     return np.asarray(gray[:, :])
 
 
-def smooth_list_gaussian(input_list, degree=10):
+def smooth_list_gaussian(input_list, degree=8):
     window = degree * 2 - 1
     weight = np.array([1.0] * window)
     weightGauss = []

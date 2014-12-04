@@ -1629,6 +1629,19 @@ def filter_by_no_frame_neighbors(detected_barbells):
     return barbells_to_keep
 
 
+def filter_barbells_with_original_video(capture_path, detected_barbells):
+    capture = cv2.VideoCapture(capture_path)
+    amend_barbell_pixels_to_barbell_detections(capture, detected_barbells, orientation_id)
+    amend_likeness_score_to_barbell_detections(detected_barbells)
+    # TODO consider adding a likeness score with the average detections...
+    amend_symmetry_score_to_barbell_detections(detected_barbells)
+    detected_barbells = sorted(detected_barbells, key=lambda detection: detection.total_score)
+
+    start_index, end_index = get_best_start_and_end_index_from_sorted_barbells(detected_barbells)
+    detected_barbells = detected_barbells[start_index: end_index]
+    return detected_barbells
+
+
 def run(file_to_read, orientation_id):
     video_filename = (file_to_read.split("/")[-1]).split(".")[0]
     start_time = datetime.datetime.utcnow()
@@ -1646,10 +1659,6 @@ def run(file_to_read, orientation_id):
 
     detected_barbells = barbell_detector.get_barbell_frame_data()
 
-    frame_num_to_original_val = {
-        bar.frame_number: (bar.offset_x, bar.barbell_width, bar.frames_held) for bar in detected_barbells
-    }
-
     # detected_barbells = filter_smaller_barbells(detected_barbells)
     detected_barbells = filter_barbells_by_y_values(detected_barbells)
 
@@ -1660,88 +1669,14 @@ def run(file_to_read, orientation_id):
     if len(detected_barbells) == 0:
         raise CouldNotDetectException("Could not detect the barbell in the image")
 
-    x_offsets = [bar.offset_x for bar in detected_barbells]
-    min_x = min(x_offsets)
-    max_x = max(x_offsets) + bar.barbell_width
-
-    # SBL TODO: I can remove this stuff now
-    barbell_detector = BarbellDetector(capture).with_bar_size(detected_barbells[0].barbell_width).with_min_and_max_x(min_x, max_x)
-    detected_barbells = barbell_detector.get_barbell_frame_data()
-    for bar in detected_barbells:
-        if bar.frame_number not in frame_num_to_original_val:
-            frame_num_to_original_val[bar.frame_number] = (bar.offset_x, bar.barbell_width, 0)
-
-    detected_barbells = set_bar_offsets_by_average_x(detected_barbells)
-
-    capture = cv2.VideoCapture(capture_path)
-    amend_barbell_pixels_to_barbell_detections(capture, detected_barbells, orientation_id)
-    amend_likeness_score_to_barbell_detections(detected_barbells)
-    # TODO consider adding a likeness score with the average detections...
-    amend_symmetry_score_to_barbell_detections(detected_barbells)
-    detected_barbells = sorted(detected_barbells, key=lambda detection: detection.total_score)
-
-    start_index, end_index = get_best_start_and_end_index_from_sorted_barbells(detected_barbells)
-    detected_barbells = detected_barbells[start_index: end_index]
-
-    print "STARTING THIS AWESOMENESS"
-    print "BEFORE: %s" % len(detected_barbells)
+    detected_barbells = filter_barbells_with_original_video(capture_path, detected_barbells)
     detected_barbells = filter_by_y_pos_and_max_rom(detected_barbells)
-    print "AFTER: %s" % len(detected_barbells)
-
     detected_barbells = filter_by_no_frame_neighbors(detected_barbells)
-
-    print "STARTING MY AWESOME REPEAT!!!!"
-    relevant_frames = [barbell.frame_number for barbell in detected_barbells]
-
-    detected_barbells = []
-    for frame_number in relevant_frames:
-        original_x_offset = frame_num_to_original_val[frame_number][0]
-        original_bar_width = frame_num_to_original_val[frame_number][1]
-        original_frames_held = frame_num_to_original_val[frame_number][2]
-        fabricated_detection = BarbellDetection(frame_number, None, original_bar_width, original_x_offset, None, None, frames_held=original_frames_held)
-        detected_barbells.append(fabricated_detection)
-    print "checkpoint 1 detected barbells: %s" % len(detected_barbells)
-
-    # detected_barbells = filter_smaller_barbells(detected_barbells)
-    # detected_barbells = filter_by_bar_width(detected_barbells)
-
-    top_percentile = int(TOP_PERCENTILE_THRESHOLD_FOR_GOOD_DETECTION * len(detected_barbells))
-    solid_detections = detected_barbells[:top_percentile]
-    original_values = [frame_num_to_original_val[detection.frame_number] for detection in solid_detections]
-    original_values.sort(key=lambda t: t[2])
-    original_values.reverse()
-    more_accurate_mean = int(np.mean(np.asarray([t[1] for t in original_values[:len(original_values) / 1]])))
-
-    detected_barbells = set_mean_for_barbells(detected_barbells, mean_value=more_accurate_mean)
-    print "checkpoint 2 detected barbells: %s" % len(detected_barbells)
-
-    x_offsets = [bar.offset_x for bar in detected_barbells]
-    min_x = min(x_offsets)
-    max_x = max(x_offsets) + bar.barbell_width
-
-    frame_set = set([barbell.frame_number + ACTUAL_FRAME_OFFSET for barbell in detected_barbells])
-    capture = cv2.VideoCapture(capture_path)
-
-    barbell_detector = (BarbellDetector(capture).
-                        with_frame_num_limits(frame_set).
-                        with_min_and_max_x(min_x, max_x).
-                        with_bar_size(detected_barbells[0].barbell_width))
-
-    detected_barbells = barbell_detector.get_barbell_frame_data()
-    print "Length of detected barbells now: %s" % len(detected_barbells)
-    detected_barbells = set_bar_offsets_by_average_x(detected_barbells)
-    # ELESE STATEMENT USED TO BE HERE
 
     print "Fixing fluctuations..."
     detected_barbells.sort(key=lambda barbell: barbell.frame_number)
     while has_fluctuations(detected_barbells):
         fix_one_fluctuation(detected_barbells)
-
-    if LOCAL:
-        json_objs = [{barbell.frame_number: barbell.offset_y} for barbell in detected_barbells]
-        json_str = json.dumps(json_objs)
-        with open("json_data/plot_data_%s.json" % video_filename, "w+") as f:
-            f.write(json_str)
 
     print "Calculating accelerations..."
     capture = cv2.VideoCapture(capture_path)
