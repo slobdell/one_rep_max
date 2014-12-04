@@ -22,7 +22,7 @@ TOP_PERCENTILE_THRESHOLD_FOR_GOOD_DETECTION = 0.25
 MAX_ROM_IN_METERS = MAX_ROM_IN_INCHES * METERS_PER_INCH
 ACTUAL_FRAME_OFFSET = 2
 RESIZE_WIDTH = 500
-LOCAL = True
+LOCAL = False
 
 
 class Orientation(object):
@@ -979,6 +979,7 @@ class BarbellDetector(object):
             if not success:
                 break
             self.frame_number += 1
+            print "Processing frame %s" % self.frame_number
 
             current_seconds = self.frame_number_to_seconds(self.frame_number)
             if self.start_seconds is not None and current_seconds < self.start_seconds:
@@ -1017,11 +1018,14 @@ class BarbellDetector(object):
         grayscale_motion_detection = grayscale(motion_detection_frame)
 
         # note that raise this too high might erase the image and create bugs
+
+        # best_row = self._get_most_populated_row(grayscale_motion_detection)
         threshold_pixel = MOTION_THRESHOLD
         grayscale_motion_detection[grayscale_motion_detection < threshold_pixel] = 0
         grayscale_motion_detection[grayscale_motion_detection >= threshold_pixel] = 255
 
-        best_row, white_pixel_count = self._get_most_populated_row(grayscale_motion_detection)
+        best_row = self._get_most_populated_row(grayscale_motion_detection)
+        # best_row2 = self._get_best_object_motion_row(grayscale_motion_detection)
         _, width = grayscale_motion_detection.shape[0: 2]
         cv2.circle(grayscale_motion_detection, (width / 2, best_row), 50, 200)
 
@@ -1059,7 +1063,20 @@ class BarbellDetector(object):
             if white_pixels_this_row > max_pixels:
                 best_row = row
                 max_pixels = white_pixels_this_row
-        return best_row, max_pixels
+        return best_row
+
+    def _get_best_object_motion_row(self, motion_matrix):
+        '''
+        Sum each row, square that value
+        '''
+        rows, cols = motion_matrix.shape[0: 2]
+        row_scores = np.zeros(rows)
+        for row_index in xrange(rows):
+            row_array = motion_matrix[row_index, :]
+            motion_score = np.sum(row_array) ** 2
+            differential_score = np.std(np.abs(np.diff(row_array.astype(int))))
+            row_scores[row_index] = motion_score / differential_score
+        return row_scores.argmax()
 
     def _get_edge_frame_and_lines_from_motion_detection(self, motion_detection_frame):
         gray_frame = grayscale(motion_detection_frame)

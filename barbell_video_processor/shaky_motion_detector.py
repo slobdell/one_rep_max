@@ -3,6 +3,8 @@ import cv2
 import numpy as np
 
 IMAGE_WIDTH = 500
+# FIXME if this doesnt equal the value in the other file it's going to break
+# stuff, need to consolidate
 
 
 def resized_frame(frame):
