@@ -1682,8 +1682,6 @@ def run(file_to_read, orientation_id):
     capture = cv2.VideoCapture(capture_path)
     frames_per_second = capture.get(FRAMES_PER_SEC_KEY)
     frame_to_1rm = get_frame_to_1rm(detected_barbells, frames_per_second)
-    # one_g = get_acceleration_of_gravity_in_pixels_per_frame(detected_barbells[0].barbell_width, frames_per_second)
-    # frame_to_acceleration = determine_acceleration_values(detected_barbells, one_g)
 
     print "Outputting video..."
     capture = cv2.VideoCapture(capture_path)
