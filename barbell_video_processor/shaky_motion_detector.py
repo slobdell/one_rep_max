@@ -84,7 +84,8 @@ class ShakyMotionDetector(object):
         for frame in frame_generator:
             if index >= MAX_PREVIOUS_FRAME_COUNT:
                 clean_frame = self._get_clean_frame(frame, list(previous_frame_queue))
-                print "yielding %s" % index
+                if index % 10 == 0:
+                    print "yielding %s" % index
                 yield clean_frame
             elif index < MAX_PREVIOUS_FRAME_COUNT:
                 initial_frames.append(frame)

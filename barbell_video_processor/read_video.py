@@ -979,7 +979,8 @@ class BarbellDetector(object):
             if not success:
                 break
             self.frame_number += 1
-            print "Processing frame %s" % self.frame_number
+            if self.frame_number % 10 == 0:
+                print "Processing frame %s" % self.frame_number
 
             current_seconds = self.frame_number_to_seconds(self.frame_number)
             if self.start_seconds is not None and current_seconds < self.start_seconds:
