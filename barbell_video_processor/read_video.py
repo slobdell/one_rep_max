@@ -1663,8 +1663,9 @@ def _get_x__barbell_width(file_to_read):
     '''
     this function is heavy on memory so isolating as much as possible
     '''
-    motion_detection_frames = ShakyMotionDetector(file_to_read).get_frames()
+    motion_detection_frames = ShakyMotionDetector(file_to_read).generate_frames()
     x_offset, barbell_width = BarbellWidthFinder(motion_detection_frames).find_barbell_width()
+    return x_offset, barbell_width
 
 
 def run(file_to_read, orientation_id):

@@ -1,10 +1,20 @@
 import sys
 import cv2
 import numpy as np
+from collections import deque
 
 IMAGE_WIDTH = 500
 # FIXME if this doesnt equal the value in the other file it's going to break
 # stuff, need to consolidate
+MIN_PREVIOUS_FRAME_COUNT = 6
+MAX_PREVIOUS_FRAME_COUNT = 20
+
+
+def grayscale(frame):
+    im = cv2.cv.fromarray(frame)
+    gray = cv2.cv.CreateImage((im.width, im.height), 8, 1)
+    cv2.cv.CvtColor(im, gray, cv2.cv.CV_BGR2GRAY)
+    return np.asarray(gray[:, :])
 
 
 def resized_frame(frame):
@@ -24,6 +34,7 @@ class ShakyMotionDetector(object):
     def __init__(self, file_to_read):
         self.file_to_read = file_to_read
         self.capture = cv2.VideoCapture(self.file_to_read)
+        self.resultant_frame = None
 
         self.video_writer = None
         self.frames_per_sec = 25
@@ -59,26 +70,38 @@ class ShakyMotionDetector(object):
         motion_detection_frame = cv2.bitwise_xor(d1, d2)
         return motion_detection_frame
 
-    def _remove_shakiness(self, frames):
-        clean_frames = []
-        for index, frame in enumerate(frames):
-            print "Processing %s" % index
-            previous_frames = self._get_previous_frames(index, frames)
-            cumulative_motion = self._get_max_array(previous_frames)
-            final_frame = frame.astype(int) - cumulative_motion.astype(int)
-            final_frame[final_frame < 0] = 0
-            clean_frames.append(final_frame.astype(np.uint8))
-            print "Final sum: %s" % np.sum(final_frame)
-        return clean_frames
+    def _get_clean_frame(self, frame, possible_previous_frames):
+        previous_frames = self._get_previous_frames(possible_previous_frames)
+        cumulative_motion = self._get_max_array(previous_frames)
+        final_frame = frame.astype(int) - cumulative_motion.astype(int)
+        final_frame[final_frame < 0] = 0
+        return final_frame.astype(np.uint8)
 
-    def _get_previous_frames(self, index, frames):
-        min_previous_frame_count = 6
-        max_previous_frame_count = 20
-        previous_frames = frames[:index - min_previous_frame_count]
-        previous_frames = previous_frames[index - max_previous_frame_count:]
-        missing_frame_count = (max_previous_frame_count - min_previous_frame_count) - len(previous_frames)
-        if missing_frame_count > 0:
-            previous_frames = previous_frames + frames[-missing_frame_count:]
+    def _remove_shakiness_generator(self, frame_generator):
+        initial_frames = []
+        index = 0
+        previous_frame_queue = deque()
+        for frame in frame_generator:
+            if index >= MAX_PREVIOUS_FRAME_COUNT:
+                clean_frame = self._get_clean_frame(frame, list(previous_frame_queue))
+                print "yielding %s" % index
+                yield clean_frame
+            elif index < MAX_PREVIOUS_FRAME_COUNT:
+                initial_frames.append(frame)
+            previous_frame_queue.append(frame)
+            while len(previous_frame_queue) > MAX_PREVIOUS_FRAME_COUNT:
+                previous_frame_queue.popleft()
+            index += 1
+
+        for frame in initial_frames:
+            clean_frame = self._get_clean_frame(frame, list(previous_frame_queue))
+            yield clean_frame
+            previous_frame_queue.append(frame)
+            while len(previous_frame_queue) > MAX_PREVIOUS_FRAME_COUNT:
+                previous_frame_queue.popleft()
+
+    def _get_previous_frames(self, trailing_frames):
+        previous_frames = trailing_frames[:MAX_PREVIOUS_FRAME_COUNT - MIN_PREVIOUS_FRAME_COUNT]
         return previous_frames
 
     def _get_max_array(self, array_list):
@@ -93,13 +116,23 @@ class ShakyMotionDetector(object):
                 resultant_array = np.maximum(resultant_array, offset_array)
         return resultant_array
 
-    def get_frames(self):
-        all_frames = list(self._generate_motion_detection_frames())
-        all_frames = self._remove_shakiness(all_frames)
+    def generate_frames(self):
+        all_frame_generator = self._generate_motion_detection_frames()
+        all_frames = self._remove_shakiness_generator(all_frame_generator)
         return all_frames
 
+    def get_union_frame(self):
+        return self._create_union_frame(self.generate_frames())
+
+    def _create_union_frame(self, filtered_motion_detection_frames):
+        for frame in filtered_motion_detection_frames:
+            grayscale_frame = grayscale(frame)
+            # grayscale_frame[grayscale_frame < self.MOTION_THRESHOLD] = 0
+            self.resultant_frame = self._get_resultant_frame(grayscale_frame)
+        return self.resultant_frame.copy()
+
     def create(self):
-        for motion_detection_frame in self.get_frames():
+        for motion_detection_frame in self.generate_frames():
             height, width = motion_detection_frame.shape[0: 2]
             self.video_writer = self.video_writer or cv2.VideoWriter(self.output_filename, self.codec, self.frames_per_sec, (width, height))
             self.video_writer.write(motion_detection_frame)
