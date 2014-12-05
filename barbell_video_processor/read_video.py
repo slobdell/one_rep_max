@@ -1659,17 +1659,22 @@ def filter_barbells_with_original_video(capture_path, detected_barbells, orienta
     return detected_barbells
 
 
+def _get_x__barbell_width(file_to_read):
+    '''
+    this function is heavy on memory so isolating as much as possible
+    '''
+    motion_detection_frames = ShakyMotionDetector(file_to_read).get_frames()
+    x_offset, barbell_width = BarbellWidthFinder(motion_detection_frames).find_barbell_width()
+
+
 def run(file_to_read, orientation_id):
     video_filename = (file_to_read.split("/")[-1]).split(".")[0]
     start_time = datetime.datetime.utcnow()
     capture_path = file_to_read
 
-    # if true/false statement could be added here
-    capture = cv2.VideoCapture(capture_path)
-
-    motion_detection_frames = ShakyMotionDetector(file_to_read).get_frames()
-    x_offset, barbell_width = BarbellWidthFinder(motion_detection_frames).find_barbell_width()
+    x_offset, barbell_width = _get_x__barbell_width(capture_path)
     max_x = x_offset + barbell_width + 1
+    capture = cv2.VideoCapture(capture_path)
     barbell_detector = (BarbellDetector(capture).
                         with_bar_size(barbell_width).
                         with_min_and_max_x(x_offset, max_x))

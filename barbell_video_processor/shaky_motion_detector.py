@@ -61,22 +61,25 @@ class ShakyMotionDetector(object):
 
     def _remove_shakiness(self, frames):
         clean_frames = []
-        min_previous_frame_count = 6
-        max_previous_frame_count = 20
         for index, frame in enumerate(frames):
             print "Processing %s" % index
-            previous_frames = frames[:index - min_previous_frame_count]
-            previous_frames = previous_frames[index - max_previous_frame_count:]
-            missing_frame_count = (max_previous_frame_count - min_previous_frame_count) - len(previous_frames)
-            if missing_frame_count > 0:
-                previous_frames = previous_frames + frames[-missing_frame_count:]
-            # cumulative_motion = np.sum(previous_frames, axis=0)
+            previous_frames = self._get_previous_frames(index, frames)
             cumulative_motion = self._get_max_array(previous_frames)
             final_frame = frame.astype(int) - cumulative_motion.astype(int)
             final_frame[final_frame < 0] = 0
             clean_frames.append(final_frame.astype(np.uint8))
             print "Final sum: %s" % np.sum(final_frame)
         return clean_frames
+
+    def _get_previous_frames(self, index, frames):
+        min_previous_frame_count = 6
+        max_previous_frame_count = 20
+        previous_frames = frames[:index - min_previous_frame_count]
+        previous_frames = previous_frames[index - max_previous_frame_count:]
+        missing_frame_count = (max_previous_frame_count - min_previous_frame_count) - len(previous_frames)
+        if missing_frame_count > 0:
+            previous_frames = previous_frames + frames[-missing_frame_count:]
+        return previous_frames
 
     def _get_max_array(self, array_list):
         resultant_array = np.zeros(array_list[0].shape)

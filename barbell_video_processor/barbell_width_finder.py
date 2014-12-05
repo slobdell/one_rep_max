@@ -34,11 +34,11 @@ class BarbellWidthFinder(object):
     MIN_BAR_AS_PERCENT_OF_SCREEN = 0.50
 
     def __init__(self, filtered_motion_detection_frames):
-        self.filtered_motion_detection_frames = filtered_motion_detection_frames
         self.resultant_frame = None
+        self.union_frame = self._create_union_frame(filtered_motion_detection_frames)
 
-    def _create_union_frame(self):
-        for frame in self.filtered_motion_detection_frames:
+    def _create_union_frame(self, filtered_motion_detection_frames):
+        for frame in filtered_motion_detection_frames:
             grayscale_frame = grayscale(frame)
             # grayscale_frame[grayscale_frame < self.MOTION_THRESHOLD] = 0
             self.resultant_frame = self._get_resultant_frame(grayscale_frame)
@@ -79,17 +79,16 @@ class BarbellWidthFinder(object):
         cv2.imshow("COLUMN", stretched_rows)
 
     def find_barbell_width(self):
-        union_frame = self._create_union_frame()
-        probable_barbell_row = self._get_best_object_motion_row(union_frame)
-        cropped_aggregate_motion = self._get_cropped_matrix(union_frame, probable_barbell_row)
+        probable_barbell_row = self._get_best_object_motion_row(self.union_frame)
+        cropped_aggregate_motion = self._get_cropped_matrix(self.union_frame, probable_barbell_row)
         displayable_frame = self._make_frame_displayable(cropped_aggregate_motion)
         motion_by_column = self._collapse_motion_to_one_row(displayable_frame)
         smoothed_motion_by_column = smooth_list_gaussian(motion_by_column)
         x_offset, bar_width = self._find_width(smoothed_motion_by_column)
 
         if DEBUG:
-            cv2.imshow("initial", self._make_frame_displayable(union_frame))
-            self._display_motion_column(motion_by_column, union_frame.shape[0: 2])
+            cv2.imshow("initial", self._make_frame_displayable(self.union_frame))
+            self._display_motion_column(motion_by_column, self.union_frame.shape[0: 2])
             self._plot(motion_by_column, smoothed_motion_by_column, (x_offset, bar_width))
             cv2.waitKey(0)
 
@@ -140,7 +139,7 @@ class BarbellWidthFinder(object):
         best_width = min_pixel_width
         best_x_offset = 0
 
-        for x_offset in xrange(min_pixel_width):
+        for x_offset in xrange(len(motion_by_column)):
             for bar_width in xrange(min_pixel_width, len(motion_by_column)):
                 if x_offset + bar_width >= len(motion_by_column):
                     continue
