@@ -1724,12 +1724,16 @@ def run(file_to_read, orientation_id):
 def process(file_to_read, orientation_id, start_seconds, stop_seconds):
     BarbellDetector.orientation_id = orientation_id
     BarbellDisplayer.orientation_id = orientation_id
+    ShakyMotionDetector.orientation_id = orientation_id
 
     BarbellDisplayer.start_seconds = start_seconds
     BarbellDisplayer.stop_seconds = stop_seconds
 
     BarbellDetector.start_seconds = start_seconds
     BarbellDetector.stop_seconds = stop_seconds
+
+    ShakyMotionDetector.start_seconds = start_seconds
+    ShakyMotionDetector.stop_seconds = stop_seconds
 
     final_file_path = run(file_to_read, orientation_id)
     return final_file_path

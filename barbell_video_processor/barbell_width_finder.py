@@ -107,7 +107,8 @@ class BarbellWidthFinder(object):
             row_array = motion_matrix[row_index, :]
             motion_score = np.sum(row_array) ** 2
             differential_score = np.std(np.abs(np.diff(row_array.astype(int))))
-            row_scores[row_index] = motion_score / differential_score
+            if differential_score != 0:
+                row_scores[row_index] = motion_score / differential_score
         return row_scores.argmax()
 
     def _plot(self, motion_by_column, smoothed_motion_by_column, found_bar_tuple):

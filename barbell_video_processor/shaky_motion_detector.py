@@ -6,8 +6,17 @@ from collections import deque
 IMAGE_WIDTH = 500
 # FIXME if this doesnt equal the value in the other file it's going to break
 # stuff, need to consolidate
+
+
+class Orientation(object):
+    NONE = 1
+    ROTATE_90 = 2
+    ROTATE_180 = 3
+    ROTATE_270 = 4
+
 MIN_PREVIOUS_FRAME_COUNT = 6
 MAX_PREVIOUS_FRAME_COUNT = 20
+FRAMES_PER_SEC_KEY = 5
 
 
 def grayscale(frame):
@@ -31,9 +40,14 @@ class ShakyMotionDetector(object):
     X_PIXEL_RANGE = 3
     Y_PIXEL_RANGE = 0
 
+    start_seconds = None
+    stop_seconds = None
+    orientation_id = Orientation.NONE
+
     def __init__(self, file_to_read):
         self.file_to_read = file_to_read
         self.capture = cv2.VideoCapture(self.file_to_read)
+        self.frames_per_sec = self.capture.get(FRAMES_PER_SEC_KEY)
         self.resultant_frame = None
 
         self.video_writer = None
@@ -44,13 +58,27 @@ class ShakyMotionDetector(object):
         video_filename = (file_to_read.split("/")[-1]).split(".")[0]
         self.output_filename = "output_%s.avi" % video_filename
 
+    def frame_number_to_seconds(self, frame_number):
+        return float(frame_number) / self.frames_per_sec
+
     def _generate_working_frames(self):
         while True:
             success, frame_from_video = self.capture.read()
             if not success:
                 break
+            self.frame_number += 1
+            current_seconds = self.frame_number_to_seconds(self.frame_number)
+            if self.start_seconds is not None and current_seconds < self.start_seconds:
+                continue
+            if self.stop_seconds is not None and current_seconds > self.stop_seconds:
+                break
             frame_from_video = resized_frame(frame_from_video)
+            frame_from_video = self._rotate(frame_from_video)
             yield frame_from_video
+
+    def _rotate(self, frame):
+        from barbell_video_processor.read_video import rotate_perpendicular
+        return rotate_perpendicular(frame, self.orientation_id)
 
     def _generate_motion_detection_frames(self):
         previous_frame = None
@@ -133,6 +161,7 @@ class ShakyMotionDetector(object):
         return self.resultant_frame.copy()
 
     def create(self):
+        self.frame_number = 0
         for motion_detection_frame in self.generate_frames():
             height, width = motion_detection_frame.shape[0: 2]
             self.video_writer = self.video_writer or cv2.VideoWriter(self.output_filename, self.codec, self.frames_per_sec, (width, height))
