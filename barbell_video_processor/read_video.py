@@ -22,6 +22,7 @@ TOP_PERCENTILE_THRESHOLD_FOR_GOOD_DETECTION = 0.25
 MAX_ROM_IN_METERS = MAX_ROM_IN_INCHES * METERS_PER_INCH
 ACTUAL_FRAME_OFFSET = 2
 RESIZE_WIDTH = 500
+MINIMUM_BAR_DETECTIONS = 15
 LOCAL = False
 
 
@@ -1683,20 +1684,18 @@ def run(file_to_read, orientation_id):
 
     detected_barbells = barbell_detector.get_barbell_frame_data()
 
-    # detected_barbells = filter_smaller_barbells(detected_barbells)
     detected_barbells = filter_barbells_by_y_values(detected_barbells)
 
-    # detected_barbells = filter_by_bar_width(detected_barbells)
-    detected_barbells = set_mean_for_barbells(detected_barbells)
-
-    capture = cv2.VideoCapture(capture_path)
     if len(detected_barbells) == 0:
         raise CouldNotDetectException("Could not detect the barbell in the image")
 
+    capture = cv2.VideoCapture(capture_path)
     detected_barbells = filter_barbells_with_original_video(capture_path, detected_barbells, orientation_id)
     detected_barbells = filter_by_y_pos_and_max_rom(detected_barbells)
     detected_barbells = filter_by_no_frame_neighbors(detected_barbells)
 
+    if len(detected_barbells) < MINIMUM_BAR_DETECTIONS:
+        raise CouldNotDetectException("Not enough detections in the image")
     print "Fixing fluctuations..."
     detected_barbells.sort(key=lambda barbell: barbell.frame_number)
     while has_fluctuations(detected_barbells):

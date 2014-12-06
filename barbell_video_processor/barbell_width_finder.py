@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-DEBUG = False
+DEBUG = True
 
 
 def grayscale(frame):
